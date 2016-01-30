@@ -142,7 +142,7 @@ ACDS_VERSION := 15.0
 ELF := slave.elf
 
 # Paths to C, C++, and assembly source files.
-C_SRCS := hello_world_small.c
+C_SRCS := slave.c
 CXX_SRCS :=
 ASM_SRCS :=
 

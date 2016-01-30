@@ -91,12 +91,23 @@
 #include "asym.h"
 
 void masterTask( void *p){
-	int status = 0;
+	int i = 0;
 
-	while(1){
-		alt_putstr("Hello, world!\n");
+	alt_printf("I am in\n" );
+	while(i < 5){
+		xAsymSendReq(  1+ i + i /3 * (i + 3) );
+		i++;
+		alt_printf("Stored: %x in index %x\n", 1+ i + i /3 * (i + 3), i );
 		vTaskDelay(1000);
 	}
+	i = 0;
+	while(i < 5){
+		alt_printf("Got: %x in index %x\n", xAsymGetReq( i ), i );
+		i++;
+		vTaskDelay(1000);
+
+	}
+	while(1);/* */
 }
 
 int main()
@@ -119,34 +130,4 @@ int main()
 	return 0;
 }
 
-int waste(){
-	int *message;
-	int status = 0;
-	alt_mutex_dev* mutex;
-	message =(int*) MEMORY_BUFF_BASE;
 
-	if(!altera_avalon_mutex_open(MUTEX_0_NAME)) {
-		alt_putstr("Error: could not open the mutex\n");
-		return 0;
-	}
-	mutex = altera_avalon_mutex_open(MUTEX_0_NAME);
-
-
-	/* Event loop never exits. */
-	while (1){
-		alt_printf("TRYING TO AQUIRE\n");
-		altera_avalon_mutex_lock(mutex, 1);
-		if( altera_avalon_mutex_is_mine(mutex)) {
-			alt_printf("Got it: %x!\n", status++);
-			*message = status;
-			usleep(2100000);
-			altera_avalon_mutex_unlock(mutex);
-		}
-
-		alt_printf("Now go ------>\n");
-		usleep(2100000);
-	}
-
-
-	return 0;
-}
