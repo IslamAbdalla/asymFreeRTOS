@@ -83,6 +83,8 @@
 #include "system.h"
 #include "unistd.h"
 
+// Asym
+#include "asym.h"
 int main()
 { 
 	  alt_mutex_dev* mutex;
@@ -98,24 +100,33 @@ int main()
 	  alt_putstr("Hello from Nios II second!\n");
   int status = 0;
   /* Event loop never exits. */
-  while (1){
-
-	  altera_avalon_mutex_trylock(mutex, 1);
-		  	  if( altera_avalon_mutex_is_mine(mutex)) {
-
-		  		alt_printf("Got value: %x!\n",*message );
-		  		 usleep(2900000);
-		  		  altera_avalon_mutex_unlock(mutex);
-		  	  }
-		  	  else {
-			  		alt_printf("Sorry, got NOTHING!\n");
-
-		  	  }
-
-
-	  IOWR_ALTERA_AVALON_PIO_DATA(LEDS_BASE,  status++);
-	  //alt_printf("Hello %x\n",status);
-  	  usleep(900000);
+  while (status < 3 ){
+	  alt_printf("Waiting: %x!\n",status++ );
+	  usleep(900000);
   }
+  status = 0;
+  while (status < 5 ){
+	  alt_printf("Got: %x in index %x!\n",xAsymGetReq(status), status++ );
+	  usleep(900000);
+  }
+  while (1){};
+
+//	  altera_avalon_mutex_trylock(mutex, 1);
+//		  	  if( altera_avalon_mutex_is_mine(mutex)) {
+//
+//		  		alt_printf("Got value: %x!\n",*message );
+//		  		 usleep(2900000);
+//		  		  altera_avalon_mutex_unlock(mutex);
+//		  	  }
+//		  	  else {
+//			  		alt_printf("Sorry, got NOTHING!\n");
+//
+//		  	  }
+//
+//
+//	  IOWR_ALTERA_AVALON_PIO_DATA(LEDS_BASE,  status++);
+//	  //alt_printf("Hello %x\n",status);
+//  	  usleep(900000);
+//  }
   return 0;
 }

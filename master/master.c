@@ -95,16 +95,16 @@ void masterTask( void *p){
 
 	alt_printf("I am in\n" );
 	while(i < 5){
-		xAsymSendReq(  1+ i + i /3 * (i + 3) );
+		xAsymSendReq(  1+ i*i + i /3 * (i + 3) );
 		i++;
 		alt_printf("Stored: %x in index %x\n", 1+ i + i /3 * (i + 3), i );
-		vTaskDelay(1000);
+		vTaskDelay(200);
 	}
 	i = 0;
 	while(i < 5){
 		alt_printf("Got: %x in index %x\n", xAsymGetReq( i ), i );
 		i++;
-		vTaskDelay(1000);
+		vTaskDelay(200);
 
 	}
 	while(1);/* */

@@ -5,19 +5,19 @@ Archive member included to satisfy reference by file (symbol)
 ../slave_bsp//libhal_bsp.a(alt_main.o)
                               ../slave_bsp//obj/HAL/src/crt0.o (alt_main)
 ../slave_bsp//libhal_bsp.a(alt_printf.o)
-                              obj/default/hello_world_small.o (alt_printf)
+                              obj/default/slave.o (alt_printf)
 ../slave_bsp//libhal_bsp.a(alt_putchar.o)
                               ../slave_bsp//libhal_bsp.a(alt_printf.o) (alt_putchar)
 ../slave_bsp//libhal_bsp.a(alt_putstr.o)
-                              obj/default/hello_world_small.o (alt_putstr)
+                              obj/default/slave.o (alt_putstr)
 ../slave_bsp//libhal_bsp.a(alt_usleep.o)
-                              obj/default/hello_world_small.o (usleep)
+                              obj/default/slave.o (usleep)
 ../slave_bsp//libhal_bsp.a(alt_sys_init.o)
                               ../slave_bsp//libhal_bsp.a(alt_main.o) (alt_irq_init)
 ../slave_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
                               ../slave_bsp//libhal_bsp.a(alt_putchar.o) (altera_avalon_jtag_uart_write)
 ../slave_bsp//libhal_bsp.a(altera_avalon_mutex.o)
-                              obj/default/hello_world_small.o (altera_avalon_mutex_open)
+                              obj/default/asym.o (altera_avalon_mutex_open)
 ../slave_bsp//libhal_bsp.a(alt_busy_sleep.o)
                               ../slave_bsp//libhal_bsp.a(alt_usleep.o) (alt_busy_sleep)
 ../slave_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
@@ -59,7 +59,8 @@ memory_buff      0x0000000000010000 0x0000000000001fa0
 Linker script and memory map
 
 LOAD ../slave_bsp//obj/HAL/src/crt0.o
-LOAD obj/default/hello_world_small.o
+LOAD obj/default/asym.o
+LOAD obj/default/slave.o
 LOAD /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libstdc++.a
 LOAD /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libm.a
 LOAD /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a
@@ -107,7 +108,7 @@ LOAD /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nio
                 0x0000000000000020                PROVIDE (__ram_exceptions_end, ABSOLUTE (.))
                 0x0000000000000020                PROVIDE (__flash_exceptions_start, LOADADDR (.exceptions))
 
-.text           0x0000000000000020      0x8b8
+.text           0x0000000000000020      0x96c
                 0x0000000000000020                PROVIDE (stext, ABSOLUTE (.))
  *(.interp)
  *(.hash)
@@ -154,211 +155,224 @@ LOAD /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nio
  *(.text .stub .text.* .gnu.linkonce.t.*)
  .text          0x0000000000000020       0x3c ../slave_bsp//obj/HAL/src/crt0.o
                 0x0000000000000020                _start
- .text          0x000000000000005c        0x0 obj/default/hello_world_small.o
- .text.startup  0x000000000000005c       0xdc obj/default/hello_world_small.o
-                0x000000000000005c                main
- .text          0x0000000000000138       0xf8 ../slave_bsp//libhal_bsp.a(alt_load.o)
-                0x0000000000000138                alt_load
- .text          0x0000000000000230       0x2c ../slave_bsp//libhal_bsp.a(alt_main.o)
-                0x0000000000000230                alt_main
- .text          0x000000000000025c      0x16c ../slave_bsp//libhal_bsp.a(alt_printf.o)
-                0x000000000000025c                alt_printf
- .text          0x00000000000003c8       0x48 ../slave_bsp//libhal_bsp.a(alt_putchar.o)
-                0x00000000000003c8                alt_putchar
- .text          0x0000000000000410       0x38 ../slave_bsp//libhal_bsp.a(alt_putstr.o)
-                0x0000000000000410                alt_putstr
- .text          0x0000000000000448        0x4 ../slave_bsp//libhal_bsp.a(alt_usleep.o)
-                0x0000000000000448                usleep
- .text          0x000000000000044c       0x34 ../slave_bsp//libhal_bsp.a(alt_sys_init.o)
-                0x000000000000044c                alt_irq_init
-                0x000000000000046c                alt_sys_init
- .text          0x0000000000000480       0x34 ../slave_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
-                0x0000000000000480                altera_avalon_jtag_uart_write
- .text          0x00000000000004b4      0x100 ../slave_bsp//libhal_bsp.a(altera_avalon_mutex.o)
-                0x00000000000004b4                altera_avalon_mutex_open
-                0x000000000000050c                altera_avalon_mutex_close
-                0x0000000000000510                altera_avalon_mutex_lock
-                0x0000000000000534                altera_avalon_mutex_trylock
-                0x000000000000055c                altera_avalon_mutex_unlock
-                0x000000000000057c                altera_avalon_mutex_is_mine
-                0x00000000000005a4                altera_avalon_mutex_first_lock
- .text          0x00000000000005b4       0x88 ../slave_bsp//libhal_bsp.a(alt_busy_sleep.o)
-                0x00000000000005b4                alt_busy_sleep
- .text          0x000000000000063c        0x4 ../slave_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
-                0x000000000000063c                alt_dcache_flush_all
- .text          0x0000000000000640       0x78 ../slave_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
-                0x0000000000000640                alt_dev_llist_insert
- .text          0x00000000000006b8        0x0 ../slave_bsp//libhal_bsp.a(alt_errno.o)
- .text          0x00000000000006b8       0x74 ../slave_bsp//libhal_bsp.a(alt_find_dev.o)
-                0x00000000000006b8                alt_find_dev
- .text          0x000000000000072c        0x4 ../slave_bsp//libhal_bsp.a(alt_icache_flush_all.o)
-                0x000000000000072c                alt_icache_flush_all
- .text          0x0000000000000730        0x8 ../slave_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
-                0x0000000000000730                altera_nios2_qsys_irq_init
- .text          0x0000000000000738        0x0 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
- .text          0x0000000000000738       0x30 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
-                0x0000000000000738                memcmp
- .text          0x0000000000000768       0x1c /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
-                0x0000000000000768                strlen
- .text          0x0000000000000784      0x12c /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-divmod.o)
-                0x00000000000007f0                __divsi3
-                0x0000000000000844                __modsi3
-                0x00000000000008a0                __udivsi3
-                0x00000000000008a8                __umodsi3
- .text          0x00000000000008b0       0x28 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-mul.o)
-                0x00000000000008b0                __mulsi3
+ .text          0x000000000000005c       0xb8 obj/default/asym.o
+                0x000000000000005c                xAsymMutexInit
+                0x000000000000009c                xAsymReqQueuInit
+                0x00000000000000b4                xAsymSendReq
+                0x00000000000000f4                xAsymGetReq
+ .text          0x0000000000000114        0x0 obj/default/slave.o
+ .text.startup  0x0000000000000114       0xd8 obj/default/slave.o
+                0x0000000000000114                main
+ .text          0x00000000000001ec       0xf8 ../slave_bsp//libhal_bsp.a(alt_load.o)
+                0x00000000000001ec                alt_load
+ .text          0x00000000000002e4       0x2c ../slave_bsp//libhal_bsp.a(alt_main.o)
+                0x00000000000002e4                alt_main
+ .text          0x0000000000000310      0x16c ../slave_bsp//libhal_bsp.a(alt_printf.o)
+                0x0000000000000310                alt_printf
+ .text          0x000000000000047c       0x48 ../slave_bsp//libhal_bsp.a(alt_putchar.o)
+                0x000000000000047c                alt_putchar
+ .text          0x00000000000004c4       0x38 ../slave_bsp//libhal_bsp.a(alt_putstr.o)
+                0x00000000000004c4                alt_putstr
+ .text          0x00000000000004fc        0x4 ../slave_bsp//libhal_bsp.a(alt_usleep.o)
+                0x00000000000004fc                usleep
+ .text          0x0000000000000500       0x34 ../slave_bsp//libhal_bsp.a(alt_sys_init.o)
+                0x0000000000000500                alt_irq_init
+                0x0000000000000520                alt_sys_init
+ .text          0x0000000000000534       0x34 ../slave_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+                0x0000000000000534                altera_avalon_jtag_uart_write
+ .text          0x0000000000000568      0x100 ../slave_bsp//libhal_bsp.a(altera_avalon_mutex.o)
+                0x0000000000000568                altera_avalon_mutex_open
+                0x00000000000005c0                altera_avalon_mutex_close
+                0x00000000000005c4                altera_avalon_mutex_lock
+                0x00000000000005e8                altera_avalon_mutex_trylock
+                0x0000000000000610                altera_avalon_mutex_unlock
+                0x0000000000000630                altera_avalon_mutex_is_mine
+                0x0000000000000658                altera_avalon_mutex_first_lock
+ .text          0x0000000000000668       0x88 ../slave_bsp//libhal_bsp.a(alt_busy_sleep.o)
+                0x0000000000000668                alt_busy_sleep
+ .text          0x00000000000006f0        0x4 ../slave_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
+                0x00000000000006f0                alt_dcache_flush_all
+ .text          0x00000000000006f4       0x78 ../slave_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
+                0x00000000000006f4                alt_dev_llist_insert
+ .text          0x000000000000076c        0x0 ../slave_bsp//libhal_bsp.a(alt_errno.o)
+ .text          0x000000000000076c       0x74 ../slave_bsp//libhal_bsp.a(alt_find_dev.o)
+                0x000000000000076c                alt_find_dev
+ .text          0x00000000000007e0        0x4 ../slave_bsp//libhal_bsp.a(alt_icache_flush_all.o)
+                0x00000000000007e0                alt_icache_flush_all
+ .text          0x00000000000007e4        0x8 ../slave_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
+                0x00000000000007e4                altera_nios2_qsys_irq_init
+ .text          0x00000000000007ec        0x0 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
+ .text          0x00000000000007ec       0x30 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
+                0x00000000000007ec                memcmp
+ .text          0x000000000000081c       0x1c /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
+                0x000000000000081c                strlen
+ .text          0x0000000000000838      0x12c /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-divmod.o)
+                0x00000000000008a4                __divsi3
+                0x00000000000008f8                __modsi3
+                0x0000000000000954                __udivsi3
+                0x000000000000095c                __umodsi3
+ .text          0x0000000000000964       0x28 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-mul.o)
+                0x0000000000000964                __mulsi3
  *(.gnu.warning.*)
  *(.fini)
-                0x00000000000008d8                PROVIDE (__etext, ABSOLUTE (.))
-                0x00000000000008d8                PROVIDE (_etext, ABSOLUTE (.))
-                0x00000000000008d8                PROVIDE (etext, ABSOLUTE (.))
+                0x000000000000098c                PROVIDE (__etext, ABSOLUTE (.))
+                0x000000000000098c                PROVIDE (_etext, ABSOLUTE (.))
+                0x000000000000098c                PROVIDE (etext, ABSOLUTE (.))
  *(.eh_frame_hdr)
-                0x00000000000008d8                . = ALIGN (0x4)
-                0x00000000000008d8                PROVIDE (__preinit_array_start, ABSOLUTE (.))
+                0x000000000000098c                . = ALIGN (0x4)
+                0x000000000000098c                PROVIDE (__preinit_array_start, ABSOLUTE (.))
  *(.preinit_array)
-                0x00000000000008d8                PROVIDE (__preinit_array_end, ABSOLUTE (.))
-                0x00000000000008d8                PROVIDE (__init_array_start, ABSOLUTE (.))
+                0x000000000000098c                PROVIDE (__preinit_array_end, ABSOLUTE (.))
+                0x000000000000098c                PROVIDE (__init_array_start, ABSOLUTE (.))
  *(.init_array)
-                0x00000000000008d8                PROVIDE (__init_array_end, ABSOLUTE (.))
-                0x00000000000008d8                PROVIDE (__fini_array_start, ABSOLUTE (.))
+                0x000000000000098c                PROVIDE (__init_array_end, ABSOLUTE (.))
+                0x000000000000098c                PROVIDE (__fini_array_start, ABSOLUTE (.))
  *(.fini_array)
-                0x00000000000008d8                PROVIDE (__fini_array_end, ABSOLUTE (.))
+                0x000000000000098c                PROVIDE (__fini_array_end, ABSOLUTE (.))
  *(.eh_frame)
  *(.gcc_except_table .gcc_except_table.*)
  *(.dynamic)
-                0x00000000000008d8                PROVIDE (__CTOR_LIST__, ABSOLUTE (.))
+                0x000000000000098c                PROVIDE (__CTOR_LIST__, ABSOLUTE (.))
  *(.ctors)
  *(SORT(.ctors.*))
-                0x00000000000008d8                PROVIDE (__CTOR_END__, ABSOLUTE (.))
-                0x00000000000008d8                PROVIDE (__DTOR_LIST__, ABSOLUTE (.))
+                0x000000000000098c                PROVIDE (__CTOR_END__, ABSOLUTE (.))
+                0x000000000000098c                PROVIDE (__DTOR_LIST__, ABSOLUTE (.))
  *(.dtors)
  *(SORT(.dtors.*))
-                0x00000000000008d8                PROVIDE (__DTOR_END__, ABSOLUTE (.))
+                0x000000000000098c                PROVIDE (__DTOR_END__, ABSOLUTE (.))
  *(.jcr)
-                0x00000000000008d8                . = ALIGN (0x4)
+                0x000000000000098c                . = ALIGN (0x4)
 
-.rodata         0x00000000000008d8       0x78
-                0x00000000000008d8                PROVIDE (__ram_rodata_start, ABSOLUTE (.))
-                0x00000000000008d8                . = ALIGN (0x4)
+.rodata         0x000000000000098c       0x78
+                0x000000000000098c                PROVIDE (__ram_rodata_start, ABSOLUTE (.))
+                0x000000000000098c                . = ALIGN (0x4)
  *(.rodata .rodata.* .gnu.linkonce.r.*)
  .rodata.str1.4
-                0x00000000000008d8       0x78 obj/default/hello_world_small.o
+                0x000000000000098c        0xd obj/default/asym.o
+                                         0x10 (size before relaxing)
+ *fill*         0x0000000000000999        0x3 
+ .rodata.str1.4
+                0x000000000000099c       0x68 obj/default/slave.o
+                                         0x78 (size before relaxing)
  .rodata.str1.4
                 0x0000000000000000       0x10 ../slave_bsp//libhal_bsp.a(alt_sys_init.o)
  *(.rodata1)
-                0x0000000000000950                . = ALIGN (0x4)
-                0x0000000000000950                PROVIDE (__ram_rodata_end, ABSOLUTE (.))
-                0x00000000000008d8                PROVIDE (__flash_rodata_start, LOADADDR (.rodata))
+                0x0000000000000a04                . = ALIGN (0x4)
+                0x0000000000000a04                PROVIDE (__ram_rodata_end, ABSOLUTE (.))
+                0x000000000000098c                PROVIDE (__flash_rodata_start, LOADADDR (.rodata))
 
-.rwdata         0x0000000000000950       0x20 load address 0x0000000000000970
-                0x0000000000000950                PROVIDE (__ram_rwdata_start, ABSOLUTE (.))
-                0x0000000000000950                . = ALIGN (0x4)
+.rwdata         0x0000000000000a04       0x20 load address 0x0000000000000a24
+                0x0000000000000a04                PROVIDE (__ram_rwdata_start, ABSOLUTE (.))
+                0x0000000000000a04                . = ALIGN (0x4)
  *(.got.plt)
  *(.got)
  *(.data1)
  *(.data .data.* .gnu.linkonce.d.*)
- .data          0x0000000000000950        0x0 ../slave_bsp//obj/HAL/src/crt0.o
- .data          0x0000000000000950        0x0 obj/default/hello_world_small.o
- .data          0x0000000000000950        0x0 ../slave_bsp//libhal_bsp.a(alt_load.o)
- .data          0x0000000000000950        0x0 ../slave_bsp//libhal_bsp.a(alt_main.o)
- .data          0x0000000000000950        0x0 ../slave_bsp//libhal_bsp.a(alt_printf.o)
- .data          0x0000000000000950        0x0 ../slave_bsp//libhal_bsp.a(alt_putchar.o)
- .data          0x0000000000000950        0x0 ../slave_bsp//libhal_bsp.a(alt_putstr.o)
- .data          0x0000000000000950        0x0 ../slave_bsp//libhal_bsp.a(alt_usleep.o)
- .data          0x0000000000000950       0x10 ../slave_bsp//libhal_bsp.a(alt_sys_init.o)
- .data          0x0000000000000960        0x0 ../slave_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
- .data          0x0000000000000960        0x0 ../slave_bsp//libhal_bsp.a(altera_avalon_mutex.o)
- .data          0x0000000000000960        0x0 ../slave_bsp//libhal_bsp.a(alt_busy_sleep.o)
- .data          0x0000000000000960        0x0 ../slave_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
- .data          0x0000000000000960        0x0 ../slave_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
- .data          0x0000000000000960        0x0 ../slave_bsp//libhal_bsp.a(alt_errno.o)
- .data          0x0000000000000960        0x0 ../slave_bsp//libhal_bsp.a(alt_find_dev.o)
- .data          0x0000000000000960        0x0 ../slave_bsp//libhal_bsp.a(alt_icache_flush_all.o)
- .data          0x0000000000000960        0x0 ../slave_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
- .data          0x0000000000000960        0x0 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
- .data          0x0000000000000960        0x0 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
- .data          0x0000000000000960        0x0 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
- .data          0x0000000000000960        0x0 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-divmod.o)
- .data          0x0000000000000960        0x0 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-mul.o)
-                0x0000000000008960                _gp = ABSOLUTE ((. + 0x8000))
-                0x0000000000008960                PROVIDE (gp, _gp)
+ .data          0x0000000000000a04        0x0 ../slave_bsp//obj/HAL/src/crt0.o
+ .data          0x0000000000000a04        0x0 obj/default/asym.o
+ .data          0x0000000000000a04        0x0 obj/default/slave.o
+ .data          0x0000000000000a04        0x0 ../slave_bsp//libhal_bsp.a(alt_load.o)
+ .data          0x0000000000000a04        0x0 ../slave_bsp//libhal_bsp.a(alt_main.o)
+ .data          0x0000000000000a04        0x0 ../slave_bsp//libhal_bsp.a(alt_printf.o)
+ .data          0x0000000000000a04        0x0 ../slave_bsp//libhal_bsp.a(alt_putchar.o)
+ .data          0x0000000000000a04        0x0 ../slave_bsp//libhal_bsp.a(alt_putstr.o)
+ .data          0x0000000000000a04        0x0 ../slave_bsp//libhal_bsp.a(alt_usleep.o)
+ .data          0x0000000000000a04       0x10 ../slave_bsp//libhal_bsp.a(alt_sys_init.o)
+ .data          0x0000000000000a14        0x0 ../slave_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .data          0x0000000000000a14        0x0 ../slave_bsp//libhal_bsp.a(altera_avalon_mutex.o)
+ .data          0x0000000000000a14        0x0 ../slave_bsp//libhal_bsp.a(alt_busy_sleep.o)
+ .data          0x0000000000000a14        0x0 ../slave_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
+ .data          0x0000000000000a14        0x0 ../slave_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
+ .data          0x0000000000000a14        0x0 ../slave_bsp//libhal_bsp.a(alt_errno.o)
+ .data          0x0000000000000a14        0x0 ../slave_bsp//libhal_bsp.a(alt_find_dev.o)
+ .data          0x0000000000000a14        0x0 ../slave_bsp//libhal_bsp.a(alt_icache_flush_all.o)
+ .data          0x0000000000000a14        0x0 ../slave_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
+ .data          0x0000000000000a14        0x0 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
+ .data          0x0000000000000a14        0x0 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
+ .data          0x0000000000000a14        0x0 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
+ .data          0x0000000000000a14        0x0 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-divmod.o)
+ .data          0x0000000000000a14        0x0 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-mul.o)
+                0x0000000000008a14                _gp = ABSOLUTE ((. + 0x8000))
+                0x0000000000008a14                PROVIDE (gp, _gp)
  *(.rwdata .rwdata.*)
  *(.sdata .sdata.* .gnu.linkonce.s.*)
- .sdata         0x0000000000000960        0x4 ../slave_bsp//libhal_bsp.a(alt_sys_init.o)
-                0x0000000000000960                jtag_uart_1
- .sdata         0x0000000000000964        0x8 ../slave_bsp//libhal_bsp.a(altera_avalon_mutex.o)
-                0x0000000000000964                alt_mutex_list
- .sdata         0x000000000000096c        0x4 ../slave_bsp//libhal_bsp.a(alt_errno.o)
-                0x000000000000096c                alt_errno
+ .sdata         0x0000000000000a14        0x4 ../slave_bsp//libhal_bsp.a(alt_sys_init.o)
+                0x0000000000000a14                jtag_uart_1
+ .sdata         0x0000000000000a18        0x8 ../slave_bsp//libhal_bsp.a(altera_avalon_mutex.o)
+                0x0000000000000a18                alt_mutex_list
+ .sdata         0x0000000000000a20        0x4 ../slave_bsp//libhal_bsp.a(alt_errno.o)
+                0x0000000000000a20                alt_errno
  *(.sdata2 .sdata2.* .gnu.linkonce.s2.*)
-                0x0000000000000970                . = ALIGN (0x4)
-                0x0000000000000970                _edata = ABSOLUTE (.)
-                0x0000000000000970                PROVIDE (edata, ABSOLUTE (.))
-                0x0000000000000970                PROVIDE (__ram_rwdata_end, ABSOLUTE (.))
-                0x0000000000000970                PROVIDE (__flash_rwdata_start, LOADADDR (.rwdata))
+                0x0000000000000a24                . = ALIGN (0x4)
+                0x0000000000000a24                _edata = ABSOLUTE (.)
+                0x0000000000000a24                PROVIDE (edata, ABSOLUTE (.))
+                0x0000000000000a24                PROVIDE (__ram_rwdata_end, ABSOLUTE (.))
+                0x0000000000000a24                PROVIDE (__flash_rwdata_start, LOADADDR (.rwdata))
 
-.bss            0x0000000000000990       0x10
-                0x0000000000000990                __bss_start = ABSOLUTE (.)
-                0x0000000000000990                PROVIDE (__sbss_start, ABSOLUTE (.))
-                0x0000000000000990                PROVIDE (___sbss_start, ABSOLUTE (.))
+.bss            0x0000000000000a44       0x14
+                0x0000000000000a44                __bss_start = ABSOLUTE (.)
+                0x0000000000000a44                PROVIDE (__sbss_start, ABSOLUTE (.))
+                0x0000000000000a44                PROVIDE (___sbss_start, ABSOLUTE (.))
  *(.dynsbss)
  *(.sbss .sbss.* .gnu.linkonce.sb.*)
- .sbss          0x0000000000000990        0xc ../slave_bsp//libhal_bsp.a(alt_main.o)
-                0x0000000000000990                alt_envp
-                0x0000000000000994                alt_argv
-                0x0000000000000998                alt_argc
- .sbss          0x000000000000099c        0x4 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
-                0x000000000000099c                errno
+ .sbss          0x0000000000000a44        0x4 obj/default/asym.o
+ .sbss          0x0000000000000a48        0xc ../slave_bsp//libhal_bsp.a(alt_main.o)
+                0x0000000000000a48                alt_envp
+                0x0000000000000a4c                alt_argv
+                0x0000000000000a50                alt_argc
+ .sbss          0x0000000000000a54        0x4 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
+                0x0000000000000a54                errno
  *(.sbss2 .sbss2.* .gnu.linkonce.sb2.*)
  *(.scommon)
-                0x00000000000009a0                PROVIDE (__sbss_end, ABSOLUTE (.))
-                0x00000000000009a0                PROVIDE (___sbss_end, ABSOLUTE (.))
+                0x0000000000000a58                PROVIDE (__sbss_end, ABSOLUTE (.))
+                0x0000000000000a58                PROVIDE (___sbss_end, ABSOLUTE (.))
  *(.dynbss)
  *(.bss .bss.* .gnu.linkonce.b.*)
- .bss           0x00000000000009a0        0x0 ../slave_bsp//obj/HAL/src/crt0.o
- .bss           0x00000000000009a0        0x0 obj/default/hello_world_small.o
- .bss           0x00000000000009a0        0x0 ../slave_bsp//libhal_bsp.a(alt_load.o)
- .bss           0x00000000000009a0        0x0 ../slave_bsp//libhal_bsp.a(alt_main.o)
- .bss           0x00000000000009a0        0x0 ../slave_bsp//libhal_bsp.a(alt_printf.o)
- .bss           0x00000000000009a0        0x0 ../slave_bsp//libhal_bsp.a(alt_putchar.o)
- .bss           0x00000000000009a0        0x0 ../slave_bsp//libhal_bsp.a(alt_putstr.o)
- .bss           0x00000000000009a0        0x0 ../slave_bsp//libhal_bsp.a(alt_usleep.o)
- .bss           0x00000000000009a0        0x0 ../slave_bsp//libhal_bsp.a(alt_sys_init.o)
- .bss           0x00000000000009a0        0x0 ../slave_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
- .bss           0x00000000000009a0        0x0 ../slave_bsp//libhal_bsp.a(altera_avalon_mutex.o)
- .bss           0x00000000000009a0        0x0 ../slave_bsp//libhal_bsp.a(alt_busy_sleep.o)
- .bss           0x00000000000009a0        0x0 ../slave_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
- .bss           0x00000000000009a0        0x0 ../slave_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
- .bss           0x00000000000009a0        0x0 ../slave_bsp//libhal_bsp.a(alt_errno.o)
- .bss           0x00000000000009a0        0x0 ../slave_bsp//libhal_bsp.a(alt_find_dev.o)
- .bss           0x00000000000009a0        0x0 ../slave_bsp//libhal_bsp.a(alt_icache_flush_all.o)
- .bss           0x00000000000009a0        0x0 ../slave_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
- .bss           0x00000000000009a0        0x0 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
- .bss           0x00000000000009a0        0x0 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
- .bss           0x00000000000009a0        0x0 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
- .bss           0x00000000000009a0        0x0 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-divmod.o)
- .bss           0x00000000000009a0        0x0 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-mul.o)
+ .bss           0x0000000000000a58        0x0 ../slave_bsp//obj/HAL/src/crt0.o
+ .bss           0x0000000000000a58        0x0 obj/default/asym.o
+ .bss           0x0000000000000a58        0x0 obj/default/slave.o
+ .bss           0x0000000000000a58        0x0 ../slave_bsp//libhal_bsp.a(alt_load.o)
+ .bss           0x0000000000000a58        0x0 ../slave_bsp//libhal_bsp.a(alt_main.o)
+ .bss           0x0000000000000a58        0x0 ../slave_bsp//libhal_bsp.a(alt_printf.o)
+ .bss           0x0000000000000a58        0x0 ../slave_bsp//libhal_bsp.a(alt_putchar.o)
+ .bss           0x0000000000000a58        0x0 ../slave_bsp//libhal_bsp.a(alt_putstr.o)
+ .bss           0x0000000000000a58        0x0 ../slave_bsp//libhal_bsp.a(alt_usleep.o)
+ .bss           0x0000000000000a58        0x0 ../slave_bsp//libhal_bsp.a(alt_sys_init.o)
+ .bss           0x0000000000000a58        0x0 ../slave_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .bss           0x0000000000000a58        0x0 ../slave_bsp//libhal_bsp.a(altera_avalon_mutex.o)
+ .bss           0x0000000000000a58        0x0 ../slave_bsp//libhal_bsp.a(alt_busy_sleep.o)
+ .bss           0x0000000000000a58        0x0 ../slave_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
+ .bss           0x0000000000000a58        0x0 ../slave_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
+ .bss           0x0000000000000a58        0x0 ../slave_bsp//libhal_bsp.a(alt_errno.o)
+ .bss           0x0000000000000a58        0x0 ../slave_bsp//libhal_bsp.a(alt_find_dev.o)
+ .bss           0x0000000000000a58        0x0 ../slave_bsp//libhal_bsp.a(alt_icache_flush_all.o)
+ .bss           0x0000000000000a58        0x0 ../slave_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
+ .bss           0x0000000000000a58        0x0 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
+ .bss           0x0000000000000a58        0x0 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
+ .bss           0x0000000000000a58        0x0 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
+ .bss           0x0000000000000a58        0x0 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-divmod.o)
+ .bss           0x0000000000000a58        0x0 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-mul.o)
  *(COMMON)
-                0x00000000000009a0                . = ALIGN (0x4)
-                0x00000000000009a0                __bss_end = ABSOLUTE (.)
+                0x0000000000000a58                . = ALIGN (0x4)
+                0x0000000000000a58                __bss_end = ABSOLUTE (.)
 
 .onchip_memory2_1
-                0x00000000000009a0        0x0
-                0x00000000000009a0                PROVIDE (_alt_partition_onchip_memory2_1_start, ABSOLUTE (.))
+                0x0000000000000a58        0x0
+                0x0000000000000a58                PROVIDE (_alt_partition_onchip_memory2_1_start, ABSOLUTE (.))
  *(.onchip_memory2_1 .onchip_memory2_1. onchip_memory2_1.*)
-                0x00000000000009a0                . = ALIGN (0x4)
-                0x00000000000009a0                PROVIDE (_alt_partition_onchip_memory2_1_end, ABSOLUTE (.))
-                0x00000000000009a0                _end = ABSOLUTE (.)
-                0x00000000000009a0                end = ABSOLUTE (.)
-                0x00000000000009a0                __alt_stack_base = ABSOLUTE (.)
-                0x00000000000009a0                PROVIDE (_alt_partition_onchip_memory2_1_load_addr, LOADADDR (.onchip_memory2_1))
+                0x0000000000000a58                . = ALIGN (0x4)
+                0x0000000000000a58                PROVIDE (_alt_partition_onchip_memory2_1_end, ABSOLUTE (.))
+                0x0000000000000a58                _end = ABSOLUTE (.)
+                0x0000000000000a58                end = ABSOLUTE (.)
+                0x0000000000000a58                __alt_stack_base = ABSOLUTE (.)
+                0x0000000000000a58                PROVIDE (_alt_partition_onchip_memory2_1_load_addr, LOADADDR (.onchip_memory2_1))
 
-.memory_buff    0x0000000000010000        0x0 load address 0x00000000000009a0
+.memory_buff    0x0000000000010000        0x0 load address 0x0000000000000a58
                 0x0000000000010000                PROVIDE (_alt_partition_memory_buff_start, ABSOLUTE (.))
  *(.memory_buff .memory_buff. memory_buff.*)
                 0x0000000000010000                . = ALIGN (0x4)
                 0x0000000000010000                PROVIDE (_alt_partition_memory_buff_end, ABSOLUTE (.))
-                0x00000000000009a0                PROVIDE (_alt_partition_memory_buff_load_addr, LOADADDR (.memory_buff))
+                0x0000000000000a58                PROVIDE (_alt_partition_memory_buff_load_addr, LOADADDR (.memory_buff))
 
 .stab
  *(.stab)
@@ -380,8 +394,9 @@ LOAD /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nio
 
 .comment        0x0000000000000000       0x23
  *(.comment)
- .comment       0x0000000000000000       0x23 obj/default/hello_world_small.o
+ .comment       0x0000000000000000       0x23 obj/default/asym.o
                                          0x24 (size before relaxing)
+ .comment       0x0000000000000000       0x24 obj/default/slave.o
  .comment       0x0000000000000000       0x24 ../slave_bsp//libhal_bsp.a(alt_load.o)
  .comment       0x0000000000000000       0x24 ../slave_bsp//libhal_bsp.a(alt_main.o)
  .comment       0x0000000000000000       0x24 ../slave_bsp//libhal_bsp.a(alt_printf.o)
@@ -416,224 +431,233 @@ LOAD /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nio
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x0000000000000000      0x2d8
+.debug_aranges  0x0000000000000000      0x2f8
  *(.debug_aranges)
  .debug_aranges
                 0x0000000000000000       0x28 ../slave_bsp//obj/HAL/src/crt0.o
  .debug_aranges
-                0x0000000000000028       0x20 obj/default/hello_world_small.o
+                0x0000000000000028       0x20 obj/default/asym.o
  .debug_aranges
-                0x0000000000000048       0x20 ../slave_bsp//libhal_bsp.a(alt_load.o)
+                0x0000000000000048       0x20 obj/default/slave.o
  .debug_aranges
-                0x0000000000000068       0x20 ../slave_bsp//libhal_bsp.a(alt_main.o)
+                0x0000000000000068       0x20 ../slave_bsp//libhal_bsp.a(alt_load.o)
  .debug_aranges
-                0x0000000000000088       0x20 ../slave_bsp//libhal_bsp.a(alt_printf.o)
+                0x0000000000000088       0x20 ../slave_bsp//libhal_bsp.a(alt_main.o)
  .debug_aranges
-                0x00000000000000a8       0x20 ../slave_bsp//libhal_bsp.a(alt_putchar.o)
+                0x00000000000000a8       0x20 ../slave_bsp//libhal_bsp.a(alt_printf.o)
  .debug_aranges
-                0x00000000000000c8       0x20 ../slave_bsp//libhal_bsp.a(alt_putstr.o)
+                0x00000000000000c8       0x20 ../slave_bsp//libhal_bsp.a(alt_putchar.o)
  .debug_aranges
-                0x00000000000000e8       0x20 ../slave_bsp//libhal_bsp.a(alt_usleep.o)
+                0x00000000000000e8       0x20 ../slave_bsp//libhal_bsp.a(alt_putstr.o)
  .debug_aranges
-                0x0000000000000108       0x20 ../slave_bsp//libhal_bsp.a(alt_sys_init.o)
+                0x0000000000000108       0x20 ../slave_bsp//libhal_bsp.a(alt_usleep.o)
  .debug_aranges
-                0x0000000000000128       0x20 ../slave_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+                0x0000000000000128       0x20 ../slave_bsp//libhal_bsp.a(alt_sys_init.o)
  .debug_aranges
-                0x0000000000000148       0x20 ../slave_bsp//libhal_bsp.a(altera_avalon_mutex.o)
+                0x0000000000000148       0x20 ../slave_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
  .debug_aranges
-                0x0000000000000168       0x20 ../slave_bsp//libhal_bsp.a(alt_busy_sleep.o)
+                0x0000000000000168       0x20 ../slave_bsp//libhal_bsp.a(altera_avalon_mutex.o)
  .debug_aranges
-                0x0000000000000188       0x20 ../slave_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
+                0x0000000000000188       0x20 ../slave_bsp//libhal_bsp.a(alt_busy_sleep.o)
  .debug_aranges
-                0x00000000000001a8       0x20 ../slave_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
+                0x00000000000001a8       0x20 ../slave_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
  .debug_aranges
-                0x00000000000001c8       0x18 ../slave_bsp//libhal_bsp.a(alt_errno.o)
+                0x00000000000001c8       0x20 ../slave_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
  .debug_aranges
-                0x00000000000001e0       0x20 ../slave_bsp//libhal_bsp.a(alt_find_dev.o)
+                0x00000000000001e8       0x18 ../slave_bsp//libhal_bsp.a(alt_errno.o)
  .debug_aranges
-                0x0000000000000200       0x20 ../slave_bsp//libhal_bsp.a(alt_icache_flush_all.o)
+                0x0000000000000200       0x20 ../slave_bsp//libhal_bsp.a(alt_find_dev.o)
  .debug_aranges
-                0x0000000000000220       0x20 ../slave_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
+                0x0000000000000220       0x20 ../slave_bsp//libhal_bsp.a(alt_icache_flush_all.o)
  .debug_aranges
-                0x0000000000000240       0x18 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
+                0x0000000000000240       0x20 ../slave_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
  .debug_aranges
-                0x0000000000000258       0x20 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
+                0x0000000000000260       0x18 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
  .debug_aranges
-                0x0000000000000278       0x20 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
+                0x0000000000000278       0x20 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
  .debug_aranges
-                0x0000000000000298       0x20 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-divmod.o)
+                0x0000000000000298       0x20 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
  .debug_aranges
-                0x00000000000002b8       0x20 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-mul.o)
+                0x00000000000002b8       0x20 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-divmod.o)
+ .debug_aranges
+                0x00000000000002d8       0x20 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-mul.o)
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x0000000000000000     0x237e
+.debug_info     0x0000000000000000     0x25ed
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x0000000000000000       0x73 ../slave_bsp//obj/HAL/src/crt0.o
- .debug_info    0x0000000000000073      0x384 obj/default/hello_world_small.o
- .debug_info    0x00000000000003f7      0x1d2 ../slave_bsp//libhal_bsp.a(alt_load.o)
- .debug_info    0x00000000000005c9      0x17b ../slave_bsp//libhal_bsp.a(alt_main.o)
- .debug_info    0x0000000000000744      0x153 ../slave_bsp//libhal_bsp.a(alt_printf.o)
- .debug_info    0x0000000000000897      0x138 ../slave_bsp//libhal_bsp.a(alt_putchar.o)
- .debug_info    0x00000000000009cf      0x15d ../slave_bsp//libhal_bsp.a(alt_putstr.o)
- .debug_info    0x0000000000000b2c       0xd0 ../slave_bsp//libhal_bsp.a(alt_usleep.o)
- .debug_info    0x0000000000000bfc      0x2da ../slave_bsp//libhal_bsp.a(alt_sys_init.o)
- .debug_info    0x0000000000000ed6      0x190 ../slave_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
- .debug_info    0x0000000000001066      0x5ef ../slave_bsp//libhal_bsp.a(altera_avalon_mutex.o)
- .debug_info    0x0000000000001655       0xd1 ../slave_bsp//libhal_bsp.a(alt_busy_sleep.o)
- .debug_info    0x0000000000001726       0x8b ../slave_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
- .debug_info    0x00000000000017b1      0x1a8 ../slave_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
- .debug_info    0x0000000000001959       0x9f ../slave_bsp//libhal_bsp.a(alt_errno.o)
- .debug_info    0x00000000000019f8      0x356 ../slave_bsp//libhal_bsp.a(alt_find_dev.o)
- .debug_info    0x0000000000001d4e       0x8b ../slave_bsp//libhal_bsp.a(alt_icache_flush_all.o)
- .debug_info    0x0000000000001dd9       0x8b ../slave_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
- .debug_info    0x0000000000001e64       0x83 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
- .debug_info    0x0000000000001ee7       0xed /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
- .debug_info    0x0000000000001fd4       0xc2 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
- .debug_info    0x0000000000002096      0x234 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-divmod.o)
- .debug_info    0x00000000000022ca       0xb4 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-mul.o)
+ .debug_info    0x0000000000000073      0x2ca obj/default/asym.o
+ .debug_info    0x000000000000033d      0x329 obj/default/slave.o
+ .debug_info    0x0000000000000666      0x1d2 ../slave_bsp//libhal_bsp.a(alt_load.o)
+ .debug_info    0x0000000000000838      0x17b ../slave_bsp//libhal_bsp.a(alt_main.o)
+ .debug_info    0x00000000000009b3      0x153 ../slave_bsp//libhal_bsp.a(alt_printf.o)
+ .debug_info    0x0000000000000b06      0x138 ../slave_bsp//libhal_bsp.a(alt_putchar.o)
+ .debug_info    0x0000000000000c3e      0x15d ../slave_bsp//libhal_bsp.a(alt_putstr.o)
+ .debug_info    0x0000000000000d9b       0xd0 ../slave_bsp//libhal_bsp.a(alt_usleep.o)
+ .debug_info    0x0000000000000e6b      0x2da ../slave_bsp//libhal_bsp.a(alt_sys_init.o)
+ .debug_info    0x0000000000001145      0x190 ../slave_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .debug_info    0x00000000000012d5      0x5ef ../slave_bsp//libhal_bsp.a(altera_avalon_mutex.o)
+ .debug_info    0x00000000000018c4       0xd1 ../slave_bsp//libhal_bsp.a(alt_busy_sleep.o)
+ .debug_info    0x0000000000001995       0x8b ../slave_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
+ .debug_info    0x0000000000001a20      0x1a8 ../slave_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
+ .debug_info    0x0000000000001bc8       0x9f ../slave_bsp//libhal_bsp.a(alt_errno.o)
+ .debug_info    0x0000000000001c67      0x356 ../slave_bsp//libhal_bsp.a(alt_find_dev.o)
+ .debug_info    0x0000000000001fbd       0x8b ../slave_bsp//libhal_bsp.a(alt_icache_flush_all.o)
+ .debug_info    0x0000000000002048       0x8b ../slave_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
+ .debug_info    0x00000000000020d3       0x83 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
+ .debug_info    0x0000000000002156       0xed /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
+ .debug_info    0x0000000000002243       0xc2 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
+ .debug_info    0x0000000000002305      0x234 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-divmod.o)
+ .debug_info    0x0000000000002539       0xb4 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-mul.o)
 
-.debug_abbrev   0x0000000000000000     0x11e9
+.debug_abbrev   0x0000000000000000     0x1341
  *(.debug_abbrev)
  .debug_abbrev  0x0000000000000000       0x12 ../slave_bsp//obj/HAL/src/crt0.o
- .debug_abbrev  0x0000000000000012      0x154 obj/default/hello_world_small.o
- .debug_abbrev  0x0000000000000166       0xe1 ../slave_bsp//libhal_bsp.a(alt_load.o)
- .debug_abbrev  0x0000000000000247      0x120 ../slave_bsp//libhal_bsp.a(alt_main.o)
- .debug_abbrev  0x0000000000000367       0xde ../slave_bsp//libhal_bsp.a(alt_printf.o)
- .debug_abbrev  0x0000000000000445       0xd4 ../slave_bsp//libhal_bsp.a(alt_putchar.o)
- .debug_abbrev  0x0000000000000519       0xe2 ../slave_bsp//libhal_bsp.a(alt_putstr.o)
- .debug_abbrev  0x00000000000005fb       0x96 ../slave_bsp//libhal_bsp.a(alt_usleep.o)
- .debug_abbrev  0x0000000000000691      0x1c5 ../slave_bsp//libhal_bsp.a(alt_sys_init.o)
- .debug_abbrev  0x0000000000000856       0xd5 ../slave_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
- .debug_abbrev  0x000000000000092b      0x24a ../slave_bsp//libhal_bsp.a(altera_avalon_mutex.o)
- .debug_abbrev  0x0000000000000b75       0x8d ../slave_bsp//libhal_bsp.a(alt_busy_sleep.o)
- .debug_abbrev  0x0000000000000c02       0x42 ../slave_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
- .debug_abbrev  0x0000000000000c44      0x11c ../slave_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
- .debug_abbrev  0x0000000000000d60       0x5a ../slave_bsp//libhal_bsp.a(alt_errno.o)
- .debug_abbrev  0x0000000000000dba      0x12e ../slave_bsp//libhal_bsp.a(alt_find_dev.o)
- .debug_abbrev  0x0000000000000ee8       0x42 ../slave_bsp//libhal_bsp.a(alt_icache_flush_all.o)
- .debug_abbrev  0x0000000000000f2a       0x42 ../slave_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
- .debug_abbrev  0x0000000000000f6c       0x37 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
- .debug_abbrev  0x0000000000000fa3       0x7f /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
- .debug_abbrev  0x0000000000001022       0x7f /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
- .debug_abbrev  0x00000000000010a1       0xd9 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-divmod.o)
- .debug_abbrev  0x000000000000117a       0x6f /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-mul.o)
+ .debug_abbrev  0x0000000000000012      0x160 obj/default/asym.o
+ .debug_abbrev  0x0000000000000172      0x14c obj/default/slave.o
+ .debug_abbrev  0x00000000000002be       0xe1 ../slave_bsp//libhal_bsp.a(alt_load.o)
+ .debug_abbrev  0x000000000000039f      0x120 ../slave_bsp//libhal_bsp.a(alt_main.o)
+ .debug_abbrev  0x00000000000004bf       0xde ../slave_bsp//libhal_bsp.a(alt_printf.o)
+ .debug_abbrev  0x000000000000059d       0xd4 ../slave_bsp//libhal_bsp.a(alt_putchar.o)
+ .debug_abbrev  0x0000000000000671       0xe2 ../slave_bsp//libhal_bsp.a(alt_putstr.o)
+ .debug_abbrev  0x0000000000000753       0x96 ../slave_bsp//libhal_bsp.a(alt_usleep.o)
+ .debug_abbrev  0x00000000000007e9      0x1c5 ../slave_bsp//libhal_bsp.a(alt_sys_init.o)
+ .debug_abbrev  0x00000000000009ae       0xd5 ../slave_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .debug_abbrev  0x0000000000000a83      0x24a ../slave_bsp//libhal_bsp.a(altera_avalon_mutex.o)
+ .debug_abbrev  0x0000000000000ccd       0x8d ../slave_bsp//libhal_bsp.a(alt_busy_sleep.o)
+ .debug_abbrev  0x0000000000000d5a       0x42 ../slave_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
+ .debug_abbrev  0x0000000000000d9c      0x11c ../slave_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
+ .debug_abbrev  0x0000000000000eb8       0x5a ../slave_bsp//libhal_bsp.a(alt_errno.o)
+ .debug_abbrev  0x0000000000000f12      0x12e ../slave_bsp//libhal_bsp.a(alt_find_dev.o)
+ .debug_abbrev  0x0000000000001040       0x42 ../slave_bsp//libhal_bsp.a(alt_icache_flush_all.o)
+ .debug_abbrev  0x0000000000001082       0x42 ../slave_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
+ .debug_abbrev  0x00000000000010c4       0x37 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
+ .debug_abbrev  0x00000000000010fb       0x7f /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
+ .debug_abbrev  0x000000000000117a       0x7f /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
+ .debug_abbrev  0x00000000000011f9       0xd9 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-divmod.o)
+ .debug_abbrev  0x00000000000012d2       0x6f /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-mul.o)
 
-.debug_line     0x0000000000000000     0x12b1
+.debug_line     0x0000000000000000     0x140e
  *(.debug_line)
  .debug_line    0x0000000000000000       0x66 ../slave_bsp//obj/HAL/src/crt0.o
- .debug_line    0x0000000000000066      0x162 obj/default/hello_world_small.o
- .debug_line    0x00000000000001c8       0xa6 ../slave_bsp//libhal_bsp.a(alt_load.o)
- .debug_line    0x000000000000026e       0xbd ../slave_bsp//libhal_bsp.a(alt_main.o)
- .debug_line    0x000000000000032b      0x110 ../slave_bsp//libhal_bsp.a(alt_printf.o)
- .debug_line    0x000000000000043b       0x4d ../slave_bsp//libhal_bsp.a(alt_putchar.o)
- .debug_line    0x0000000000000488      0x105 ../slave_bsp//libhal_bsp.a(alt_putstr.o)
- .debug_line    0x000000000000058d       0xcf ../slave_bsp//libhal_bsp.a(alt_usleep.o)
- .debug_line    0x000000000000065c      0x15d ../slave_bsp//libhal_bsp.a(alt_sys_init.o)
- .debug_line    0x00000000000007b9       0xf0 ../slave_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
- .debug_line    0x00000000000008a9      0x160 ../slave_bsp//libhal_bsp.a(altera_avalon_mutex.o)
- .debug_line    0x0000000000000a09       0xc0 ../slave_bsp//libhal_bsp.a(alt_busy_sleep.o)
- .debug_line    0x0000000000000ac9       0x4e ../slave_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
- .debug_line    0x0000000000000b17       0xd8 ../slave_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
- .debug_line    0x0000000000000bef       0x51 ../slave_bsp//libhal_bsp.a(alt_errno.o)
- .debug_line    0x0000000000000c40      0x16c ../slave_bsp//libhal_bsp.a(alt_find_dev.o)
- .debug_line    0x0000000000000dac       0x4e ../slave_bsp//libhal_bsp.a(alt_icache_flush_all.o)
- .debug_line    0x0000000000000dfa       0x50 ../slave_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
- .debug_line    0x0000000000000e4a       0x60 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
- .debug_line    0x0000000000000eaa      0x162 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
- .debug_line    0x000000000000100c      0x15e /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
- .debug_line    0x000000000000116a       0xc7 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-divmod.o)
- .debug_line    0x0000000000001231       0x80 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-mul.o)
+ .debug_line    0x0000000000000066      0x129 obj/default/asym.o
+ .debug_line    0x000000000000018f      0x196 obj/default/slave.o
+ .debug_line    0x0000000000000325       0xa6 ../slave_bsp//libhal_bsp.a(alt_load.o)
+ .debug_line    0x00000000000003cb       0xbd ../slave_bsp//libhal_bsp.a(alt_main.o)
+ .debug_line    0x0000000000000488      0x110 ../slave_bsp//libhal_bsp.a(alt_printf.o)
+ .debug_line    0x0000000000000598       0x4d ../slave_bsp//libhal_bsp.a(alt_putchar.o)
+ .debug_line    0x00000000000005e5      0x105 ../slave_bsp//libhal_bsp.a(alt_putstr.o)
+ .debug_line    0x00000000000006ea       0xcf ../slave_bsp//libhal_bsp.a(alt_usleep.o)
+ .debug_line    0x00000000000007b9      0x15d ../slave_bsp//libhal_bsp.a(alt_sys_init.o)
+ .debug_line    0x0000000000000916       0xf0 ../slave_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .debug_line    0x0000000000000a06      0x160 ../slave_bsp//libhal_bsp.a(altera_avalon_mutex.o)
+ .debug_line    0x0000000000000b66       0xc0 ../slave_bsp//libhal_bsp.a(alt_busy_sleep.o)
+ .debug_line    0x0000000000000c26       0x4e ../slave_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
+ .debug_line    0x0000000000000c74       0xd8 ../slave_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
+ .debug_line    0x0000000000000d4c       0x51 ../slave_bsp//libhal_bsp.a(alt_errno.o)
+ .debug_line    0x0000000000000d9d      0x16c ../slave_bsp//libhal_bsp.a(alt_find_dev.o)
+ .debug_line    0x0000000000000f09       0x4e ../slave_bsp//libhal_bsp.a(alt_icache_flush_all.o)
+ .debug_line    0x0000000000000f57       0x50 ../slave_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
+ .debug_line    0x0000000000000fa7       0x60 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
+ .debug_line    0x0000000000001007      0x162 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
+ .debug_line    0x0000000000001169      0x15e /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
+ .debug_line    0x00000000000012c7       0xc7 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-divmod.o)
+ .debug_line    0x000000000000138e       0x80 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-mul.o)
 
-.debug_frame    0x0000000000000000      0x438
+.debug_frame    0x0000000000000000      0x494
  *(.debug_frame)
- .debug_frame   0x0000000000000000       0x38 obj/default/hello_world_small.o
- .debug_frame   0x0000000000000038       0x30 ../slave_bsp//libhal_bsp.a(alt_load.o)
- .debug_frame   0x0000000000000068       0x2c ../slave_bsp//libhal_bsp.a(alt_main.o)
- .debug_frame   0x0000000000000094       0x54 ../slave_bsp//libhal_bsp.a(alt_printf.o)
- .debug_frame   0x00000000000000e8       0x30 ../slave_bsp//libhal_bsp.a(alt_putchar.o)
- .debug_frame   0x0000000000000118       0x30 ../slave_bsp//libhal_bsp.a(alt_putstr.o)
- .debug_frame   0x0000000000000148       0x20 ../slave_bsp//libhal_bsp.a(alt_usleep.o)
- .debug_frame   0x0000000000000168       0x3c ../slave_bsp//libhal_bsp.a(alt_sys_init.o)
- .debug_frame   0x00000000000001a4       0x20 ../slave_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
- .debug_frame   0x00000000000001c4       0x90 ../slave_bsp//libhal_bsp.a(altera_avalon_mutex.o)
- .debug_frame   0x0000000000000254       0x30 ../slave_bsp//libhal_bsp.a(alt_busy_sleep.o)
- .debug_frame   0x0000000000000284       0x20 ../slave_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
- .debug_frame   0x00000000000002a4       0x2c ../slave_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
- .debug_frame   0x00000000000002d0       0x3c ../slave_bsp//libhal_bsp.a(alt_find_dev.o)
- .debug_frame   0x000000000000030c       0x20 ../slave_bsp//libhal_bsp.a(alt_icache_flush_all.o)
- .debug_frame   0x000000000000032c       0x20 ../slave_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
- .debug_frame   0x000000000000034c       0x20 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
- .debug_frame   0x000000000000036c       0x20 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
- .debug_frame   0x000000000000038c       0x8c /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-divmod.o)
- .debug_frame   0x0000000000000418       0x20 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-mul.o)
+ .debug_frame   0x0000000000000000       0x5c obj/default/asym.o
+ .debug_frame   0x000000000000005c       0x38 obj/default/slave.o
+ .debug_frame   0x0000000000000094       0x30 ../slave_bsp//libhal_bsp.a(alt_load.o)
+ .debug_frame   0x00000000000000c4       0x2c ../slave_bsp//libhal_bsp.a(alt_main.o)
+ .debug_frame   0x00000000000000f0       0x54 ../slave_bsp//libhal_bsp.a(alt_printf.o)
+ .debug_frame   0x0000000000000144       0x30 ../slave_bsp//libhal_bsp.a(alt_putchar.o)
+ .debug_frame   0x0000000000000174       0x30 ../slave_bsp//libhal_bsp.a(alt_putstr.o)
+ .debug_frame   0x00000000000001a4       0x20 ../slave_bsp//libhal_bsp.a(alt_usleep.o)
+ .debug_frame   0x00000000000001c4       0x3c ../slave_bsp//libhal_bsp.a(alt_sys_init.o)
+ .debug_frame   0x0000000000000200       0x20 ../slave_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .debug_frame   0x0000000000000220       0x90 ../slave_bsp//libhal_bsp.a(altera_avalon_mutex.o)
+ .debug_frame   0x00000000000002b0       0x30 ../slave_bsp//libhal_bsp.a(alt_busy_sleep.o)
+ .debug_frame   0x00000000000002e0       0x20 ../slave_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
+ .debug_frame   0x0000000000000300       0x2c ../slave_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
+ .debug_frame   0x000000000000032c       0x3c ../slave_bsp//libhal_bsp.a(alt_find_dev.o)
+ .debug_frame   0x0000000000000368       0x20 ../slave_bsp//libhal_bsp.a(alt_icache_flush_all.o)
+ .debug_frame   0x0000000000000388       0x20 ../slave_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
+ .debug_frame   0x00000000000003a8       0x20 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
+ .debug_frame   0x00000000000003c8       0x20 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
+ .debug_frame   0x00000000000003e8       0x8c /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-divmod.o)
+ .debug_frame   0x0000000000000474       0x20 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-mul.o)
 
-.debug_str      0x0000000000000000      0xb88
+.debug_str      0x0000000000000000      0xc3e
  *(.debug_str)
- .debug_str     0x0000000000000000      0x200 obj/default/hello_world_small.o
-                                        0x24a (size before relaxing)
- .debug_str     0x0000000000000200      0x152 ../slave_bsp//libhal_bsp.a(alt_load.o)
+ .debug_str     0x0000000000000000      0x215 obj/default/asym.o
+                                        0x267 (size before relaxing)
+ .debug_str     0x0000000000000215       0x3f obj/default/slave.o
+                                        0x1ef (size before relaxing)
+ .debug_str     0x0000000000000254      0x15a ../slave_bsp//libhal_bsp.a(alt_load.o)
                                         0x224 (size before relaxing)
- .debug_str     0x0000000000000352       0x5e ../slave_bsp//libhal_bsp.a(alt_main.o)
+ .debug_str     0x00000000000003ae       0x5e ../slave_bsp//libhal_bsp.a(alt_main.o)
                                         0x19d (size before relaxing)
- .debug_str     0x00000000000003b0       0x59 ../slave_bsp//libhal_bsp.a(alt_printf.o)
+ .debug_str     0x000000000000040c       0x59 ../slave_bsp//libhal_bsp.a(alt_printf.o)
                                          0xfa (size before relaxing)
- .debug_str     0x0000000000000409       0x60 ../slave_bsp//libhal_bsp.a(alt_putchar.o)
+ .debug_str     0x0000000000000465       0x60 ../slave_bsp//libhal_bsp.a(alt_putchar.o)
                                         0x175 (size before relaxing)
- .debug_str     0x0000000000000469       0x23 ../slave_bsp//libhal_bsp.a(alt_putstr.o)
+ .debug_str     0x00000000000004c5       0x23 ../slave_bsp//libhal_bsp.a(alt_putstr.o)
                                         0x181 (size before relaxing)
- .debug_str     0x000000000000048c       0x24 ../slave_bsp//libhal_bsp.a(alt_usleep.o)
+ .debug_str     0x00000000000004e8       0x24 ../slave_bsp//libhal_bsp.a(alt_usleep.o)
                                         0x13f (size before relaxing)
- .debug_str     0x00000000000004b0       0xca ../slave_bsp//libhal_bsp.a(alt_sys_init.o)
+ .debug_str     0x000000000000050c       0xca ../slave_bsp//libhal_bsp.a(alt_sys_init.o)
                                         0x2a7 (size before relaxing)
- .debug_str     0x000000000000057a       0x32 ../slave_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .debug_str     0x00000000000005d6       0x39 ../slave_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
                                         0x1fd (size before relaxing)
- .debug_str     0x00000000000005ac       0xff ../slave_bsp//libhal_bsp.a(altera_avalon_mutex.o)
+ .debug_str     0x000000000000060f      0x152 ../slave_bsp//libhal_bsp.a(altera_avalon_mutex.o)
                                         0x323 (size before relaxing)
- .debug_str     0x00000000000006ab       0x33 ../slave_bsp//libhal_bsp.a(alt_busy_sleep.o)
+ .debug_str     0x0000000000000761       0x33 ../slave_bsp//libhal_bsp.a(alt_busy_sleep.o)
                                         0x153 (size before relaxing)
- .debug_str     0x00000000000006de       0x1f ../slave_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
+ .debug_str     0x0000000000000794       0x1f ../slave_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
                                         0x13d (size before relaxing)
- .debug_str     0x00000000000006fd       0x36 ../slave_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
+ .debug_str     0x00000000000007b3       0x36 ../slave_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
                                         0x1b4 (size before relaxing)
- .debug_str     0x0000000000000733       0x14 ../slave_bsp//libhal_bsp.a(alt_errno.o)
+ .debug_str     0x00000000000007e9       0x14 ../slave_bsp//libhal_bsp.a(alt_errno.o)
                                         0x12d (size before relaxing)
- .debug_str     0x0000000000000747       0x25 ../slave_bsp//libhal_bsp.a(alt_find_dev.o)
+ .debug_str     0x00000000000007fd       0x25 ../slave_bsp//libhal_bsp.a(alt_find_dev.o)
                                         0x1e9 (size before relaxing)
- .debug_str     0x000000000000076c       0x1f ../slave_bsp//libhal_bsp.a(alt_icache_flush_all.o)
+ .debug_str     0x0000000000000822       0x1f ../slave_bsp//libhal_bsp.a(alt_icache_flush_all.o)
                                         0x13d (size before relaxing)
- .debug_str     0x000000000000078b       0x20 ../slave_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
+ .debug_str     0x0000000000000841       0x20 ../slave_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
                                         0x144 (size before relaxing)
- .debug_str     0x00000000000007ab      0x105 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
+ .debug_str     0x0000000000000861      0x105 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
                                         0x19d (size before relaxing)
- .debug_str     0x00000000000008b0       0xd4 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
+ .debug_str     0x0000000000000966       0xd4 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
                                         0x1a4 (size before relaxing)
- .debug_str     0x0000000000000984       0x3e /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
+ .debug_str     0x0000000000000a3a       0x3e /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
                                         0x1aa (size before relaxing)
- .debug_str     0x00000000000009c2      0x186 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-divmod.o)
+ .debug_str     0x0000000000000a78      0x186 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-divmod.o)
                                         0x1d1 (size before relaxing)
- .debug_str     0x0000000000000b48       0x40 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-mul.o)
+ .debug_str     0x0000000000000bfe       0x40 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-mul.o)
                                         0x192 (size before relaxing)
 
-.debug_loc      0x0000000000000000      0xa66
+.debug_loc      0x0000000000000000      0xa8b
  *(.debug_loc)
- .debug_loc     0x0000000000000000       0x3c obj/default/hello_world_small.o
- .debug_loc     0x000000000000003c       0x8d ../slave_bsp//libhal_bsp.a(alt_load.o)
- .debug_loc     0x00000000000000c9      0x1c6 ../slave_bsp//libhal_bsp.a(alt_printf.o)
- .debug_loc     0x000000000000028f       0x2c ../slave_bsp//libhal_bsp.a(alt_putchar.o)
- .debug_loc     0x00000000000002bb       0x37 ../slave_bsp//libhal_bsp.a(alt_putstr.o)
- .debug_loc     0x00000000000002f2       0x21 ../slave_bsp//libhal_bsp.a(alt_usleep.o)
- .debug_loc     0x0000000000000313       0x21 ../slave_bsp//libhal_bsp.a(alt_sys_init.o)
- .debug_loc     0x0000000000000334       0x8b ../slave_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
- .debug_loc     0x00000000000003bf      0x1b2 ../slave_bsp//libhal_bsp.a(altera_avalon_mutex.o)
- .debug_loc     0x0000000000000571       0x67 ../slave_bsp//libhal_bsp.a(alt_busy_sleep.o)
- .debug_loc     0x00000000000005d8       0x58 ../slave_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
- .debug_loc     0x0000000000000630       0x7e ../slave_bsp//libhal_bsp.a(alt_find_dev.o)
- .debug_loc     0x00000000000006ae       0x94 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
- .debug_loc     0x0000000000000742       0x1e /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
- .debug_loc     0x0000000000000760      0x273 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-divmod.o)
- .debug_loc     0x00000000000009d3       0x93 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-mul.o)
+ .debug_loc     0x0000000000000000       0x21 obj/default/asym.o
+ .debug_loc     0x0000000000000021       0x40 obj/default/slave.o
+ .debug_loc     0x0000000000000061       0x8d ../slave_bsp//libhal_bsp.a(alt_load.o)
+ .debug_loc     0x00000000000000ee      0x1c6 ../slave_bsp//libhal_bsp.a(alt_printf.o)
+ .debug_loc     0x00000000000002b4       0x2c ../slave_bsp//libhal_bsp.a(alt_putchar.o)
+ .debug_loc     0x00000000000002e0       0x37 ../slave_bsp//libhal_bsp.a(alt_putstr.o)
+ .debug_loc     0x0000000000000317       0x21 ../slave_bsp//libhal_bsp.a(alt_usleep.o)
+ .debug_loc     0x0000000000000338       0x21 ../slave_bsp//libhal_bsp.a(alt_sys_init.o)
+ .debug_loc     0x0000000000000359       0x8b ../slave_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .debug_loc     0x00000000000003e4      0x1b2 ../slave_bsp//libhal_bsp.a(altera_avalon_mutex.o)
+ .debug_loc     0x0000000000000596       0x67 ../slave_bsp//libhal_bsp.a(alt_busy_sleep.o)
+ .debug_loc     0x00000000000005fd       0x58 ../slave_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
+ .debug_loc     0x0000000000000655       0x7e ../slave_bsp//libhal_bsp.a(alt_find_dev.o)
+ .debug_loc     0x00000000000006d3       0x94 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
+ .debug_loc     0x0000000000000767       0x1e /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
+ .debug_loc     0x0000000000000785      0x273 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-divmod.o)
+ .debug_loc     0x00000000000009f8       0x93 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-mul.o)
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -659,14 +683,14 @@ LOAD /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nio
                 0x0000000000000010       0x30 ../slave_bsp//libhal_bsp.a(alt_busy_sleep.o)
                 0x0000000000001fa0                __alt_data_end = 0x1fa0
                 0x0000000000001fa0                PROVIDE (__alt_stack_pointer, __alt_data_end)
-                0x00000000000009a0                PROVIDE (__alt_stack_limit, __alt_stack_base)
-                0x00000000000009a0                PROVIDE (__alt_heap_start, end)
+                0x0000000000000a58                PROVIDE (__alt_stack_limit, __alt_stack_base)
+                0x0000000000000a58                PROVIDE (__alt_heap_start, end)
                 0x0000000000001fa0                PROVIDE (__alt_heap_limit, 0x1fa0)
 OUTPUT(slave.elf elf32-littlenios2)
 
 .debug_ranges   0x0000000000000000       0xc8
  .debug_ranges  0x0000000000000000       0x20 ../slave_bsp//obj/HAL/src/crt0.o
- .debug_ranges  0x0000000000000020       0x10 obj/default/hello_world_small.o
+ .debug_ranges  0x0000000000000020       0x10 obj/default/slave.o
  .debug_ranges  0x0000000000000030       0x48 ../slave_bsp//libhal_bsp.a(alt_load.o)
  .debug_ranges  0x0000000000000078       0x18 ../slave_bsp//libhal_bsp.a(alt_printf.o)
  .debug_ranges  0x0000000000000090       0x18 ../slave_bsp//libhal_bsp.a(alt_sys_init.o)
