@@ -14,6 +14,7 @@ typedef char bool_t;
 #define xFalse 0
 
 typedef enum {
+	Task0,
 	Task1,
 	Task2,
 	Task3,

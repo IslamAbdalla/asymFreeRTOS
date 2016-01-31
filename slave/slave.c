@@ -88,18 +88,38 @@
 #define IS_SLAVE
 #include "asym.h"
 
+void xZerothTask( void * data){
+	alt_printf("Zeroth task says hi\n");
+	usleep(1500000);
+}
+
 void xFirstTask( void * data){
 	alt_printf("First task says hi\n");
-	usleep(500000);
+	usleep(1500000);
 }
 void xSecondTask( void * data){
 	alt_printf("Second task says hi\n");
-	usleep(500000);
+	usleep(2500000);
 }
 
 void xThirdTask( void * data){
 	alt_printf("Third task says hi\n");
-	usleep(500000);
+	usleep(3500000);
+}
+
+void xFourthTask( void * data){
+	alt_printf("Fourth task says hi\n");
+	usleep(2500000);
+}
+
+void xFifthTask( void * data){
+	alt_printf("Fifth task says hi\n");
+	usleep(1500000);
+}
+
+void xSixthTask( void * data){
+	alt_printf("Sixth task says hi\n");
+	usleep(3500000);
 }
 
 int main()
@@ -122,9 +142,14 @@ int main()
 //	  usleep(900000);
 //  }
 
+  xAsymTaskCreate(xZerothTask , Task0 );
   xAsymTaskCreate(xFirstTask , Task1 );
   xAsymTaskCreate(xSecondTask , Task2 );
   xAsymTaskCreate(xThirdTask , Task3 );
+  xAsymTaskCreate(xFourthTask , Task4 );
+  xAsymTaskCreate(xFifthTask , Task5 );
+  xAsymTaskCreate(xSixthTask , Task6 );
+
 
   alt_putstr("Added tasks!\n");
 
@@ -133,6 +158,7 @@ int main()
 	  alt_printf("Got: %x in index %x!\n",xAsymGetReq(status), status++ );
 //	  usleep(200000);
   }
+  xAsymMutexInit();
   vAsymStartScheduler();
   while (1){};
 

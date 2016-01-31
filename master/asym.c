@@ -2,6 +2,7 @@
 #include <system.h>
 
 //#define IS_SLAVE
+#define IS_MASTER
 
 PRIVILEGED_DATA static Queue * xReqQueue = (Queue*) MEMORY_BUFF_BASE;
 
@@ -39,21 +40,31 @@ bool_t xAsymReqQueuInit(){
 	else
 		return xFalse;
 }
-
+#ifdef IS_MASTER
 bool_t xAsymSendReq( int8_t xReqValue ){
 
 	altera_avalon_mutex_lock(mutex, 1);
 	if( altera_avalon_mutex_is_mine(mutex)) {
+		/* Busy waiting while QUEUE_LENGTH gets less than uxNumberOfItems */
+		while(!(QUEUE_LENGTH > xReqQueue->uxNumberOfItems)){
+			altera_avalon_mutex_unlock(mutex);
+			vTaskDelay(10);
+			altera_avalon_mutex_lock(mutex, 1);
+		}
+		alt_printf("Added at %x\n",  xReqQueue->xToAdd );
 		xReqQueue->pxItems[ xReqQueue->xToAdd ].xItemValue = xReqValue;
 		xReqQueue->pxItems[ xReqQueue->xToAdd ].xServed = 0;
-		xReqQueue->xToAdd++;
+		xReqQueue->xToAdd = (QUEUE_LENGTH == (xReqQueue->xToAdd + 1))? 0: xReqQueue->xToAdd + 1;
 		xReqQueue->uxNumberOfItems++;
 		altera_avalon_mutex_unlock(mutex);
 		return xTrue;
+
 	}
 	else
 		return xFalse;
 }
+
+#endif
 
 int8_t xAsymGetReq( int8_t xIndex ) {
 	int8_t xReturnValue;
@@ -68,7 +79,6 @@ int8_t xAsymGetReq( int8_t xIndex ) {
 }
 bool_t xAsymReqQueueNotEmpty(){
 	altera_avalon_mutex_lock(mutex, 1);
-
 	bool_t xNotEmpty = xReqQueue->uxNumberOfItems;
 	altera_avalon_mutex_unlock(mutex);
 	return xNotEmpty;
@@ -91,7 +101,7 @@ void vAsymServeReq(int8_t xToServe){
 
 	altera_avalon_mutex_lock(mutex, 1);
 	xReqQueue->uxNumberOfItems--;
-	xReqQueue->xToServe++;
+	xReqQueue->xToServe = (QUEUE_LENGTH == (xReqQueue->xToServe + 1 ))? 0: xReqQueue->xToServe + 1;
 	altera_avalon_mutex_unlock(mutex);
 
 }

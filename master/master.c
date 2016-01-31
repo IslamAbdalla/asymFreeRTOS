@@ -81,8 +81,7 @@
 #include "sys/alt_stdio.h"
 #include "altera_avalon_mutex.h"
 #include "system.h"
-#include "unistd.h"
-
+#include "stdlib.h"
 // FreeRTOS
 #include "FreeRTOS.h"
 #include "task.h"
@@ -92,10 +91,13 @@
 
 void masterTask( void *p){
 	int i = 0;
-
+	int task;
 	alt_printf("I am in\n" );
-	while(i < 3){
-		xAsymSendReq(  2- i );
+	while(i < 18){
+		task = rand() % 6;
+		xAsymSendReq( task  );
+		alt_printf("Sent task %x at i = %x \n", task , i );
+		vTaskDelay(2000);
 		i++;
 	}
 	i = 0;
