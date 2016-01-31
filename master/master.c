@@ -94,14 +94,12 @@ void masterTask( void *p){
 	int i = 0;
 
 	alt_printf("I am in\n" );
-	while(i < 5){
-		xAsymSendReq(  1+ i*i + i /3 * (i + 3) );
+	while(i < 3){
+		xAsymSendReq(  2- i );
 		i++;
-		alt_printf("Stored: %x in index %x\n", 1+ i + i /3 * (i + 3), i );
-		vTaskDelay(200);
 	}
 	i = 0;
-	while(i < 5){
+	while(i < 3){
 		alt_printf("Got: %x in index %x\n", xAsymGetReq( i ), i );
 		i++;
 		vTaskDelay(200);
@@ -115,7 +113,7 @@ int main()
 
 	xAsymMutexInit();
 	xAsymReqQueuInit();
-	alt_putstr("Things initiated!\n");
+	//alt_putstr("Things initiated!\n");
 
 
 	 xTaskCreate(masterTask, "masterTask", 512, NULL, 2, NULL);

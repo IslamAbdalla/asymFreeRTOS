@@ -78,37 +78,62 @@
  *
  */
 
+
 #include "altera_avalon_pio_regs.h"
 #include "altera_avalon_mutex.h"
 #include "system.h"
 #include "unistd.h"
 
 // Asym
+#define IS_SLAVE
 #include "asym.h"
+
+void xFirstTask( void * data){
+	alt_printf("First task says hi\n");
+	usleep(500000);
+}
+void xSecondTask( void * data){
+	alt_printf("Second task says hi\n");
+	usleep(500000);
+}
+
+void xThirdTask( void * data){
+	alt_printf("Third task says hi\n");
+	usleep(500000);
+}
+
 int main()
 { 
-	  alt_mutex_dev* mutex;
-	  int *message;
-	  message =(int*) MEMORY_BUFF_BASE;
-
-	  if(!altera_avalon_mutex_open(MUTEX_0_NAME)) {
-		  alt_printf("Error: could not open the mutex\n");
-		  return 0;
-	  }
-	  mutex = altera_avalon_mutex_open(MUTEX_0_NAME);
+	  //alt_mutex_dev* mutex;
+	 // int *message;
+	 // message =(int*) MEMORY_BUFF_BASE;
+//
+//	  if(!altera_avalon_mutex_open(MUTEX_0_NAME)) {
+//		  alt_printf("Error: could not open the mutex\n");
+//		  return 0;
+//	  }
+//	  mutex = altera_avalon_mutex_open(MUTEX_0_NAME);
 
 	  alt_putstr("Hello from Nios II second!\n");
   int status = 0;
   /* Event loop never exits. */
-  while (status < 3 ){
-	  alt_printf("Waiting: %x!\n",status++ );
-	  usleep(900000);
-  }
+//  while (status < 3 ){
+//	  alt_printf("Waiting: %x!\n",status++ );
+//	  usleep(900000);
+//  }
+
+  xAsymTaskCreate(xFirstTask , Task1 );
+  xAsymTaskCreate(xSecondTask , Task2 );
+  xAsymTaskCreate(xThirdTask , Task3 );
+
+  alt_putstr("Added tasks!\n");
+
   status = 0;
-  while (status < 5 ){
+  while (status < 3 ){
 	  alt_printf("Got: %x in index %x!\n",xAsymGetReq(status), status++ );
-	  usleep(900000);
+//	  usleep(200000);
   }
+  vAsymStartScheduler();
   while (1){};
 
 //	  altera_avalon_mutex_trylock(mutex, 1);

@@ -1,7 +1,14 @@
 #include "asym.h"
 #include <system.h>
 
+//#define IS_SLAVE
+
 PRIVILEGED_DATA static Queue * xReqQueue = (Queue*) MEMORY_BUFF_BASE;
+
+#ifdef IS_SLAVE
+/* Array of functions pointers to hold the tasks */
+PRIVILEGED_DATA static  void (* pxTasks[ NUMBER_OF_TASKS ] )( void *p );
+#endif
 
 static alt_mutex_dev * mutex;
 
@@ -59,6 +66,47 @@ int8_t xAsymGetReq( int8_t xIndex ) {
 	else
 		return xFalse;
 }
+bool_t xAsymReqQueueNotEmpty(){
+	altera_avalon_mutex_lock(mutex, 1);
+
+	bool_t xNotEmpty = xReqQueue->uxNumberOfItems;
+	altera_avalon_mutex_unlock(mutex);
+	return xNotEmpty;
+}
+#ifdef IS_SLAVE
+bool_t xAsymTaskCreate( void (* pxTask )( void *p ) , xTaskIndex_t xTaskIndex){
+
+	pxTasks[ xTaskIndex ] = pxTask;
+	return xTrue;
+}
+
+void vAsymServeReq(int8_t xToServe){
+
+	altera_avalon_mutex_lock(mutex, 1);
+	int8_t xItemValue =  xReqQueue->pxItems[ xToServe ].xItemValue;
+	altera_avalon_mutex_unlock(mutex);
+
+	void * pvData;
+	( *pxTasks[ xItemValue ] )( pvData);
+
+	altera_avalon_mutex_lock(mutex, 1);
+	xReqQueue->uxNumberOfItems--;
+	xReqQueue->xToServe++;
+	altera_avalon_mutex_unlock(mutex);
+
+}
+
+void vAsymStartScheduler(){
+	while(1){
+		while(xAsymReqQueueNotEmpty() ){
+			altera_avalon_mutex_lock(mutex, 1);
+			int8_t xToServe = xReqQueue->xToServe;
+			altera_avalon_mutex_unlock(mutex);
+			vAsymServeReq( xToServe );
+		}
+	}
+
+}
 
 
-
+#endif

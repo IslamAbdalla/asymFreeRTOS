@@ -6,11 +6,21 @@
 
 #define PRIVILEGED_DATA
 #define QUEUE_LENGTH 16
+#define NUMBER_OF_TASKS 16
 
 // Boolean
 typedef char bool_t;
 #define xTrue 1
 #define xFalse 0
+
+typedef enum {
+	Task1,
+	Task2,
+	Task3,
+	Task4,
+	Task5,
+	Task6
+} xTaskIndex_t;
 
 typedef struct xQUEUE_ITEM
 {
@@ -32,5 +42,7 @@ bool_t xAsymMutexInit();
 bool_t xAsymReqQueuInit();
 bool_t xAsymSendReq( int8_t xReqValue );
 int8_t xAsymGetReq( int8_t xIndex );
+bool_t xAsymTaskCreate();
+
 
 #endif /* ASYM_H */
