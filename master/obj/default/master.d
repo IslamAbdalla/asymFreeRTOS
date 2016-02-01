@@ -11,7 +11,8 @@ obj/default/master.o: master.c ../master_bsp//HAL/inc/sys/alt_stdio.h \
  include/deprecated_definitions.h portable/GCC/NiosII/portmacro.h \
  ../master_bsp//HAL/inc/sys/alt_irq.h ../master_bsp//HAL/inc/nios2.h \
  ../master_bsp//HAL/inc/priv/alt_legacy_irq.h include/mpu_wrappers.h \
- include/task.h include/list.h include/asym.h
+ include/task.h include/list.h include/semphr.h include/queue.h \
+ include/asym.h
 
 ../master_bsp//HAL/inc/sys/alt_stdio.h:
 
@@ -58,5 +59,9 @@ include/mpu_wrappers.h:
 include/task.h:
 
 include/list.h:
+
+include/semphr.h:
+
+include/queue.h:
 
 include/asym.h:

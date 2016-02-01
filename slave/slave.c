@@ -88,38 +88,47 @@
 #define IS_SLAVE
 #include "asym.h"
 
+#define speedy 100
+
 void xZerothTask( void * data){
-	alt_printf("Zeroth task says hi\n");
-	usleep(1500000);
+	alt_printf("Zeroth task says ");
+	usleep(1500000/speedy);
+	alt_printf("hi\n");
 }
 
 void xFirstTask( void * data){
-	alt_printf("First task says hi\n");
-	usleep(1500000);
+	alt_printf("First task says ");
+	usleep(1500000/speedy);
+	alt_printf("hi\n");
 }
 void xSecondTask( void * data){
-	alt_printf("Second task says hi\n");
-	usleep(2500000);
+	alt_printf("Second task says ");
+	usleep(2500000/speedy);
+	alt_printf("hi\n");
 }
 
 void xThirdTask( void * data){
-	alt_printf("Third task says hi\n");
-	usleep(3500000);
+	alt_printf("Third task says ");
+	usleep(3500000/speedy);
+	alt_printf("hi\n");
 }
 
 void xFourthTask( void * data){
-	alt_printf("Fourth task says hi\n");
-	usleep(2500000);
+	alt_printf("Fourth task says ");
+	usleep(2500000/speedy);
+	alt_printf("hi\n");
 }
 
 void xFifthTask( void * data){
-	alt_printf("Fifth task says hi\n");
-	usleep(1500000);
+	alt_printf("Fifth task says ");
+	usleep(1500000/speedy);
+	alt_printf("hi\n");
 }
 
 void xSixthTask( void * data){
-	alt_printf("Sixth task says hi\n");
-	usleep(3500000);
+	alt_printf("Sixth task says ");
+	usleep(3500000/speedy);
+	alt_printf("hi\n");
 }
 
 int main()
@@ -134,7 +143,10 @@ int main()
 //	  }
 //	  mutex = altera_avalon_mutex_open(MUTEX_0_NAME);
 
+	  xAsymMutexInit();
 	  alt_putstr("Hello from Nios II second!\n");
+
+
   int status = 0;
   /* Event loop never exits. */
 //  while (status < 3 ){
@@ -158,7 +170,6 @@ int main()
 	  alt_printf("Got: %x in index %x!\n",xAsymGetReq(status), status++ );
 //	  usleep(200000);
   }
-  xAsymMutexInit();
   vAsymStartScheduler();
   while (1){};
 

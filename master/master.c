@@ -82,22 +82,24 @@
 #include "altera_avalon_mutex.h"
 #include "system.h"
 #include "stdlib.h"
+
 // FreeRTOS
 #include "FreeRTOS.h"
 #include "task.h"
+#include "semphr.h"
 
-// Asym
+// asym includes
 #include "asym.h"
 
 void masterTask( void *p){
 	int i = 0;
 	int task;
 	alt_printf("I am in\n" );
-	while(i < 18){
+	while(i < 10){
 		task = rand() % 6;
+		alt_printf("Sending task %x at i = %x \n", task , i );
 		xAsymSendReq( task  );
-		alt_printf("Sent task %x at i = %x \n", task , i );
-		vTaskDelay(2000);
+		vTaskDelay(20);
 		i++;
 	}
 	i = 0;
@@ -117,8 +119,7 @@ int main()
 	xAsymReqQueuInit();
 	//alt_putstr("Things initiated!\n");
 
-
-	 xTaskCreate(masterTask, "masterTask", 512, NULL, 2, NULL);
+	 xTaskCreate(masterTask, "masterTask", 156, NULL, 2, NULL);
 
 	alt_putstr("Starting scheduler\n");
 
