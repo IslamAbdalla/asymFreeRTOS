@@ -88,7 +88,7 @@ bool_t xAsymSendReq( int8_t xReqValue ){
 		altera_avalon_mutex_unlock(mutex);
 
 		/* Task should block waiting for the request to be served */
-		alt_printf("Now I am blocked. Smphr: %x\nuxNumberOfItems: %x\n\txToAdd: %x\n", &xSemaphore,xReqQueue->uxNumberOfItems, xReqQueue->xToAdd);
+		//alt_printf("Now I am blocked. Smphr: %x\nuxNumberOfItems: %x\n\txToAdd: %x\n", &xSemaphore,xReqQueue->uxNumberOfItems, xReqQueue->xToAdd);
 		xSemaphoreTake(xSemaphore,portMAX_DELAY);
 		//taskEXIT_CRITICAL();
 		vSemaphoreDelete( xSemaphore );

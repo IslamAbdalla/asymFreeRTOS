@@ -88,47 +88,47 @@
 #define IS_SLAVE
 #include "asym.h"
 
-#define speedy 100
+#define speedy 1
 
 void xZerothTask( void * data){
-	alt_printf("Zeroth task says ");
+	alt_printf("Task 0 is running: ");
 	usleep(1500000/speedy);
-	alt_printf("hi\n");
+	alt_printf("Done\n");
 }
 
 void xFirstTask( void * data){
-	alt_printf("First task says ");
+	alt_printf("Task 1 is running: ");
 	usleep(1500000/speedy);
-	alt_printf("hi\n");
+	alt_printf("Done\n");
 }
 void xSecondTask( void * data){
-	alt_printf("Second task says ");
+	alt_printf("Task 2 is running: ");
 	usleep(2500000/speedy);
-	alt_printf("hi\n");
+	alt_printf("Done\n");
 }
 
 void xThirdTask( void * data){
-	alt_printf("Third task says ");
+	alt_printf("Task 3 is running: ");
 	usleep(3500000/speedy);
-	alt_printf("hi\n");
+	alt_printf("Done\n");
 }
 
 void xFourthTask( void * data){
-	alt_printf("Fourth task says ");
+	alt_printf("Task 4 is running: ");
 	usleep(2500000/speedy);
-	alt_printf("hi\n");
+	alt_printf("Done\n");
 }
 
 void xFifthTask( void * data){
-	alt_printf("Fifth task says ");
+	alt_printf("Task 5 is running: ");
 	usleep(1500000/speedy);
-	alt_printf("hi\n");
+	alt_printf("Done\n");
 }
 
 void xSixthTask( void * data){
-	alt_printf("Sixth task says ");
+	alt_printf("Task 6 is running: ");
 	usleep(3500000/speedy);
-	alt_printf("hi\n");
+	alt_printf("Done\n");
 }
 
 int main()
@@ -144,7 +144,9 @@ int main()
 //	  mutex = altera_avalon_mutex_open(MUTEX_0_NAME);
 
 	  xAsymMutexInit();
-	  alt_putstr("Hello from Nios II second!\n");
+
+	  alt_putstr("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+	  alt_putstr("CPU 1 started\n");
 
 
   int status = 0;
@@ -163,13 +165,13 @@ int main()
   xAsymTaskCreate(xSixthTask , Task6 );
 
 
-  alt_putstr("Added tasks!\n");
+  //alt_putstr("Added tasks!\n");
 
   status = 0;
-  while (status < 3 ){
-	  alt_printf("Got: %x in index %x!\n",xAsymGetReq(status), status++ );
-//	  usleep(200000);
-  }
+//  while (status < 3 ){
+//	  alt_printf("Got: %x in index %x!\n",xAsymGetReq(status), status++ );
+////	  usleep(200000);
+//  }
   vAsymStartScheduler();
   while (1){};
 

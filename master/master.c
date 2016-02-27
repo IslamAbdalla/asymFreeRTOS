@@ -94,22 +94,33 @@
 void masterTask( void *p){
 	int i = 0;
 	int task;
-	alt_printf("I am in\n" );
-	while(i < 10){
+	//alt_printf("I am in\n" );
+	while(i < 18){
 		task = rand() % 6;
+		taskENTER_CRITICAL();
 		alt_printf("Sending task %x at i = %x \n", task , i );
+		taskEXIT_CRITICAL();
 		xAsymSendReq( task  );
 		vTaskDelay(20);
 		i++;
 	}
 	i = 0;
-	while(i < 3){
-		alt_printf("Got: %x in index %x\n", xAsymGetReq( i ), i );
-		i++;
-		vTaskDelay(200);
-
-	}
+//	while(i < 3){
+		alt_printf("Finished sending tasks\n");
+//		i++;
+//		vTaskDelay(200);
+//
+//	}
 	while(1);/* */
+}
+
+void readyTask( void *p){
+	while(1){
+		taskENTER_CRITICAL();
+		alt_printf("Ready is now running\n" );
+		taskEXIT_CRITICAL();
+		vTaskDelay(1000);
+	}
 }
 
 int main()
@@ -117,9 +128,11 @@ int main()
 
 	xAsymMutexInit();
 	xAsymReqQueuInit();
-	//alt_putstr("Things initiated!\n");
+	alt_putstr("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
-	 xTaskCreate(masterTask, "masterTask", 156, NULL, 2, NULL);
+	 xTaskCreate(masterTask, "masterTask", 100, NULL, 2, NULL);
+
+	xTaskCreate(readyTask, "readyTask", 100, NULL, 1, NULL);
 
 	alt_putstr("Starting scheduler\n");
 
