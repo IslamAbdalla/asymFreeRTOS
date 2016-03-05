@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Feb 29, 2016 5:32:41 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1456738361439</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>Mar 5, 2016 12:18:33 PM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1457151513186</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>/home/islam/altera/13.0sp1/quartus/bin/test/software/master_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>../../qsys_system.sopcinfo</SopcDesignFile>
@@ -888,8 +888,8 @@
         </Setting>
         <MemoryMap>
                 <slaveDescriptor>onchip_memory2_0</slaveDescriptor>
-                <addressRange>0x00000000 - 0x0000564F</addressRange>
-                <addressSpan>22096</addressSpan>
+                <addressRange>0x00000000 - 0x0000758F</addressRange>
+                <addressSpan>30096</addressSpan>
                 <attributes>memory</attributes>
         </MemoryMap>
         <MemoryMap>
