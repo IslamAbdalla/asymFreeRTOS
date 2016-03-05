@@ -105,12 +105,9 @@ void masterTask( void *p){
 		i++;
 	}
 	i = 0;
-//	while(i < 3){
+
 		alt_printf("Finished sending tasks\n");
-//		i++;
-//		vTaskDelay(200);
-//
-//	}
+
 	while(1);/* */
 }
 

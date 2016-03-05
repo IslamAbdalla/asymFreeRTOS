@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2_qsys_0' in SOPC Builder design 'qsys_system'
  * SOPC Builder design path: ../../qsys_system.sopcinfo
  *
- * Generated: Fri Jan 29 21:01:07 MYT 2016
+ * Generated: Mon Feb 29 17:32:44 MYT 2016
  */
 
 /*
@@ -52,12 +52,12 @@ MEMORY
 {
     reset : ORIGIN = 0x0, LENGTH = 32
     onchip_memory2_0 : ORIGIN = 0x20, LENGTH = 22064
-    memory_buff : ORIGIN = 0x10000, LENGTH = 8096
+    memory_buff : ORIGIN = 0x8000, LENGTH = 8096
 }
 
 /* Define symbols for each memory base-address */
 __alt_mem_onchip_memory2_0 = 0x0;
-__alt_mem_memory_buff = 0x10000;
+__alt_mem_memory_buff = 0x8000;
 
 OUTPUT_FORMAT( "elf32-littlenios2",
                "elf32-littlenios2",

@@ -3,7 +3,7 @@
 # Machine generated for CPU 'nios2_qsys_0' in SOPC Builder design 'qsys_system'
 # SOPC Builder design path: ../../qsys_system.sopcinfo
 #
-# Generated: Fri Jan 29 21:01:07 MYT 2016
+# Generated: Mon Feb 29 17:32:44 MYT 2016
 
 # DO NOT MODIFY THIS FILE
 #
@@ -50,4 +50,4 @@
 memory 0x0 0x5650 cache
 
 # memory_buff
-memory 0x10000 0x11fa0 cache
+memory 0x8000 0x9fa0 cache

@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Jan 29, 2016 9:01:06 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1454072466357</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>Feb 29, 2016 5:32:41 PM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1456738361439</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>/home/islam/altera/13.0sp1/quartus/bin/test/software/master_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>../../qsys_system.sopcinfo</SopcDesignFile>
@@ -893,28 +893,28 @@
                 <attributes>memory</attributes>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>jtag_uart_0</slaveDescriptor>
-                <addressRange>0x00009000 - 0x00009007</addressRange>
-                <addressSpan>8</addressSpan>
-                <attributes>printable</attributes>
-        </MemoryMap>
-        <MemoryMap>
                 <slaveDescriptor>memory_buff</slaveDescriptor>
-                <addressRange>0x00010000 - 0x00011F9F</addressRange>
+                <addressRange>0x00008000 - 0x00009F9F</addressRange>
                 <addressSpan>8096</addressSpan>
                 <attributes>memory</attributes>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>timer_0</slaveDescriptor>
-                <addressRange>0x00013000 - 0x0001301F</addressRange>
+                <addressRange>0x0000B000 - 0x0000B01F</addressRange>
                 <addressSpan>32</addressSpan>
                 <attributes>timer</attributes>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>mutex_0</slaveDescriptor>
-                <addressRange>0x00013020 - 0x00013027</addressRange>
+                <addressRange>0x0000B020 - 0x0000B027</addressRange>
                 <addressSpan>8</addressSpan>
                 <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>jtag_uart_0</slaveDescriptor>
+                <addressRange>0x0000B028 - 0x0000B02F</addressRange>
+                <addressSpan>8</addressSpan>
+                <attributes>printable</attributes>
         </MemoryMap>
         <LinkerSection>
                 <sectionName>.text</sectionName>

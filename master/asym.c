@@ -3,8 +3,8 @@
 
 
 
-//#define IS_SLAVE
-#define IS_MASTER
+		#define IS_SLAVE
+	//	#define IS_MASTER
 
 PRIVILEGED_DATA static Queue * xReqQueue = (Queue*) MEMORY_BUFF_BASE;
 
