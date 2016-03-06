@@ -96,7 +96,7 @@ void masterTask( void *p){
 	int task;
 	//alt_printf("I am in\n" );
 	while(i < 18){
-		task = rand() % 6;
+		task = rand() % 2;
 		taskENTER_CRITICAL();
 		alt_printf("Sending task %x at i = %x \n", task , i );
 		taskEXIT_CRITICAL();
@@ -114,7 +114,7 @@ void masterTask( void *p){
 void readyTask( void *p){
 	while(1){
 		taskENTER_CRITICAL();
-		alt_printf("Ready is now running\n" );
+		//alt_printf("Ready is now running\n" );
 		taskEXIT_CRITICAL();
 		vTaskDelay(1000);
 	}

@@ -67,5 +67,9 @@ int8_t xAsymGetReq( int8_t xIndex );
 bool_t xAsymTaskCreate();
 
 void vAsymUpdateFinishedReq();
+/**
+ * Gives the semaphore of the requested task
+ */
+void vAsymUpdateSentReq();
 
 #endif /* ASYM_H */

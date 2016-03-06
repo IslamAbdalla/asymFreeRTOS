@@ -93,18 +93,32 @@
 #define IS_SLAVE
 #include "asym.h"
 
-#define speedy 10
+#define speedy 1
 
 void xZerothTask( void * data){
-	alt_printf("Task 0 is running: ");
-	usleep(1500000/speedy);
-	alt_printf("Done\n");
+	while(1){
+		taskENTER_CRITICAL();
+		//alt_printf("Task 0 ");
+		vAsymServeRequest(Task0);
+		taskEXIT_CRITICAL();
+		taskENTER_CRITICAL();
+		alt_printf("Task 0 Done\n");
+		taskEXIT_CRITICAL();
+		vTaskDelay(3000/speedy);
+	}
 }
 
 void xFirstTask( void * data){
-	alt_printf("Task 1 is running: ");
-	usleep(1500000/speedy);
-	alt_printf("Done\n");
+	while(1){
+		taskENTER_CRITICAL();
+		//alt_printf("Task 1 ");
+		taskEXIT_CRITICAL();
+		vAsymServeRequest(Task1);
+		taskENTER_CRITICAL();
+		alt_printf("Task 1 Done\n");
+		taskEXIT_CRITICAL();
+		vTaskDelay(3000/speedy);
+	}
 }
 void xSecondTask( void * data){
 	alt_printf("Task 2 is running: ");
@@ -138,65 +152,25 @@ void xSixthTask( void * data){
 
 int main()
 { 
-	  //alt_mutex_dev* mutex;
-	 // int *message;
-	 // message =(int*) MEMORY_BUFF_BASE;
-//
-//	  if(!altera_avalon_mutex_open(MUTEX_0_NAME)) {
-//		  alt_printf("Error: could not open the mutex\n");
-//		  return 0;
-//	  }
-//	  mutex = altera_avalon_mutex_open(MUTEX_0_NAME);
+	xAsymMutexInit();
+	xAsymReqQueuInit();
 
-	  xAsymMutexInit();
-	  xAsymReqQueuInit();
+	alt_putstr("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+	alt_putstr("CPU 1 started\n");
 
-	  alt_putstr("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-	  alt_putstr("CPU 1 started\n");
+	xTaskCreate(xZerothTask , "Task0" , 100, NULL, 2, NULL);
+	xTaskCreate(xFirstTask , "Task1" , 100, NULL, 2, NULL);
+	//  xAsymTaskCreate(xSecondTask , Task2 );
+	//  xAsymTaskCreate(xThirdTask , Task3 );
+	//  xAsymTaskCreate(xFourthTask , Task4 );
+	//  xAsymTaskCreate(xFifthTask , Task5 );
+	//  xAsymTaskCreate(xSixthTask , Task6 );
 
 
-  int status = 0;
-  /* Event loop never exits. */
-//  while (status < 3 ){
-//	  alt_printf("Waiting: %x!\n",status++ );
-//	  usleep(900000);
-//  }
+	//  alt_putstr("Added tasks!\n");
 
-  xAsymTaskCreate(xZerothTask , Task0 );
-  xAsymTaskCreate(xFirstTask , Task1 );
-  xAsymTaskCreate(xSecondTask , Task2 );
-  xAsymTaskCreate(xThirdTask , Task3 );
-  xAsymTaskCreate(xFourthTask , Task4 );
-  xAsymTaskCreate(xFifthTask , Task5 );
-  xAsymTaskCreate(xSixthTask , Task6 );
+	vTaskStartScheduler();
+	alt_putstr("OOPs!\n");
 
-
-//  alt_putstr("Added tasks!\n");
-
-  status = 0;
-//  while (status < 3 ){
-//	  alt_printf("Got: %x in index %x!\n",xAsymGetReq(status), status++ );
-////	  usleep(200000);
-//  }
-  vAsymStartScheduler();
-  while (1){};
-
-//	  altera_avalon_mutex_trylock(mutex, 1);
-//		  	  if( altera_avalon_mutex_is_mine(mutex)) {
-//
-//		  		alt_printf("Got value: %x!\n",*message );
-//		  		 usleep(2900000);
-//		  		  altera_avalon_mutex_unlock(mutex);
-//		  	  }
-//		  	  else {
-//			  		alt_printf("Sorry, got NOTHING!\n");
-//
-//		  	  }
-//
-//
-//	  IOWR_ALTERA_AVALON_PIO_DATA(LEDS_BASE,  status++);
-//	  //alt_printf("Hello %x\n",status);
-//  	  usleep(900000);
-//  }
-  return 0;
+	return 0;
 }
