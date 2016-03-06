@@ -121,33 +121,68 @@ void xFirstTask( void * data){
 	}
 }
 void xSecondTask( void * data){
-	alt_printf("Task 2 is running: ");
-	usleep(2500000/speedy);
-	alt_printf("Done\n");
+	while(1){
+		taskENTER_CRITICAL();
+		//alt_printf("Task 1 ");
+		taskEXIT_CRITICAL();
+		vAsymServeRequest(Task2);
+		taskENTER_CRITICAL();
+		alt_printf("Task 2 Done\n");
+		taskEXIT_CRITICAL();
+		vTaskDelay(3000/speedy);
+	}
 }
 
 void xThirdTask( void * data){
-	alt_printf("Task 3 is running: ");
-	usleep(3500000/speedy);
-	alt_printf("Done\n");
+	while(1){
+		taskENTER_CRITICAL();
+		//alt_printf("Task 1 ");
+		taskEXIT_CRITICAL();
+		vAsymServeRequest(Task3);
+		taskENTER_CRITICAL();
+		alt_printf("Task 3 Done\n");
+		taskEXIT_CRITICAL();
+		vTaskDelay(3000/speedy);
+	}
 }
 
 void xFourthTask( void * data){
-	alt_printf("Task 4 is running: ");
-	usleep(2500000/speedy);
-	alt_printf("Done\n");
+	while(1){
+		taskENTER_CRITICAL();
+		//alt_printf("Task 1 ");
+		taskEXIT_CRITICAL();
+		vAsymServeRequest(Task4);
+		taskENTER_CRITICAL();
+		alt_printf("Task 4 Done\n");
+		taskEXIT_CRITICAL();
+		vTaskDelay(3000/speedy);
+	}
 }
 
 void xFifthTask( void * data){
-	alt_printf("Task 5 is running: ");
-	usleep(1500000/speedy);
-	alt_printf("Done\n");
+	while(1){
+		taskENTER_CRITICAL();
+		//alt_printf("Task 1 ");
+		taskEXIT_CRITICAL();
+		vAsymServeRequest(Task5);
+		taskENTER_CRITICAL();
+		alt_printf("Task 5 Done\n");
+		taskEXIT_CRITICAL();
+		vTaskDelay(3000/speedy);
+	}
 }
 
 void xSixthTask( void * data){
-	alt_printf("Task 6 is running: ");
-	usleep(3500000/speedy);
-	alt_printf("Done\n");
+	while(1){
+		taskENTER_CRITICAL();
+		//alt_printf("Task 1 ");
+		taskEXIT_CRITICAL();
+		vAsymServeRequest(Task6);
+		taskENTER_CRITICAL();
+		alt_printf("Task 6 Done\n");
+		taskEXIT_CRITICAL();
+		vTaskDelay(3000/speedy);
+	}
 }
 
 int main()
@@ -160,6 +195,11 @@ int main()
 
 	xTaskCreate(xZerothTask , "Task0" , 100, NULL, 2, NULL);
 	xTaskCreate(xFirstTask , "Task1" , 100, NULL, 2, NULL);
+	xTaskCreate(xSecondTask , "Task2" , 100, NULL, 2, NULL);
+	xTaskCreate(xThirdTask , "Task3" , 100, NULL, 2, NULL);
+	xTaskCreate(xFourthTask , "Task4" , 100, NULL, 2, NULL);
+	xTaskCreate(xFifthTask , "Task5" , 100, NULL, 2, NULL);
+	xTaskCreate(xSixthTask , "Task6" , 100, NULL, 2, NULL);
 	//  xAsymTaskCreate(xSecondTask , Task2 );
 	//  xAsymTaskCreate(xThirdTask , Task3 );
 	//  xAsymTaskCreate(xFourthTask , Task4 );
