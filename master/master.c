@@ -100,7 +100,7 @@ void masterTask( void *p){
 		taskENTER_CRITICAL();
 		alt_printf("Sending task %x at i = %x \n", task , i );
 		taskEXIT_CRITICAL();
-		xAsymSendReq( task  );
+		xAsymSendReq( task, 1  );
 		vTaskDelay(20);
 		i++;
 	}

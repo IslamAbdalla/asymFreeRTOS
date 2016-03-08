@@ -200,14 +200,6 @@ int main()
 	xTaskCreate(xFourthTask , "Task4" , 100, NULL, 2, NULL);
 	xTaskCreate(xFifthTask , "Task5" , 100, NULL, 2, NULL);
 	xTaskCreate(xSixthTask , "Task6" , 100, NULL, 2, NULL);
-	//  xAsymTaskCreate(xSecondTask , Task2 );
-	//  xAsymTaskCreate(xThirdTask , Task3 );
-	//  xAsymTaskCreate(xFourthTask , Task4 );
-	//  xAsymTaskCreate(xFifthTask , Task5 );
-	//  xAsymTaskCreate(xSixthTask , Task6 );
-
-
-	//  alt_putstr("Added tasks!\n");
 
 	vTaskStartScheduler();
 	alt_putstr("OOPs!\n");

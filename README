@@ -1,0 +1,7 @@
+Asymmetrci Multiprocessing Support for FreeRTOS
+-----------------------------------------------
+This project allows FreeRTOS to run on two processors in an asymmetric multiprocessing setup where one processor is a master and the other is a slave.
+A Quick Overview of How to Use this Project
+----------------------------------------------
+The project consists of two files: asym.c and asym.h. To use them, simply add them to the Master processor project, and the Slave processor project. Now you can use the functions defined in these project to send data and requests between the master and the slave processors.
+See master.c and slaveSdram.c for examples.

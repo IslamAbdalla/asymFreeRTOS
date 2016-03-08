@@ -25,18 +25,16 @@ typedef enum {
 
 typedef struct xQUEUE_ITEM
 {
-	int8_t xItemValue;			/*< The value being listed.  In most cases this is used to sort the list in descending order. */
+	int8_t xItemValue;			/*< The value being sent. */
 	bool_t xServed;				/*< Might be needed when priority is used >*/
 	void * pvSemaphore;				/*< Pointer to the semaphore the control the execution of the task that is waiting for it to finish. */
-	//struct xQUEUE_ITEM * pxNext;		/*< Pointer to the next ListItem_t in the list. */
-	//struct xQUEUE_ITEM * pxPrevious;	/*< Pointer to the previous ListItem_t in the list. */
 } QueueItem;
 typedef struct xQUEUE
 {
 	uint8_t uxNumberOfItems;
 	QueueItem pxItems[QUEUE_LENGTH];
-	int8_t xToAdd;			/*< Used to walk through the list.  Points to the last item returned by a call to listGET_OWNER_OF_NEXT_ENTRY (). */
-	int8_t xToServe;			/*< Used to walk through the list.  Points to the last item returned by a call to listGET_OWNER_OF_NEXT_ENTRY (). */
+	int8_t xToAdd;			/*< Holds the value of the next empty location */
+	int8_t xToServe;			/*< Holds the value of the task that is to be executed. */
 } Queue;
 
 /**
@@ -46,12 +44,13 @@ bool_t xAsymMutexInit();
 
 /**
  * Initiate the request queue by setting its variables to zero.
+ * This functions also adds vAsymSemaphorePolling as a FreeRTOS task
  *
  * @return xTrue if the initiation is successful. xFalse otherwise
  */
 bool_t xAsymReqQueuInit();
 
-/*
+/**
  * Send a request from master to slave with a task number. The function uses
  * busy waiting if the queue is full and does not return until the request
  * is placed on the queue
@@ -60,16 +59,63 @@ bool_t xAsymReqQueuInit();
  *
  * @return xTrue if the request is successful. xFalse otherwise
  */
-bool_t xAsymSendReq( int8_t xReqValue );
+bool_t xAsymSendReq( int8_t xReqValue , bool_t xReturn );
 
-
-int8_t xAsymGetReq( int8_t xIndex );
-bool_t xAsymTaskCreate();
-
-void vAsymUpdateFinishedReq();
 /**
- * Gives the semaphore of the requested task
+ * Returns the value of a request from the request queue.
+ * @param xIndex the request index
+ */
+int8_t xAsymGetReq( int8_t xIndex );
+
+/*
+ *
+ */
+void vAsymSemaphorePolling(void *p );
+
+/**
+ *
+ */
+bool_t xAsymReqQueuInit();
+
+/**
+ *
+ */
+bool_t xAsymReqQueueNotEmpty();
+
+
+// Master-specific functions:
+
+/**
+ *
+ */
+void vAsymUpdateFinishedReq();
+// End of master-specific
+
+
+// Slave-specific
+/**
+ *
+ */
+bool_t xAsymTaskCreate();
+/**
+ *
+ */
+void vAsymServeReq(int8_t xToServe);
+/**
+ *
+ */
+void vAsymStartScheduler();
+
+/**
+ * Loops through the requests, and check if a request can run
+ *  then gives the semaphore of the requested task so the request can
+ *  be serviced.
  */
 void vAsymUpdateSentReq();
+/**
+ *
+ */
+void vAsymServeRequest(int8_t ucRequestedTask);
+// End of slave-specific
 
 #endif /* ASYM_H */

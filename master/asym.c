@@ -4,10 +4,8 @@
 #include "task.h"
 #include "semphr.h"
 
-
-
-		#define IS_SLAVE
-	//	#define IS_MASTER
+//#define IS_SLAVE
+	#define IS_MASTER
 
 PRIVILEGED_DATA static Queue * xReqQueue = (Queue*) MEMORY_BUFF_BASE;
 
@@ -15,7 +13,7 @@ PRIVILEGED_DATA static Queue * xReqQueue = (Queue*) MEMORY_BUFF_BASE;
 /* Array of functions pointers to hold the tasks */
 PRIVILEGED_DATA static void (* pxTasks[ NUMBER_OF_TASKS ] )( void *p );
 
- typedef struct xTO_SERVE_QUEUE
+typedef struct xTO_SERVE_QUEUE
 {
 	int8_t xTaskToServe[QUEUE_LENGTH];
 	bool_t xOccupied[QUEUE_LENGTH];
@@ -31,23 +29,23 @@ bool_t xAsymMutexInit(){
 	if(!altera_avalon_mutex_open(MUTEX_0_NAME)) {
 		/* Failed to instantiate mutex */
 		return xFalse;
-	  }
+	}
 
-	 mutex = altera_avalon_mutex_open(MUTEX_0_NAME);
-	 return xTrue;
+	mutex = altera_avalon_mutex_open(MUTEX_0_NAME);
+	return xTrue;
 }
 
 
 void vAsymSemaphorePolling(void *p ){
 	while(1){
-		#ifdef IS_MASTER
+#ifdef IS_MASTER
 		vAsymUpdateFinishedReq();
-		#endif // IS_MASTER
+#endif // IS_MASTER
 
 
-		#ifdef IS_SLAVE
+#ifdef IS_SLAVE
 		vAsymUpdateSentReq();
-		#endif // IS_MASTER
+#endif // IS_MASTER
 
 		vTaskDelay(200);
 	}
@@ -56,7 +54,7 @@ void vAsymSemaphorePolling(void *p ){
 
 
 bool_t xAsymReqQueuInit(){
-		altera_avalon_mutex_lock(mutex, 1);
+	altera_avalon_mutex_lock(mutex, 1);
 	if( altera_avalon_mutex_is_mine(mutex)) {
 		xReqQueue->uxNumberOfItems = 0;
 		xReqQueue->xToAdd = 0;
@@ -89,7 +87,7 @@ bool_t xAsymReqQueuInit(){
 
 #ifdef IS_MASTER
 
-bool_t xAsymSendReq( int8_t xReqValue ){
+bool_t xAsymSendReq( int8_t xReqValue, bool_t xReturn){
 	xSemaphoreHandle xSemaphore = xSemaphoreCreateBinary();
 
 	altera_avalon_mutex_lock(mutex, 1);
@@ -108,6 +106,13 @@ bool_t xAsymSendReq( int8_t xReqValue ){
 		xReqQueue->uxNumberOfItems++;
 		altera_avalon_mutex_unlock(mutex);
 
+		/* Check ucReturn */
+		if(xReturn){
+			/* Function return immediately */
+			vSemaphoreDelete( xSemaphore );
+			xReqQueue->pxItems[ xReqQueue->xToAdd ].pvSemaphore = NULL;
+			return xTrue;
+		}
 		/* Task should block waiting for the request to be served */
 		//alt_printf("Now I am blocked. Smphr: %x\nuxNumberOfItems: %x\n\txToAdd: %x\n", &xSemaphore,xReqQueue->uxNumberOfItems, xReqQueue->xToAdd);
 		xSemaphoreTake(xSemaphore,portMAX_DELAY);
@@ -125,9 +130,11 @@ void vAsymUpdateFinishedReq(){
 	altera_avalon_mutex_lock(mutex, 1);
 	for (ucIndex = 0; ucIndex < QUEUE_LENGTH ; ucIndex++){
 		if(xReqQueue->pxItems[ ucIndex ].xServed == 1){
-		//	alt_printf("ucIndex: %x\txServed: %x\n",ucIndex, xReqQueue->pxItems[ ucIndex ].xServed);
+			//	alt_printf("ucIndex: %x\txServed: %x\n",ucIndex, xReqQueue->pxItems[ ucIndex ].xServed);
+			if(xReqQueue->pxItems[ ucIndex ].pvSemaphore != NULL ){
 			xSemaphoreHandle* xSemaphore = (xSemaphoreHandle *) ( xReqQueue->pxItems[ ucIndex ].pvSemaphore );
 			xSemaphoreGive( *xSemaphore);
+			}
 			xReqQueue->pxItems[ ucIndex ].xServed = -1;
 
 		}
@@ -178,17 +185,16 @@ void vAsymServeReq(int8_t xToServe){
 
 }
 
-//void vAsymStartScheduler(){
-//	while(1){
-//		while(xAsymReqQueueNotEmpty() ){
-//			altera_avalon_mutex_lock(mutex, 1);
-//			int8_t xToServe = xReqQueue->xToServe;
-//			altera_avalon_mutex_unlock(mutex);
-//			vAsymServeReq( xToServe );
-//		}
-//	}
-//
-//}
+void vAsymStartScheduler(){
+	while(1){
+		while(xAsymReqQueueNotEmpty() ){
+			altera_avalon_mutex_lock(mutex, 1);
+			int8_t xToServe = xReqQueue->xToServe;
+			altera_avalon_mutex_unlock(mutex);
+			vAsymServeReq( xToServe );
+		}
+	}
+}
 
 void vAsymUpdateSentReq(){
 	// Here should give semaphores to allow tasks to run
@@ -199,21 +205,16 @@ void vAsymUpdateSentReq(){
 			for (ucIndexNest = 0; ucIndexNest < QUEUE_LENGTH ; ucIndexNest++){
 				if(xToServeQueue.xOccupied[ucIndexNest]  && xToServeQueue.xTaskToServe[ucIndexNest] == xReqQueue->pxItems[ucIndex].xItemValue){
 					// Match found
-						//alt_printf("ucIndex: %x, ucIndexNest: %x, TaskToServ: %x\n",ucIndex,ucIndexNest, xToServeQueue.xTaskToServe[ucIndexNest]);
-						xSemaphoreHandle* xSemaphore = (xSemaphoreHandle *) ( xToServeQueue.pvSemaphore[ucIndexNest] );
-						xSemaphoreGive( *xSemaphore);
-						xReqQueue->pxItems[ ucIndex ].xServed = 1;
-						xToServeQueue.xOccupied[ucIndexNest] = 0;
+					//alt_printf("ucIndex: %x, ucIndexNest: %x, TaskToServ: %x\n",ucIndex,ucIndexNest, xToServeQueue.xTaskToServe[ucIndexNest]);
+					xSemaphoreHandle* xSemaphore = (xSemaphoreHandle *) ( xToServeQueue.pvSemaphore[ucIndexNest] );
+					xSemaphoreGive( *xSemaphore);
+					xReqQueue->pxItems[ ucIndex ].xServed = 1;
+					xToServeQueue.xOccupied[ucIndexNest] = 0;
 				}
 			}
-
-
 		}
 	}
 	altera_avalon_mutex_unlock(mutex);
-
-
-
 }
 
 void vAsymServeRequest(int8_t ucRequestedTask){
@@ -234,7 +235,7 @@ void vAsymServeRequest(int8_t ucRequestedTask){
 	// If not found
 	// Find an empty place:
 	for (ucIndex = 0; ucIndex < QUEUE_LENGTH ; ucIndex++){
-			if( !xToServeQueue.xOccupied[ucIndex]) break;
+		if( !xToServeQueue.xOccupied[ucIndex]) break;
 	}
 	if(ucIndex >= QUEUE_LENGTH) {
 		// No empty location.
@@ -247,7 +248,6 @@ void vAsymServeRequest(int8_t ucRequestedTask){
 	xSemaphoreHandle xSemaphore = xSemaphoreCreateBinary();
 	xToServeQueue.pvSemaphore[ucIndex] = (void*) &xSemaphore;
 	xSemaphoreTake( xSemaphore, portMAX_DELAY);
-
 
 	vSemaphoreDelete( xSemaphore );
 	taskEXIT_CRITICAL();
