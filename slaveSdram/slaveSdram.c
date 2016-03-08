@@ -96,15 +96,15 @@
 #define speedy 1
 
 void xZerothTask( void * data){
+	int8_t ucIndex;
 	while(1){
-		taskENTER_CRITICAL();
-		//alt_printf("Task 0 ");
 		vAsymServeRequest(Task0);
-		taskEXIT_CRITICAL();
-		taskENTER_CRITICAL();
-		alt_printf("Task 0 Done\n");
-		taskEXIT_CRITICAL();
-		vTaskDelay(3000/speedy);
+		for (ucIndex = 0; ucIndex < 5 ; ucIndex++ ){
+			taskENTER_CRITICAL();
+			alt_printf("Task 0 Done\n");
+			taskEXIT_CRITICAL();
+			vTaskDelay(3000/speedy);
+		}
 	}
 }
 
