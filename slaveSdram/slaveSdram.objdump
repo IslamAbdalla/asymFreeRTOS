@@ -9,10 +9,10 @@ Program Header:
     LOAD off    0x00001000 vaddr 0x01000000 paddr 0x01000000 align 2**12
          filesz 0x00000020 memsz 0x00000020 flags r-x
     LOAD off    0x00001020 vaddr 0x01000020 paddr 0x01000020 align 2**12
-         filesz 0x000035bc memsz 0x000035bc flags r-x
-    LOAD off    0x000045dc vaddr 0x010035dc paddr 0x01003600 align 2**12
+         filesz 0x0000359c memsz 0x0000359c flags r-x
+    LOAD off    0x000045bc vaddr 0x010035bc paddr 0x010035e0 align 2**12
          filesz 0x00000024 memsz 0x00000024 flags rw-
-    LOAD off    0x00004624 vaddr 0x01003624 paddr 0x01003624 align 2**12
+    LOAD off    0x00004604 vaddr 0x01003604 paddr 0x01003604 align 2**12
          filesz 0x00000000 memsz 0x00004168 flags rw-
 
 Sections:
@@ -23,67 +23,67 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
   2 .text         000032cc  010001dc  010001dc  000011dc  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  3 .rodata       00000134  010034a8  010034a8  000044a8  2**2
+  3 .rodata       00000114  010034a8  010034a8  000044a8  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  4 .rwdata       00000024  010035dc  01003600  000045dc  2**2
+  4 .rwdata       00000024  010035bc  010035e0  000045bc  2**2
                   CONTENTS, ALLOC, LOAD, DATA, SMALL_DATA
-  5 .bss          00004168  01003624  01003624  00004624  2**2
+  5 .bss          00004168  01003604  01003604  00004604  2**2
                   ALLOC, SMALL_DATA
-  6 .memory_buff  00000000  00008000  00008000  00004600  2**0
+  6 .memory_buff  00000000  00008000  00008000  000045e0  2**0
                   CONTENTS
-  7 .sdram        00000000  0100778c  0100778c  00004600  2**0
+  7 .sdram        00000000  0100776c  0100776c  000045e0  2**0
                   CONTENTS
-  8 .comment      00000023  00000000  00000000  00004600  2**0
+  8 .comment      00000023  00000000  00000000  000045e0  2**0
                   CONTENTS, READONLY
-  9 .debug_aranges 00000428  00000000  00000000  00004628  2**3
+  9 .debug_aranges 00000428  00000000  00000000  00004608  2**3
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_info   00006eb0  00000000  00000000  00004a50  2**0
+ 10 .debug_info   00006e72  00000000  00000000  00004a30  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_abbrev 000021d0  00000000  00000000  0000b900  2**0
+ 11 .debug_abbrev 000021c7  00000000  00000000  0000b8a2  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_line   00002c06  00000000  00000000  0000dad0  2**0
+ 12 .debug_line   00002c07  00000000  00000000  0000da69  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_frame  00000f94  00000000  00000000  000106d8  2**2
+ 13 .debug_frame  00000f94  00000000  00000000  00010670  2**2
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_str    00001f0c  00000000  00000000  0001166c  2**0
+ 14 .debug_str    00001f0c  00000000  00000000  00011604  2**0
                   CONTENTS, READONLY, DEBUGGING
- 15 .debug_loc    00002ee6  00000000  00000000  00013578  2**0
+ 15 .debug_loc    00002ee6  00000000  00000000  00013510  2**0
                   CONTENTS, READONLY, DEBUGGING
- 16 .debug_alt_sim_info 00000010  00000000  00000000  00016460  2**2
+ 16 .debug_alt_sim_info 00000010  00000000  00000000  000163f8  2**2
                   CONTENTS, READONLY, DEBUGGING
- 17 .debug_ranges 000001e0  00000000  00000000  00016470  2**3
+ 17 .debug_ranges 000001e0  00000000  00000000  00016408  2**3
                   CONTENTS, READONLY, DEBUGGING
- 18 .thread_model 00000003  00000000  00000000  00018b16  2**0
+ 18 .thread_model 00000003  00000000  00000000  00018aae  2**0
                   CONTENTS, READONLY
- 19 .cpu          0000000c  00000000  00000000  00018b19  2**0
+ 19 .cpu          0000000c  00000000  00000000  00018ab1  2**0
                   CONTENTS, READONLY
- 20 .qsys         00000001  00000000  00000000  00018b25  2**0
+ 20 .qsys         00000001  00000000  00000000  00018abd  2**0
                   CONTENTS, READONLY
- 21 .simulation_enabled 00000001  00000000  00000000  00018b26  2**0
+ 21 .simulation_enabled 00000001  00000000  00000000  00018abe  2**0
                   CONTENTS, READONLY
- 22 .stderr_dev   0000000b  00000000  00000000  00018b27  2**0
+ 22 .stderr_dev   0000000b  00000000  00000000  00018abf  2**0
                   CONTENTS, READONLY
- 23 .stdin_dev    0000000b  00000000  00000000  00018b32  2**0
+ 23 .stdin_dev    0000000b  00000000  00000000  00018aca  2**0
                   CONTENTS, READONLY
- 24 .stdout_dev   0000000b  00000000  00000000  00018b3d  2**0
+ 24 .stdout_dev   0000000b  00000000  00000000  00018ad5  2**0
                   CONTENTS, READONLY
- 25 .sopc_system_name 0000000b  00000000  00000000  00018b48  2**0
+ 25 .sopc_system_name 0000000b  00000000  00000000  00018ae0  2**0
                   CONTENTS, READONLY
- 26 .quartus_project_dir 0000002b  00000000  00000000  00018b53  2**0
+ 26 .quartus_project_dir 0000002b  00000000  00000000  00018aeb  2**0
                   CONTENTS, READONLY
- 27 .jdi          0000a38c  00000000  00000000  00018b7e  2**0
+ 27 .jdi          0000a38c  00000000  00000000  00018b16  2**0
                   CONTENTS, READONLY
- 28 .sopcinfo     00064b11  00000000  00000000  00022f0a  2**0
+ 28 .sopcinfo     00064b11  00000000  00000000  00022ea2  2**0
                   CONTENTS, READONLY
 SYMBOL TABLE:
 01000000 l    d  .entry	00000000 .entry
 01000020 l    d  .exceptions	00000000 .exceptions
 010001dc l    d  .text	00000000 .text
 010034a8 l    d  .rodata	00000000 .rodata
-010035dc l    d  .rwdata	00000000 .rwdata
-01003624 l    d  .bss	00000000 .bss
+010035bc l    d  .rwdata	00000000 .rwdata
+01003604 l    d  .bss	00000000 .bss
 00008000 l    d  .memory_buff	00000000 .memory_buff
-0100778c l    d  .sdram	00000000 .sdram
+0100776c l    d  .sdram	00000000 .sdram
 00000000 l    d  .comment	00000000 .comment
 00000000 l    d  .debug_aranges	00000000 .debug_aranges
 00000000 l    d  .debug_info	00000000 .debug_info
@@ -106,16 +106,16 @@ SYMBOL TABLE:
 0100016c l       .exceptions	00000000 call_scheduler
 00000000 l    df *ABS*	00000000 alt_irq_handler.c
 00000000 l    df *ABS*	00000000 asym.c
-01003624 l     O .bss	00000004 mutex
-0100367c l     O .bss	00000070 xToServeQueue
-010036ec l     O .bss	00000040 pxTasks
+01003604 l     O .bss	00000004 mutex
+0100365c l     O .bss	00000070 xToServeQueue
+010036cc l     O .bss	00000040 pxTasks
 00000000 l    df *ABS*	00000000 croutine.c
 00000000 l    df *ABS*	00000000 list.c
 00000000 l    df *ABS*	00000000 port.c
 00000000 l    df *ABS*	00000000 heap_1.c
-01003628 l     O .bss	00000004 pucAlignedHeap.2415
-0100372c l     O .bss	00003e98 ucHeap
-0100362c l     O .bss	00000004 xNextFreeByte
+01003608 l     O .bss	00000004 pucAlignedHeap.2415
+0100370c l     O .bss	00003e98 ucHeap
+0100360c l     O .bss	00000004 xNextFreeByte
 00000000 l    df *ABS*	00000000 queue.c
 01000a54 l     F .text	000000d8 prvCopyDataToQueue
 01000b2c l     F .text	00000038 prvCopyDataFromQueue
@@ -123,28 +123,28 @@ SYMBOL TABLE:
 00000000 l    df *ABS*	00000000 slaveSdram.c
 00000000 l    df *ABS*	00000000 tasks.c
 0100180c l     F .text	0000002c prvTaskIsTaskSuspended
-010075c4 l     O .bss	00000014 xSuspendedTaskList
-010075ec l     O .bss	00000014 xPendingReadyList
+010075a4 l     O .bss	00000014 xSuspendedTaskList
+010075cc l     O .bss	00000014 xPendingReadyList
 01001838 l     F .text	0000002c prvResetNextTaskUnblockTime
-01003660 l     O .bss	00000004 pxDelayedTaskList
-01003634 l     O .bss	00000004 xNextTaskUnblockTime
+01003640 l     O .bss	00000004 pxDelayedTaskList
+01003614 l     O .bss	00000004 xNextTaskUnblockTime
 01001864 l     F .text	0000005c prvAddCurrentTaskToDelayedList
-01003650 l     O .bss	00000004 xTickCount
-0100365c l     O .bss	00000004 pxOverflowDelayedTaskList
-01003630 l     O .bss	00000004 uxSchedulerSuspended
-0100364c l     O .bss	00000004 uxTopReadyPriority
-01007628 l     O .bss	00000064 pxReadyTasksLists
-01003648 l     O .bss	00000004 xSchedulerRunning
-01003654 l     O .bss	00000004 uxCurrentNumberOfTasks
-0100363c l     O .bss	00000004 xNumOfOverflows
-01003644 l     O .bss	00000004 uxPendedTicks
-01003640 l     O .bss	00000004 xYieldPending
-01007614 l     O .bss	00000014 xDelayedTaskList1
-01007600 l     O .bss	00000014 xDelayedTaskList2
-010075d8 l     O .bss	00000014 xTasksWaitingTermination
-01003638 l     O .bss	00000004 uxTaskNumber
+01003630 l     O .bss	00000004 xTickCount
+0100363c l     O .bss	00000004 pxOverflowDelayedTaskList
+01003610 l     O .bss	00000004 uxSchedulerSuspended
+0100362c l     O .bss	00000004 uxTopReadyPriority
+01007608 l     O .bss	00000064 pxReadyTasksLists
+01003628 l     O .bss	00000004 xSchedulerRunning
+01003634 l     O .bss	00000004 uxCurrentNumberOfTasks
+0100361c l     O .bss	00000004 xNumOfOverflows
+01003624 l     O .bss	00000004 uxPendedTicks
+01003620 l     O .bss	00000004 xYieldPending
+010075f4 l     O .bss	00000014 xDelayedTaskList1
+010075e0 l     O .bss	00000014 xDelayedTaskList2
+010075b8 l     O .bss	00000014 xTasksWaitingTermination
+01003618 l     O .bss	00000004 uxTaskNumber
 0100287c l     F .text	0000007c prvIdleTask
-01003658 l     O .bss	00000004 uxTasksDeleted
+01003638 l     O .bss	00000004 uxTasksDeleted
 00000000 l    df *ABS*	00000000 timers.c
 00000000 l    df *ABS*	00000000 lib2-mul.c
 00000000 l    df *ABS*	00000000 memcpy.c
@@ -156,7 +156,7 @@ SYMBOL TABLE:
 00000000 l    df *ABS*	00000000 alt_putchar.c
 00000000 l    df *ABS*	00000000 alt_putstr.c
 00000000 l    df *ABS*	00000000 alt_sys_init.c
-010035dc l     O .rwdata	00000010 mutex_0
+010035bc l     O .rwdata	00000010 mutex_0
 00000000 l    df *ABS*	00000000 altera_avalon_jtag_uart_write.c
 00000000 l    df *ABS*	00000000 altera_avalon_mutex.c
 00000000 l    df *ABS*	00000000 alt_dcache_flush_all.c
@@ -169,13 +169,13 @@ SYMBOL TABLE:
 00000000 l    df *ABS*	00000000 memcmp.c
 00000000 l    df *ABS*	00000000 strlen.c
 01002fe0 g     F .text	0000002c alt_main
-0100768c g     O .bss	00000100 alt_irq
+0100766c g     O .bss	00000100 alt_irq
 010000c4 g       .exceptions	00000000 restore_sp_from_pxCurrentTCB
 01001c44 g     F .text	00000074 vTaskPlaceOnUnorderedEventList
 01000a44 g     F .text	00000010 xPortGetFreeHeapSize
-01003600 g       *ABS*	00000000 __flash_rwdata_start
+010035e0 g       *ABS*	00000000 __flash_rwdata_start
 010023c8 g     F .text	00000038 uxTaskPriorityGet
-010005dc g     F .text	00000018 vAsymSemaphorePolling
+010005ec g     F .text	00000018 vAsymSemaphorePolling
 01001fbc g     F .text	00000030 vTaskEnterCritical
 01000fe4 g     F .text	00000090 xQueueGenericSendFromISR
 010032e0 g     F .text	00000028 altera_avalon_mutex_trylock
@@ -183,14 +183,14 @@ SYMBOL TABLE:
 00000000  w      *UND*	00000000 __errno
 01000000 g     F .entry	0000000c __reset
 01000f84 g     F .text	00000060 xQueueGiveMutexRecursive
-01003664 g     O .bss	00000004 pxCurrentTCB
+01003644 g     O .bss	00000004 pxCurrentTCB
 01000258 g     F .text	000000b0 xAsymReqQueuInit
 01003328 g     F .text	00000028 altera_avalon_mutex_is_mine
 010014e0 g     F .text	00000044 xFirstTask
 01000020 g       *ABS*	00000000 __flash_exceptions_start
-01003678 g     O .bss	00000004 errno
-01003670 g     O .bss	00000004 alt_argv
-0100b5ec g       *ABS*	00000000 _gp
+01003658 g     O .bss	00000004 errno
+01003650 g     O .bss	00000004 alt_argv
+0100b5cc g       *ABS*	00000000 _gp
 01002400 g     F .text	00000104 vTaskPrioritySet
 01000930 g     F .text	0000007c xPortStartScheduler
 01001978 g     F .text	00000018 vTaskEndScheduler
@@ -210,26 +210,26 @@ SYMBOL TABLE:
 01000898 g     F .text	00000098 alt_irq_register
 01001524 g     F .text	00000044 xSecondTask
 01003350 g     F .text	00000010 altera_avalon_mutex_first_lock
-0100778c g       *ABS*	00000000 __bss_end
+0100776c g       *ABS*	00000000 __bss_end
 010009ac g     F .text	0000008c pvPortMalloc
 0100147c g     F .text	00000004 vQueueDelete
 01000894 g     F .text	00000004 vPortEndScheduler
 01000744 g     F .text	00000020 vListInitialise
-01003668 g     O .bss	00000004 alt_irq_active
+01003648 g     O .bss	00000004 alt_irq_active
 0100017c g     F .exceptions	00000060 alt_irq_handler
 010003b0 g     F .text	00000020 xAsymTaskCreate
 010019a0 g     F .text	00000008 xTaskGetTickCount
 01000d88 g     F .text	0000017c xQueueGenericSend
 01003260 g     F .text	00000058 altera_avalon_mutex_open
-010004c8 g     F .text	00000114 vAsymUpdateSentReq
+010004c8 g     F .text	00000124 vAsymUpdateSentReq
 01003360 g     F .text	00000004 alt_dcache_flush_all
 01001f20 g     F .text	0000009c xTaskPriorityDisinherit
 01000374 g     F .text	0000003c xAsymReqQueueNotEmpty
-01003600 g       *ABS*	00000000 __ram_rwdata_end
+010035e0 g       *ABS*	00000000 __ram_rwdata_end
 01001cb8 g     F .text	000000a4 xTaskRemoveFromEventList
-010035f4 g     O .rwdata	00000008 alt_mutex_list
-010035dc g       *ABS*	00000000 __ram_rodata_end
-0100778c g       *ABS*	00000000 end
+010035d4 g     O .rwdata	00000008 alt_mutex_list
+010035bc g       *ABS*	00000000 __ram_rodata_end
+0100776c g       *ABS*	00000000 end
 01002318 g     F .text	000000b0 vTaskDelete
 0100299c g     F .text	00000020 pvTaskIncrementMutexHeldCount
 01800000 g       *ABS*	00000000 __alt_stack_pointer
@@ -246,14 +246,14 @@ SYMBOL TABLE:
 01003308 g     F .text	00000020 altera_avalon_mutex_unlock
 01001e44 g     F .text	000000dc vTaskPriorityInherit
 01002e78 g     F .text	00000028 .hidden __mulsi3
-010035dc g       *ABS*	00000000 __ram_rwdata_start
+010035bc g       *ABS*	00000000 __ram_rwdata_start
 010034a8 g       *ABS*	00000000 __ram_rodata_start
 010025e0 g     F .text	00000098 vTaskResume
 01001b14 g     F .text	000000c8 vTaskSwitchContext
 01001634 g     F .text	00000044 xSixthTask
 01002a84 g     F .text	0000010c xTaskNotifyWait
 0100345c g     F .text	00000030 memcmp
-0100778c g       *ABS*	00000000 __alt_stack_base
+0100776c g       *ABS*	00000000 __alt_stack_base
 01002504 g     F .text	000000dc vTaskSuspend
 010019b0 g     F .text	00000008 uxTaskGetNumberOfTasks
 00000000         *UND*	00000000 save_context
@@ -261,14 +261,14 @@ SYMBOL TABLE:
 010012ac g     F .text	00000084 xQueueTakeMutexRecursive
 010015ac g     F .text	00000044 xFourthTask
 01002b90 g     F .text	00000110 xTaskGenericNotify
-01003624 g       *ABS*	00000000 __bss_start
+01003604 g       *ABS*	00000000 __bss_start
 01002ec8 g     F .text	00000020 memset
 01001678 g     F .text	00000194 main
 01000308 g     F .text	0000006c xAsymGetReq
-0100366c g     O .bss	00000004 alt_envp
+0100364c g     O .bss	00000004 alt_envp
 0100079c g     F .text	00000054 vListInsert
 010032bc g     F .text	00000024 altera_avalon_mutex_lock
-010035fc g     O .rwdata	00000004 alt_errno
+010035dc g     O .rwdata	00000004 alt_errno
 0100279c g     F .text	00000088 vTaskDelayUntil
 01001330 g     F .text	0000008c xQueueReceiveFromISR
 01001e3c g     F .text	00000008 xTaskGetCurrentTaskHandle
@@ -283,20 +283,20 @@ SYMBOL TABLE:
 01001434 g     F .text	00000040 uxQueueSpacesAvailable
 010022a4 g     F .text	00000074 vTaskStartScheduler
 0100148c g     F .text	00000010 xQueueIsQueueFullFromISR
-01003674 g     O .bss	00000004 alt_argc
+01003654 g     O .bss	00000004 alt_argc
 01001dfc g     F .text	0000000c vTaskMissedYield
 01001404 g     F .text	00000030 uxQueueMessagesWaiting
 01001104 g     F .text	000001a8 xQueueGenericReceive
 010019b8 g     F .text	0000015c xTaskIncrementTick
 01000020 g       *ABS*	00000000 __ram_exceptions_start
 01000c10 g     F .text	000000b8 xQueueGenericReset
-01003600 g       *ABS*	00000000 _edata
-0100778c g       *ABS*	00000000 _end
+010035e0 g       *ABS*	00000000 _edata
+0100776c g       *ABS*	00000000 _end
 010001dc g       *ABS*	00000000 __ram_exceptions_end
 01001568 g     F .text	00000044 xThirdTask
 01000a3c g     F .text	00000008 vPortInitialiseBlocks
 01003454 g     F .text	00000008 altera_nios2_qsys_irq_init
-010035f0 g     O .rwdata	00000004 jtag_uart_1
+010035d0 g     O .rwdata	00000004 jtag_uart_1
 01002824 g     F .text	00000058 vTaskDelay
 01800000 g       *ABS*	00000000 __alt_data_end
 01000000 g       *ABS*	00000000 __alt_mem_sdram
@@ -308,7 +308,7 @@ SYMBOL TABLE:
 01003178 g     F .text	00000048 alt_putchar
 01003450 g     F .text	00000004 alt_icache_flush_all
 01001de8 g     F .text	00000014 vTaskSetTimeOutState
-010035ec g     O .rwdata	00000004 alt_priority_mask
+010035cc g     O .rwdata	00000004 alt_priority_mask
 010032b8 g     F .text	00000004 altera_avalon_mutex_close
 01001474 g     F .text	00000008 uxQueueMessagesWaitingFromISR
 01001480 g     F .text	0000000c xQueueIsQueueEmptyFromISR
@@ -316,7 +316,7 @@ SYMBOL TABLE:
 01002978 g     F .text	00000024 uxTaskResetEventItemValue
 01000f04 g     F .text	00000080 xQueueCreateMutex
 01002db8 g     F .text	000000c0 vTaskNotifyGiveFromISR
-010005f4 g     F .text	00000150 vAsymServeRequest
+01000604 g     F .text	00000140 vAsymServeRequest
 01002ee8 g     F .text	000000f8 alt_load
 01001074 g     F .text	00000090 xQueueGiveFromISR
 
@@ -417,7 +417,7 @@ save_context:
 
 save_sp_to_pxCurrentTCB:
 	movia	et, pxCurrentTCB	# Load the address of the pxCurrentTCB pointer
- 10000a0:	c60d9904 	addi	et,et,13924
+ 10000a0:	c60d9104 	addi	et,et,13892
 	ldw		et, (et)			# Load the value of the pxCurrentTCB pointer
  10000a4:	c6000017 	ldw	et,0(et)
 	stw		sp, (et)			# Store the stack pointer into the top of the TCB
@@ -453,7 +453,7 @@ hw_irq_handler:
     .section .exceptions.irqreturn, "xa"
 restore_sp_from_pxCurrentTCB:
 	movia	et, pxCurrentTCB		# Load the address of the pxCurrentTCB pointer
- 10000c8:	c60d9904 	addi	et,et,13924
+ 10000c8:	c60d9104 	addi	et,et,13892
 	ldw		et, (et)				# Load the value of the pxCurrentTCB pointer
  10000cc:	c6000017 	ldw	et,0(et)
 	ldw		sp, (et)				# Load the stack pointer with the top value of the TCB
@@ -582,7 +582,7 @@ static ALT_INLINE alt_u32 ALT_ALWAYS_INLINE alt_irq_pending (void)
 #else
         alt_irq[i].handler(alt_irq[i].context, i); 
  100018c:	04004034 	movhi	r16,256
- 1000190:	841da304 	addi	r16,r16,30348
+ 1000190:	841d9b04 	addi	r16,r16,30316
 
   active = alt_irq_pending ();
 
@@ -656,7 +656,7 @@ Disassembly of section .text:
     movhi gp, %hi(_gp)
  10001e4:	06804034 	movhi	gp,256
     ori gp, gp, %lo(_gp)
- 10001e8:	d6ad7b14 	ori	gp,gp,46572
+ 10001e8:	d6ad7314 	ori	gp,gp,46540
  */
 #ifndef ALT_SIM_OPTIMIZE
     /* Log that the BSS is about to be cleared. */
@@ -665,12 +665,12 @@ Disassembly of section .text:
     movhi r2, %hi(__bss_start)
  10001ec:	00804034 	movhi	r2,256
     ori r2, r2, %lo(__bss_start)
- 10001f0:	108d8914 	ori	r2,r2,13860
+ 10001f0:	108d8114 	ori	r2,r2,13828
 
     movhi r3, %hi(__bss_end)
  10001f4:	00c04034 	movhi	r3,256
     ori r3, r3, %lo(__bss_end)
- 10001f8:	18dde314 	ori	r3,r3,30604
+ 10001f8:	18dddb14 	ori	r3,r3,30572
 
     beq r2, r3, 1f
  10001fc:	10c00326 	beq	r2,r3,100020c <_start+0x30>
@@ -800,7 +800,7 @@ bool_t xAsymReqQueuInit(){
  1000288:	d1200e17 	ldw	r4,-32712(gp)
  100028c:	10033080 	call	1003308 <altera_avalon_mutex_unlock>
  1000290:	00804034 	movhi	r2,256
- 1000294:	108da704 	addi	r2,r2,13980
+ 1000294:	108d9f04 	addi	r2,r2,13948
  1000298:	0007883a 	mov	r3,zero
  100029c:	11bff804 	addi	r6,r2,-32
 		/* Creating a polling task for the semaphore */
@@ -839,7 +839,7 @@ bool_t xAsymReqQueuInit(){
  10002d0:	d8000115 	stw	zero,4(sp)
  10002d4:	d8000215 	stw	zero,8(sp)
  10002d8:	d8000315 	stw	zero,12(sp)
- 10002dc:	21017704 	addi	r4,r4,1500
+ 10002dc:	21017b04 	addi	r4,r4,1516
  10002e0:	294d2e04 	addi	r5,r5,13496
  10002e4:	01805904 	movi	r6,356
  10002e8:	000f883a 	mov	r7,zero
@@ -970,7 +970,7 @@ bool_t xAsymTaskCreate( void (* pxTask )( void *p ) , xTaskIndex_t xTaskIndex){
 	pxTasks[ xTaskIndex ] = pxTask;
  10003b0:	294b883a 	add	r5,r5,r5
  10003b4:	00804034 	movhi	r2,256
- 10003b8:	108dbb04 	addi	r2,r2,14060
+ 10003b8:	108db304 	addi	r2,r2,14028
  10003bc:	294b883a 	add	r5,r5,r5
  10003c0:	114b883a 	add	r5,r2,r5
  10003c4:	29000015 	stw	r4,0(r5)
@@ -1054,7 +1054,7 @@ void vAsymServeReq(int8_t xToServe){
  1000430:	10bfe004 	addi	r2,r2,-128
  1000434:	1085883a 	add	r2,r2,r2
  1000438:	00c04034 	movhi	r3,256
- 100043c:	18cdbb04 	addi	r3,r3,14060
+ 100043c:	18cdb304 	addi	r3,r3,14028
  1000440:	1085883a 	add	r2,r2,r2
  1000444:	1885883a 	add	r2,r3,r2
  1000448:	10800017 	ldw	r2,0(r2)
@@ -1153,7 +1153,7 @@ void vAsymUpdateSentReq(){
  1000500:	0021883a 	mov	r16,zero
  1000504:	10032bc0 	call	10032bc <altera_avalon_mutex_lock>
  1000508:	05600154 	movui	r21,32773
- 100050c:	9ccd9f04 	addi	r19,r19,13948
+ 100050c:	9ccd9704 	addi	r19,r19,13916
  1000510:	05a00114 	movui	r22,32772
  1000514:	8569883a 	add	r20,r16,r21
 	for (ucIndex = 0; ucIndex < QUEUE_LENGTH ; ucIndex++){
@@ -1199,7 +1199,7 @@ void vAsymUpdateSentReq(){
 	altera_avalon_mutex_unlock(mutex);
  100055c:	10033081 	jmpi	1003308 <altera_avalon_mutex_unlock>
  1000560:	04804034 	movhi	r18,256
- 1000564:	948da704 	addi	r18,r18,13980
+ 1000564:	948d9f04 	addi	r18,r18,13948
 void vAsymUpdateSentReq(){
 	// Here should give semaphores to allow tasks to run
 	int8_t ucIndex, ucIndexNest;
@@ -1212,11 +1212,11 @@ void vAsymUpdateSentReq(){
 			for (ucIndexNest = 0; ucIndexNest < QUEUE_LENGTH ; ucIndexNest++){
 				if(xToServeQueue.xOccupied[ucIndexNest]  && xToServeQueue.xTaskToServe[ucIndexNest] == xReqQueue->pxItems[ucIndex].xItemValue){
  1000574:	90800007 	ldb	r2,0(r18)
- 1000578:	10001326 	beq	r2,zero,10005c8 <vAsymUpdateSentReq+0x100>
+ 1000578:	10001726 	beq	r2,zero,10005d8 <vAsymUpdateSentReq+0x110>
  100057c:	8cc5883a 	add	r2,r17,r19
  1000580:	10c00007 	ldb	r3,0(r2)
  1000584:	b8800007 	ldb	r2,0(r23)
- 1000588:	18800f1e 	bne	r3,r2,10005c8 <vAsymUpdateSentReq+0x100>
+ 1000588:	1880131e 	bne	r3,r2,10005d8 <vAsymUpdateSentReq+0x110>
  100058c:	8705883a 	add	r2,r16,fp
 					// Match found
 						//alt_printf("ucIndex: %x, ucIndexNest: %x, TaskToServ: %x\n",ucIndex,ucIndexNest, xToServeQueue.xTaskToServe[ucIndexNest]);
@@ -1247,161 +1247,162 @@ void vAsymUpdateSentReq(){
  10005c0:	a0800005 	stb	r2,0(r20)
 						xToServeQueue.xOccupied[ucIndexNest] = 0;
  10005c4:	90000005 	stb	zero,0(r18)
- 10005c8:	8c400044 	addi	r17,r17,1
+						xReqQueue->uxNumberOfItems--;
+ 10005c8:	00e00014 	movui	r3,32768
+ 10005cc:	18800003 	ldbu	r2,0(r3)
+ 10005d0:	10bfffc4 	addi	r2,r2,-1
+ 10005d4:	18800005 	stb	r2,0(r3)
+ 10005d8:	8c400044 	addi	r17,r17,1
 	// Here should give semaphores to allow tasks to run
 	int8_t ucIndex, ucIndexNest;
 	altera_avalon_mutex_lock(mutex, 1);
 	for (ucIndex = 0; ucIndex < QUEUE_LENGTH ; ucIndex++){
 		if(xReqQueue->pxItems[ ucIndex ].xServed == 0){
 			for (ucIndexNest = 0; ucIndexNest < QUEUE_LENGTH ; ucIndexNest++){
- 10005cc:	00800404 	movi	r2,16
- 10005d0:	94800044 	addi	r18,r18,1
- 10005d4:	88bfe71e 	bne	r17,r2,1000574 <vAsymUpdateSentReq+0xac>
- 10005d8:	003fd106 	br	1000520 <vAsymUpdateSentReq+0x58>
+ 10005dc:	00800404 	movi	r2,16
+ 10005e0:	94800044 	addi	r18,r18,1
+ 10005e4:	88bfe31e 	bne	r17,r2,1000574 <vAsymUpdateSentReq+0xac>
+ 10005e8:	003fcd06 	br	1000520 <vAsymUpdateSentReq+0x58>
 
-010005dc <vAsymSemaphorePolling>:
+010005ec <vAsymSemaphorePolling>:
 	 mutex = altera_avalon_mutex_open(MUTEX_0_NAME);
 	 return xTrue;
 }
 
 
 void vAsymSemaphorePolling(void *p ){
- 10005dc:	deffff04 	addi	sp,sp,-4
- 10005e0:	dfc00015 	stw	ra,0(sp)
+ 10005ec:	deffff04 	addi	sp,sp,-4
+ 10005f0:	dfc00015 	stw	ra,0(sp)
 		vAsymUpdateFinishedReq();
 		#endif // IS_MASTER
 
 
 		#ifdef IS_SLAVE
 		vAsymUpdateSentReq();
- 10005e4:	10004c80 	call	10004c8 <vAsymUpdateSentReq>
+ 10005f4:	10004c80 	call	10004c8 <vAsymUpdateSentReq>
 		#endif // IS_MASTER
 
 		vTaskDelay(200);
- 10005e8:	01003204 	movi	r4,200
- 10005ec:	10028240 	call	1002824 <vTaskDelay>
+ 10005f8:	01003204 	movi	r4,200
+ 10005fc:	10028240 	call	1002824 <vTaskDelay>
 	}
- 10005f0:	003ffc06 	br	10005e4 <vAsymSemaphorePolling+0x8>
+ 1000600:	003ffc06 	br	10005f4 <vAsymSemaphorePolling+0x8>
 
-010005f4 <vAsymServeRequest>:
+01000604 <vAsymServeRequest>:
 
 
 
 }
 
 int8_t vAsymServeRequest(int8_t ucRequestedTask){
- 10005f4:	defffb04 	addi	sp,sp,-20
- 10005f8:	dc000115 	stw	r16,4(sp)
- 10005fc:	2021883a 	mov	r16,r4
- 1000600:	dc800315 	stw	r18,12(sp)
- 1000604:	dfc00415 	stw	ra,16(sp)
- 1000608:	dc400215 	stw	r17,8(sp)
- 100060c:	2025883a 	mov	r18,r4
+ 1000604:	defffb04 	addi	sp,sp,-20
+ 1000608:	dc000115 	stw	r16,4(sp)
+ 100060c:	2021883a 	mov	r16,r4
+ 1000610:	dc800315 	stw	r18,12(sp)
+ 1000614:	dfc00415 	stw	ra,16(sp)
+ 1000618:	dc400215 	stw	r17,8(sp)
+ 100061c:	2025883a 	mov	r18,r4
 	// Loop through xToServeRequest. If request is not found, create a new semaphore.
 	int8_t ucIndex, xSentValue;
 
 	taskENTER_CRITICAL();
 	for (ucIndex = 0; ucIndex < QUEUE_LENGTH ; ucIndex++){
 		if( xToServeQueue.xOccupied[ucIndex]  && xToServeQueue.xTaskToServe[ucIndex] == ucRequestedTask ){
- 1000610:	84003fcc 	andi	r16,r16,255
+ 1000620:	84003fcc 	andi	r16,r16,255
 
 int8_t vAsymServeRequest(int8_t ucRequestedTask){
 	// Loop through xToServeRequest. If request is not found, create a new semaphore.
 	int8_t ucIndex, xSentValue;
 
 	taskENTER_CRITICAL();
- 1000614:	1001fbc0 	call	1001fbc <vTaskEnterCritical>
- 1000618:	01c04034 	movhi	r7,256
+ 1000624:	1001fbc0 	call	1001fbc <vTaskEnterCritical>
+ 1000628:	01c04034 	movhi	r7,256
 	for (ucIndex = 0; ucIndex < QUEUE_LENGTH ; ucIndex++){
 		if( xToServeQueue.xOccupied[ucIndex]  && xToServeQueue.xTaskToServe[ucIndex] == ucRequestedTask ){
- 100061c:	8400201c 	xori	r16,r16,128
+ 100062c:	8400201c 	xori	r16,r16,128
 
 int8_t vAsymServeRequest(int8_t ucRequestedTask){
 	// Loop through xToServeRequest. If request is not found, create a new semaphore.
 	int8_t ucIndex, xSentValue;
 
 	taskENTER_CRITICAL();
- 1000620:	0005883a 	mov	r2,zero
- 1000624:	39cd9f04 	addi	r7,r7,13948
+ 1000630:	0005883a 	mov	r2,zero
+ 1000634:	39cd9704 	addi	r7,r7,13916
 	for (ucIndex = 0; ucIndex < QUEUE_LENGTH ; ucIndex++){
 		if( xToServeQueue.xOccupied[ucIndex]  && xToServeQueue.xTaskToServe[ucIndex] == ucRequestedTask ){
- 1000628:	843fe004 	addi	r16,r16,-128
+ 1000638:	843fe004 	addi	r16,r16,-128
 int8_t vAsymServeRequest(int8_t ucRequestedTask){
 	// Loop through xToServeRequest. If request is not found, create a new semaphore.
 	int8_t ucIndex, xSentValue;
 
 	taskENTER_CRITICAL();
 	for (ucIndex = 0; ucIndex < QUEUE_LENGTH ; ucIndex++){
- 100062c:	01800404 	movi	r6,16
- 1000630:	11c9883a 	add	r4,r2,r7
+ 100063c:	01800404 	movi	r6,16
+ 1000640:	11c9883a 	add	r4,r2,r7
 		if( xToServeQueue.xOccupied[ucIndex]  && xToServeQueue.xTaskToServe[ucIndex] == ucRequestedTask ){
- 1000634:	22000807 	ldb	r8,32(r4)
- 1000638:	00c04034 	movhi	r3,256
- 100063c:	18cd9f04 	addi	r3,r3,13948
- 1000640:	180b883a 	mov	r5,r3
- 1000644:	40000f26 	beq	r8,zero,1000684 <vAsymServeRequest+0x90>
- 1000648:	21000007 	ldb	r4,0(r4)
- 100064c:	24000d1e 	bne	r4,r16,1000684 <vAsymServeRequest+0x90>
+ 1000644:	22000807 	ldb	r8,32(r4)
+ 1000648:	00c04034 	movhi	r3,256
+ 100064c:	18cd9704 	addi	r3,r3,13916
+ 1000650:	180b883a 	mov	r5,r3
+ 1000654:	40000f26 	beq	r8,zero,1000694 <vAsymServeRequest+0x90>
+ 1000658:	21000007 	ldb	r4,0(r4)
+ 100065c:	24000d1e 	bne	r4,r16,1000694 <vAsymServeRequest+0x90>
 			//alt_printf("Found task in queue \n");
 			xSemaphoreHandle* xSemaphore = (xSemaphoreHandle *) ( xToServeQueue.pvSemaphore[ucIndex] );
- 1000650:	10800304 	addi	r2,r2,12
- 1000654:	1085883a 	add	r2,r2,r2
- 1000658:	1085883a 	add	r2,r2,r2
- 100065c:	1885883a 	add	r2,r3,r2
- 1000660:	14000017 	ldw	r16,0(r2)
+ 1000660:	10800304 	addi	r2,r2,12
+ 1000664:	1085883a 	add	r2,r2,r2
+ 1000668:	1085883a 	add	r2,r2,r2
+ 100066c:	1885883a 	add	r2,r3,r2
+ 1000670:	14000017 	ldw	r16,0(r2)
 			xSemaphoreTake( *xSemaphore, portMAX_DELAY);
- 1000664:	000b883a 	mov	r5,zero
- 1000668:	01bfffc4 	movi	r6,-1
- 100066c:	81000017 	ldw	r4,0(r16)
- 1000670:	000f883a 	mov	r7,zero
- 1000674:	10011040 	call	1001104 <xQueueGenericReceive>
+ 1000674:	000b883a 	mov	r5,zero
+ 1000678:	01bfffc4 	movi	r6,-1
+ 100067c:	81000017 	ldw	r4,0(r16)
+ 1000680:	000f883a 	mov	r7,zero
+ 1000684:	10011040 	call	1001104 <xQueueGenericReceive>
 
 			vSemaphoreDelete( *xSemaphore );
- 1000678:	81000017 	ldw	r4,0(r16)
- 100067c:	100147c0 	call	100147c <vQueueDelete>
- 1000680:	00002906 	br	1000728 <vAsymServeRequest+0x134>
- 1000684:	10800044 	addi	r2,r2,1
+ 1000688:	81000017 	ldw	r4,0(r16)
+ 100068c:	100147c0 	call	100147c <vQueueDelete>
+ 1000690:	00002506 	br	1000728 <vAsymServeRequest+0x124>
+ 1000694:	10800044 	addi	r2,r2,1
 int8_t vAsymServeRequest(int8_t ucRequestedTask){
 	// Loop through xToServeRequest. If request is not found, create a new semaphore.
 	int8_t ucIndex, xSentValue;
 
 	taskENTER_CRITICAL();
 	for (ucIndex = 0; ucIndex < QUEUE_LENGTH ; ucIndex++){
- 1000688:	11bfe91e 	bne	r2,r6,1000630 <vAsymServeRequest+0x3c>
- 100068c:	0021883a 	mov	r16,zero
+ 1000698:	11bfe91e 	bne	r2,r6,1000640 <vAsymServeRequest+0x3c>
+ 100069c:	0021883a 	mov	r16,zero
 			return -1;
 		}
 	}
 	// If not found
 	// Find an empty place:
 	for (ucIndex = 0; ucIndex < QUEUE_LENGTH ; ucIndex++){
- 1000690:	00800404 	movi	r2,16
- 1000694:	8163883a 	add	r17,r16,r5
+ 10006a0:	00800404 	movi	r2,16
+ 10006a4:	8163883a 	add	r17,r16,r5
 			if( !xToServeQueue.xOccupied[ucIndex]) break;
- 1000698:	88c00807 	ldb	r3,32(r17)
- 100069c:	18000426 	beq	r3,zero,10006b0 <vAsymServeRequest+0xbc>
- 10006a0:	84000044 	addi	r16,r16,1
+ 10006a8:	88c00807 	ldb	r3,32(r17)
+ 10006ac:	18000426 	beq	r3,zero,10006c0 <vAsymServeRequest+0xbc>
+ 10006b0:	84000044 	addi	r16,r16,1
 			return -1;
 		}
 	}
 	// If not found
 	// Find an empty place:
 	for (ucIndex = 0; ucIndex < QUEUE_LENGTH ; ucIndex++){
- 10006a4:	80bffb1e 	bne	r16,r2,1000694 <vAsymServeRequest+0xa0>
+ 10006b4:	80bffb1e 	bne	r16,r2,10006a4 <vAsymServeRequest+0xa0>
 			if( !xToServeQueue.xOccupied[ucIndex]) break;
 	}
 	if(ucIndex >= QUEUE_LENGTH) {
 		// No empty location.
 		taskEXIT_CRITICAL();
- 10006a8:	1001fec0 	call	1001fec <vTaskExitCritical>
- 10006ac:	00001e06 	br	1000728 <vAsymServeRequest+0x134>
+ 10006b8:	1001fec0 	call	1001fec <vTaskExitCritical>
+ 10006bc:	00001a06 	br	1000728 <vAsymServeRequest+0x124>
 		return -1;
 	}
-	alt_printf("Found Empty location at: %x  \n", ucIndex);
- 10006b0:	01004034 	movhi	r4,256
- 10006b4:	800b883a 	mov	r5,r16
- 10006b8:	210d3004 	addi	r4,r4,13504
- 10006bc:	100300c0 	call	100300c <alt_printf>
+	//alt_printf("Found Empty location at: %x  \n", ucIndex);
 	xToServeQueue.xOccupied[ucIndex] = 1;
  10006c0:	00800044 	movi	r2,1
 	xToServeQueue.xTaskToServe[ucIndex] = ucRequestedTask;
@@ -1413,7 +1414,7 @@ int8_t vAsymServeRequest(int8_t ucRequestedTask){
 		taskEXIT_CRITICAL();
 		return -1;
 	}
-	alt_printf("Found Empty location at: %x  \n", ucIndex);
+	//alt_printf("Found Empty location at: %x  \n", ucIndex);
 	xToServeQueue.xOccupied[ucIndex] = 1;
  10006d0:	88800805 	stb	r2,32(r17)
 	xToServeQueue.xTaskToServe[ucIndex] = ucRequestedTask;
@@ -1423,7 +1424,7 @@ int8_t vAsymServeRequest(int8_t ucRequestedTask){
  10006d8:	84000304 	addi	r16,r16,12
 		return -1;
 	}
-	alt_printf("Found Empty location at: %x  \n", ucIndex);
+	//alt_printf("Found Empty location at: %x  \n", ucIndex);
 	xToServeQueue.xOccupied[ucIndex] = 1;
 	xToServeQueue.xTaskToServe[ucIndex] = ucRequestedTask;
 	xSemaphoreHandle xSemaphore = xSemaphoreCreateBinary();
@@ -1431,7 +1432,7 @@ int8_t vAsymServeRequest(int8_t ucRequestedTask){
 	xToServeQueue.pvSemaphore[ucIndex] = (void*) &xSemaphore;
  10006e0:	8421883a 	add	r16,r16,r16
  10006e4:	00c04034 	movhi	r3,256
- 10006e8:	18cd9f04 	addi	r3,r3,13948
+ 10006e8:	18cd9704 	addi	r3,r3,13916
  10006ec:	8421883a 	add	r16,r16,r16
  10006f0:	1c21883a 	add	r16,r3,r16
 	xSemaphoreTake( xSemaphore, portMAX_DELAY);
@@ -1440,7 +1441,7 @@ int8_t vAsymServeRequest(int8_t ucRequestedTask){
  10006fc:	000f883a 	mov	r7,zero
  1000700:	1009883a 	mov	r4,r2
 	}
-	alt_printf("Found Empty location at: %x  \n", ucIndex);
+	//alt_printf("Found Empty location at: %x  \n", ucIndex);
 	xToServeQueue.xOccupied[ucIndex] = 1;
 	xToServeQueue.xTaskToServe[ucIndex] = ucRequestedTask;
 	xSemaphoreHandle xSemaphore = xSemaphoreCreateBinary();
@@ -1448,7 +1449,7 @@ int8_t vAsymServeRequest(int8_t ucRequestedTask){
  1000704:	86c00015 	stw	sp,0(r16)
 		return -1;
 	}
-	alt_printf("Found Empty location at: %x  \n", ucIndex);
+	//alt_printf("Found Empty location at: %x  \n", ucIndex);
 	xToServeQueue.xOccupied[ucIndex] = 1;
 	xToServeQueue.xTaskToServe[ucIndex] = ucRequestedTask;
 	xSemaphoreHandle xSemaphore = xSemaphoreCreateBinary();
@@ -1474,7 +1475,7 @@ int8_t vAsymServeRequest(int8_t ucRequestedTask){
  100071c:	1001fec0 	call	1001fec <vTaskExitCritical>
 	return xSentValue;
  1000720:	8005883a 	mov	r2,r16
- 1000724:	00000106 	br	100072c <vAsymServeRequest+0x138>
+ 1000724:	00000106 	br	100072c <vAsymServeRequest+0x128>
 			if( !xToServeQueue.xOccupied[ucIndex]) break;
 	}
 	if(ucIndex >= QUEUE_LENGTH) {
@@ -1861,7 +1862,7 @@ static ALT_INLINE alt_irq_context ALT_ALWAYS_INLINE
 		alt_irq[id].handler = handler;
  10008b0:	200490fa 	slli	r2,r4,3
  10008b4:	01c04034 	movhi	r7,256
- 10008b8:	39dda304 	addi	r7,r7,30348
+ 10008b8:	39dd9b04 	addi	r7,r7,30316
  10008bc:	3885883a 	add	r2,r7,r2
 		alt_irq[id].context = context;
  10008c0:	11400115 	stw	r5,4(r2)
@@ -1873,7 +1874,7 @@ static ALT_INLINE alt_irq_context ALT_ALWAYS_INLINE
 		alt_irq[id].handler = handler;
  10008c4:	11800015 	stw	r6,0(r2)
  10008c8:	01404034 	movhi	r5,256
- 10008cc:	294d9a04 	addi	r5,r5,13928
+ 10008cc:	294d9204 	addi	r5,r5,13896
  10008d0:	00800044 	movi	r2,1
 		alt_irq[id].context = context;
 
@@ -2090,7 +2091,7 @@ static uint8_t *pucAlignedHeap = NULL;
 			pucAlignedHeap = ( uint8_t * ) ( ( ( portPOINTER_SIZE_TYPE ) &ucHeap[ portBYTE_ALIGNMENT ] ) & ( ~( ( portPOINTER_SIZE_TYPE ) portBYTE_ALIGNMENT_MASK ) ) );
  10009e0:	00c04034 	movhi	r3,256
  10009e4:	00bfff04 	movi	r2,-4
- 10009e8:	18cdcc04 	addi	r3,r3,14128
+ 10009e8:	18cdc404 	addi	r3,r3,14096
  10009ec:	1884703a 	and	r2,r3,r2
  10009f0:	d0a00f15 	stw	r2,-32708(gp)
 		}
@@ -4107,13 +4108,13 @@ void xZerothTask( void * data){
  10014ac:	1001fec0 	call	1001fec <vTaskExitCritical>
 		value = vAsymServeRequest(Task0);
  10014b0:	0009883a 	mov	r4,zero
- 10014b4:	10005f40 	call	10005f4 <vAsymServeRequest>
+ 10014b4:	10006040 	call	1000604 <vAsymServeRequest>
  10014b8:	1021883a 	mov	r16,r2
 		taskENTER_CRITICAL();
  10014bc:	1001fbc0 	call	1001fbc <vTaskEnterCritical>
 		alt_printf("%x: Task 0 Done\n", value);
  10014c0:	01004034 	movhi	r4,256
- 10014c4:	210d3804 	addi	r4,r4,13536
+ 10014c4:	210d3004 	addi	r4,r4,13504
  10014c8:	800b883a 	mov	r5,r16
  10014cc:	100300c0 	call	100300c <alt_printf>
 		taskEXIT_CRITICAL();
@@ -4140,13 +4141,13 @@ void xFirstTask( void * data){
  10014f0:	1001fec0 	call	1001fec <vTaskExitCritical>
 		value = vAsymServeRequest(Task1);
  10014f4:	01000044 	movi	r4,1
- 10014f8:	10005f40 	call	10005f4 <vAsymServeRequest>
+ 10014f8:	10006040 	call	1000604 <vAsymServeRequest>
  10014fc:	1021883a 	mov	r16,r2
 		taskENTER_CRITICAL();
  1001500:	1001fbc0 	call	1001fbc <vTaskEnterCritical>
 		alt_printf("%x: Task 1 Done\n", value);
  1001504:	01004034 	movhi	r4,256
- 1001508:	210d3d04 	addi	r4,r4,13556
+ 1001508:	210d3504 	addi	r4,r4,13524
  100150c:	800b883a 	mov	r5,r16
  1001510:	100300c0 	call	100300c <alt_printf>
 		taskEXIT_CRITICAL();
@@ -4172,13 +4173,13 @@ void xSecondTask( void * data){
  1001534:	1001fec0 	call	1001fec <vTaskExitCritical>
 		value = vAsymServeRequest(Task2);
  1001538:	01000084 	movi	r4,2
- 100153c:	10005f40 	call	10005f4 <vAsymServeRequest>
+ 100153c:	10006040 	call	1000604 <vAsymServeRequest>
  1001540:	1021883a 	mov	r16,r2
 		taskENTER_CRITICAL();
  1001544:	1001fbc0 	call	1001fbc <vTaskEnterCritical>
 		alt_printf("%x: Task 2 Done\n", value);
  1001548:	01004034 	movhi	r4,256
- 100154c:	210d4204 	addi	r4,r4,13576
+ 100154c:	210d3a04 	addi	r4,r4,13544
  1001550:	800b883a 	mov	r5,r16
  1001554:	100300c0 	call	100300c <alt_printf>
 		taskEXIT_CRITICAL();
@@ -4205,13 +4206,13 @@ void xThirdTask( void * data){
  1001578:	1001fec0 	call	1001fec <vTaskExitCritical>
 		value = vAsymServeRequest(Task3);
  100157c:	010000c4 	movi	r4,3
- 1001580:	10005f40 	call	10005f4 <vAsymServeRequest>
+ 1001580:	10006040 	call	1000604 <vAsymServeRequest>
  1001584:	1021883a 	mov	r16,r2
 		taskENTER_CRITICAL();
  1001588:	1001fbc0 	call	1001fbc <vTaskEnterCritical>
 		alt_printf("%x: Task 3 Done\n", value);
  100158c:	01004034 	movhi	r4,256
- 1001590:	210d4704 	addi	r4,r4,13596
+ 1001590:	210d3f04 	addi	r4,r4,13564
  1001594:	800b883a 	mov	r5,r16
  1001598:	100300c0 	call	100300c <alt_printf>
 		taskEXIT_CRITICAL();
@@ -4238,13 +4239,13 @@ void xFourthTask( void * data){
  10015bc:	1001fec0 	call	1001fec <vTaskExitCritical>
 		value = vAsymServeRequest(Task4);
  10015c0:	01000104 	movi	r4,4
- 10015c4:	10005f40 	call	10005f4 <vAsymServeRequest>
+ 10015c4:	10006040 	call	1000604 <vAsymServeRequest>
  10015c8:	1021883a 	mov	r16,r2
 		taskENTER_CRITICAL();
  10015cc:	1001fbc0 	call	1001fbc <vTaskEnterCritical>
 		alt_printf("%x: Task 4 Done\n", value);
  10015d0:	01004034 	movhi	r4,256
- 10015d4:	210d4c04 	addi	r4,r4,13616
+ 10015d4:	210d4404 	addi	r4,r4,13584
  10015d8:	800b883a 	mov	r5,r16
  10015dc:	100300c0 	call	100300c <alt_printf>
 		taskEXIT_CRITICAL();
@@ -4271,13 +4272,13 @@ void xFifthTask( void * data){
  1001600:	1001fec0 	call	1001fec <vTaskExitCritical>
 		value = vAsymServeRequest(Task5);
  1001604:	01000144 	movi	r4,5
- 1001608:	10005f40 	call	10005f4 <vAsymServeRequest>
+ 1001608:	10006040 	call	1000604 <vAsymServeRequest>
  100160c:	1021883a 	mov	r16,r2
 		taskENTER_CRITICAL();
  1001610:	1001fbc0 	call	1001fbc <vTaskEnterCritical>
 		alt_printf("%x: Task 5 Done\n", value);
  1001614:	01004034 	movhi	r4,256
- 1001618:	210d5104 	addi	r4,r4,13636
+ 1001618:	210d4904 	addi	r4,r4,13604
  100161c:	800b883a 	mov	r5,r16
  1001620:	100300c0 	call	100300c <alt_printf>
 		taskEXIT_CRITICAL();
@@ -4304,13 +4305,13 @@ void xSixthTask( void * data){
  1001644:	1001fec0 	call	1001fec <vTaskExitCritical>
 		value = vAsymServeRequest(Task6);
  1001648:	01000184 	movi	r4,6
- 100164c:	10005f40 	call	10005f4 <vAsymServeRequest>
+ 100164c:	10006040 	call	1000604 <vAsymServeRequest>
  1001650:	1021883a 	mov	r16,r2
 		taskENTER_CRITICAL();
  1001654:	1001fbc0 	call	1001fbc <vTaskEnterCritical>
 		alt_printf("%x: Task 6 Done\n", value);
  1001658:	01004034 	movhi	r4,256
- 100165c:	210d5604 	addi	r4,r4,13656
+ 100165c:	210d4e04 	addi	r4,r4,13624
  1001660:	800b883a 	mov	r5,r16
  1001664:	100300c0 	call	100300c <alt_printf>
 		taskEXIT_CRITICAL();
@@ -4337,11 +4338,11 @@ int main()
 
 	alt_putstr("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
  1001690:	01004034 	movhi	r4,256
- 1001694:	210d5b04 	addi	r4,r4,13676
+ 1001694:	210d5304 	addi	r4,r4,13644
  1001698:	10031c00 	call	10031c0 <alt_putstr>
 	alt_putstr("CPU 1 started\n");
  100169c:	01004034 	movhi	r4,256
- 10016a0:	210d6104 	addi	r4,r4,13700
+ 10016a0:	210d5904 	addi	r4,r4,13668
  10016a4:	10031c00 	call	10031c0 <alt_putstr>
 
 	xTaskCreate(xZerothTask , "Task0" , 100, NULL, 2, NULL);
@@ -4355,7 +4356,7 @@ int main()
  10016c4:	d8000215 	stw	zero,8(sp)
  10016c8:	d8000315 	stw	zero,12(sp)
  10016cc:	21052704 	addi	r4,r4,5276
- 10016d0:	294d6504 	addi	r5,r5,13716
+ 10016d0:	294d5d04 	addi	r5,r5,13684
  10016d4:	000f883a 	mov	r7,zero
  10016d8:	10020280 	call	1002028 <xTaskGenericCreate>
 	xTaskCreate(xFirstTask , "Task1" , 100, NULL, 2, NULL);
@@ -4367,7 +4368,7 @@ int main()
  10016f0:	d8000215 	stw	zero,8(sp)
  10016f4:	d8000315 	stw	zero,12(sp)
  10016f8:	21053804 	addi	r4,r4,5344
- 10016fc:	294d6704 	addi	r5,r5,13724
+ 10016fc:	294d5f04 	addi	r5,r5,13692
  1001700:	000f883a 	mov	r7,zero
  1001704:	10020280 	call	1002028 <xTaskGenericCreate>
 	xTaskCreate(xSecondTask , "Task2" , 100, NULL, 2, NULL);
@@ -4379,7 +4380,7 @@ int main()
  100171c:	d8000215 	stw	zero,8(sp)
  1001720:	d8000315 	stw	zero,12(sp)
  1001724:	21054904 	addi	r4,r4,5412
- 1001728:	294d6904 	addi	r5,r5,13732
+ 1001728:	294d6104 	addi	r5,r5,13700
  100172c:	000f883a 	mov	r7,zero
  1001730:	10020280 	call	1002028 <xTaskGenericCreate>
 	xTaskCreate(xThirdTask , "Task3" , 100, NULL, 2, NULL);
@@ -4391,7 +4392,7 @@ int main()
  1001748:	d8000215 	stw	zero,8(sp)
  100174c:	d8000315 	stw	zero,12(sp)
  1001750:	21055a04 	addi	r4,r4,5480
- 1001754:	294d6b04 	addi	r5,r5,13740
+ 1001754:	294d6304 	addi	r5,r5,13708
  1001758:	000f883a 	mov	r7,zero
  100175c:	10020280 	call	1002028 <xTaskGenericCreate>
 	xTaskCreate(xFourthTask , "Task4" , 100, NULL, 2, NULL);
@@ -4403,7 +4404,7 @@ int main()
  1001774:	d8000215 	stw	zero,8(sp)
  1001778:	d8000315 	stw	zero,12(sp)
  100177c:	21056b04 	addi	r4,r4,5548
- 1001780:	294d6d04 	addi	r5,r5,13748
+ 1001780:	294d6504 	addi	r5,r5,13716
  1001784:	000f883a 	mov	r7,zero
  1001788:	10020280 	call	1002028 <xTaskGenericCreate>
 	xTaskCreate(xFifthTask , "Task5" , 100, NULL, 2, NULL);
@@ -4415,13 +4416,13 @@ int main()
  10017a0:	d8000215 	stw	zero,8(sp)
  10017a4:	d8000315 	stw	zero,12(sp)
  10017a8:	21057c04 	addi	r4,r4,5616
- 10017ac:	294d6f04 	addi	r5,r5,13756
+ 10017ac:	294d6704 	addi	r5,r5,13724
  10017b0:	000f883a 	mov	r7,zero
  10017b4:	10020280 	call	1002028 <xTaskGenericCreate>
 	xTaskCreate(xSixthTask , "Task6" , 100, NULL, 2, NULL);
  10017b8:	01004034 	movhi	r4,256
  10017bc:	01404034 	movhi	r5,256
- 10017c0:	294d7104 	addi	r5,r5,13764
+ 10017c0:	294d6904 	addi	r5,r5,13732
  10017c4:	800d883a 	mov	r6,r16
  10017c8:	000f883a 	mov	r7,zero
  10017cc:	21058d04 	addi	r4,r4,5684
@@ -4439,7 +4440,7 @@ int main()
  10017e4:	10022a40 	call	10022a4 <vTaskStartScheduler>
 	alt_putstr("OOPs!\n");
  10017e8:	01004034 	movhi	r4,256
- 10017ec:	210d7304 	addi	r4,r4,13772
+ 10017ec:	210d6b04 	addi	r4,r4,13740
  10017f0:	10031c00 	call	10031c0 <alt_putstr>
 
 	return 0;
@@ -4460,14 +4461,14 @@ int main()
 		if( listIS_CONTAINED_WITHIN( &xSuspendedTaskList, &( pxTCB->xGenericListItem ) ) != pdFALSE )
  100180c:	20c00517 	ldw	r3,20(r4)
  1001810:	00804034 	movhi	r2,256
- 1001814:	109d7104 	addi	r2,r2,30148
+ 1001814:	109d6904 	addi	r2,r2,30116
  1001818:	1880051e 	bne	r3,r2,1001830 <prvTaskIsTaskSuspended+0x24>
 		{
 			/* Has the task already been resumed from within an ISR? */
 			if( listIS_CONTAINED_WITHIN( &xPendingReadyList, &( pxTCB->xEventListItem ) ) == pdFALSE )
  100181c:	20c00a17 	ldw	r3,40(r4)
  1001820:	01004034 	movhi	r4,256
- 1001824:	211d7b04 	addi	r4,r4,30188
+ 1001824:	211d7304 	addi	r4,r4,30156
 			{
 				/* Is it in the suspended list because it is in the	Suspended
 				state, or because is is blocked with no timeout? */
@@ -4696,7 +4697,7 @@ static void prvAddCurrentTaskToDelayedList( const TickType_t xTimeToWake )
  1001928:	01400504 	movi	r5,20
  100192c:	1002e780 	call	1002e78 <__mulsi3>
  1001930:	01004034 	movhi	r4,256
- 1001934:	211d8a04 	addi	r4,r4,30248
+ 1001934:	211d8204 	addi	r4,r4,30216
  1001938:	2089883a 	add	r4,r4,r2
  100193c:	900b883a 	mov	r5,r18
  1001940:	100076c0 	call	100076c <vListInsertEnd>
@@ -4708,7 +4709,7 @@ static void prvAddCurrentTaskToDelayedList( const TickType_t xTimeToWake )
 					unsuspended. */
 					vListInsertEnd( &( xPendingReadyList ), &( pxTCB->xEventListItem ) );
  1001948:	01004034 	movhi	r4,256
- 100194c:	211d7b04 	addi	r4,r4,30188
+ 100194c:	211d7304 	addi	r4,r4,30156
  1001950:	89400604 	addi	r5,r17,24
  1001954:	100076c0 	call	100076c <vListInsertEnd>
 
@@ -4870,7 +4871,7 @@ BaseType_t xTaskIncrementTick( void )
 			if( xConstTickCount >= xNextTaskUnblockTime )
  1001a10:	d0a01217 	ldw	r2,-32696(gp)
  1001a14:	04804034 	movhi	r18,256
- 1001a18:	949d8a04 	addi	r18,r18,30248
+ 1001a18:	949d8204 	addi	r18,r18,30216
  1001a1c:	0021883a 	mov	r16,zero
  1001a20:	98800b36 	bltu	r19,r2,1001a50 <xTaskIncrementTick+0x98>
 			{
@@ -5077,14 +5078,14 @@ void vTaskSwitchContext( void )
 		/* Select a new task to run using either the generic C or port
 		optimised asm code. */
 		taskSELECT_HIGHEST_PRIORITY_TASK();
- 1001b40:	8c5d8a04 	addi	r17,r17,30248
+ 1001b40:	8c5d8204 	addi	r17,r17,30216
  1001b44:	d1201817 	ldw	r4,-32672(gp)
  1001b48:	01400504 	movi	r5,20
  1001b4c:	04004034 	movhi	r16,256
  1001b50:	1002e780 	call	1002e78 <__mulsi3>
  1001b54:	8885883a 	add	r2,r17,r2
  1001b58:	10800017 	ldw	r2,0(r2)
- 1001b5c:	841d8a04 	addi	r16,r16,30248
+ 1001b5c:	841d8204 	addi	r16,r16,30216
  1001b60:	1000041e 	bne	r2,zero,1001b74 <vTaskSwitchContext+0x60>
  1001b64:	d0a01817 	ldw	r2,-32672(gp)
  1001b68:	10bfffc4 	addi	r2,r2,-1
@@ -5176,7 +5177,7 @@ void vTaskPlaceOnEventList( List_t * const pxEventList, const TickType_t xTicksT
 			vListInsertEnd( &xSuspendedTaskList, &( pxCurrentTCB->xGenericListItem ) );
  1001c0c:	d1601e17 	ldw	r5,-32648(gp)
  1001c10:	01004034 	movhi	r4,256
- 1001c14:	211d7104 	addi	r4,r4,30148
+ 1001c14:	211d6904 	addi	r4,r4,30116
  1001c18:	29400104 	addi	r5,r5,4
 			will handle it. */
 			xTimeToWake = xTickCount + xTicksToWait;
@@ -5290,7 +5291,7 @@ void vTaskPlaceOnUnorderedEventList( List_t * pxEventList, const TickType_t xIte
 			vListInsertEnd( &xSuspendedTaskList, &( pxCurrentTCB->xGenericListItem ) );
  1001c80:	d1601e17 	ldw	r5,-32648(gp)
  1001c84:	01004034 	movhi	r4,256
- 1001c88:	211d7104 	addi	r4,r4,30148
+ 1001c88:	211d6904 	addi	r4,r4,30116
  1001c8c:	29400104 	addi	r5,r5,4
 			will manage it correctly. */
 			xTimeToWake = xTickCount + xTicksToWait;
@@ -5391,7 +5392,7 @@ BaseType_t xTaskRemoveFromEventList( const List_t * const pxEventList )
  1001d00:	01400504 	movi	r5,20
  1001d04:	1002e780 	call	1002e78 <__mulsi3>
  1001d08:	01004034 	movhi	r4,256
- 1001d0c:	211d8a04 	addi	r4,r4,30248
+ 1001d0c:	211d8204 	addi	r4,r4,30216
  1001d10:	2089883a 	add	r4,r4,r2
  1001d14:	00000206 	br	1001d20 <xTaskRemoveFromEventList+0x68>
 	}
@@ -5401,7 +5402,7 @@ BaseType_t xTaskRemoveFromEventList( const List_t * const pxEventList )
 		pending until the scheduler is resumed. */
 		vListInsertEnd( &( xPendingReadyList ), &( pxUnblockedTCB->xEventListItem ) );
  1001d18:	01004034 	movhi	r4,256
- 1001d1c:	211d7b04 	addi	r4,r4,30188
+ 1001d1c:	211d7304 	addi	r4,r4,30156
  1001d20:	880b883a 	mov	r5,r17
  1001d24:	100076c0 	call	100076c <vListInsertEnd>
 	}
@@ -5490,7 +5491,7 @@ BaseType_t xTaskRemoveFromUnorderedEventList( ListItem_t * pxEventListItem, cons
  1001d98:	01400504 	movi	r5,20
  1001d9c:	1002e780 	call	1002e78 <__mulsi3>
  1001da0:	01004034 	movhi	r4,256
- 1001da4:	211d8a04 	addi	r4,r4,30248
+ 1001da4:	211d8204 	addi	r4,r4,30216
  1001da8:	2089883a 	add	r4,r4,r2
  1001dac:	880b883a 	mov	r5,r17
  1001db0:	100076c0 	call	100076c <vListInsertEnd>
@@ -5677,7 +5678,7 @@ void vTaskMissedYield( void )
  1001e94:	1002e780 	call	1002e78 <__mulsi3>
  1001e98:	01004034 	movhi	r4,256
  1001e9c:	80c00517 	ldw	r3,20(r16)
- 1001ea0:	211d8a04 	addi	r4,r4,30248
+ 1001ea0:	211d8204 	addi	r4,r4,30216
  1001ea4:	2085883a 	add	r2,r4,r2
  1001ea8:	2023883a 	mov	r17,r4
  1001eac:	1880131e 	bne	r3,r2,1001efc <vTaskPriorityInherit+0xb8>
@@ -5880,7 +5881,7 @@ void vTaskMissedYield( void )
  1001f88:	01400504 	movi	r5,20
  1001f8c:	1002e780 	call	1002e78 <__mulsi3>
  1001f90:	01004034 	movhi	r4,256
- 1001f94:	211d8a04 	addi	r4,r4,30248
+ 1001f94:	211d8204 	addi	r4,r4,30216
  1001f98:	2089883a 	add	r4,r4,r2
  1001f9c:	880b883a 	mov	r5,r17
  1001fa0:	100076c0 	call	100076c <vListInsertEnd>
@@ -6228,7 +6229,7 @@ UBaseType_t x;
 			uxCurrentNumberOfTasks++;
  1002174:	d0a01a17 	ldw	r2,-32664(gp)
  1002178:	04804034 	movhi	r18,256
- 100217c:	949d8a04 	addi	r18,r18,30248
+ 100217c:	949d8204 	addi	r18,r18,30216
  1002180:	10800044 	addi	r2,r2,1
  1002184:	d0a01a15 	stw	r2,-32664(gp)
 			if( pxCurrentTCB == NULL )
@@ -6270,7 +6271,7 @@ UBaseType_t uxPriority;
 
 	vListInitialise( &xDelayedTaskList1 );
  10021b8:	05004034 	movhi	r20,256
- 10021bc:	a51d8504 	addi	r20,r20,30228
+ 10021bc:	a51d7d04 	addi	r20,r20,30196
  10021c0:	a009883a 	mov	r4,r20
 	vListInitialise( &xDelayedTaskList2 );
  10021c4:	04404034 	movhi	r17,256
@@ -6282,19 +6283,19 @@ UBaseType_t uxPriority;
 	vListInitialise( &xDelayedTaskList1 );
  10021c8:	10007440 	call	1000744 <vListInitialise>
 	vListInitialise( &xDelayedTaskList2 );
- 10021cc:	8c5d8004 	addi	r17,r17,30208
+ 10021cc:	8c5d7804 	addi	r17,r17,30176
  10021d0:	8809883a 	mov	r4,r17
  10021d4:	10007440 	call	1000744 <vListInitialise>
 	vListInitialise( &xPendingReadyList );
  10021d8:	01004034 	movhi	r4,256
- 10021dc:	211d7b04 	addi	r4,r4,30188
+ 10021dc:	211d7304 	addi	r4,r4,30156
  10021e0:	10007440 	call	1000744 <vListInitialise>
 
 	#if ( INCLUDE_vTaskDelete == 1 )
 	{
 		vListInitialise( &xTasksWaitingTermination );
  10021e4:	01004034 	movhi	r4,256
- 10021e8:	211d7604 	addi	r4,r4,30168
+ 10021e8:	211d6e04 	addi	r4,r4,30136
  10021ec:	10007440 	call	1000744 <vListInitialise>
 	}
 	#endif /* INCLUDE_vTaskDelete */
@@ -6303,7 +6304,7 @@ UBaseType_t uxPriority;
 	{
 		vListInitialise( &xSuspendedTaskList );
  10021f0:	01004034 	movhi	r4,256
- 10021f4:	211d7104 	addi	r4,r4,30148
+ 10021f4:	211d6904 	addi	r4,r4,30116
  10021f8:	10007440 	call	1000744 <vListInitialise>
 	}
 	#endif /* INCLUDE_vTaskSuspend */
@@ -6439,7 +6440,7 @@ void vTaskStartScheduler( void )
  10022b8:	d8000215 	stw	zero,8(sp)
  10022bc:	d8000315 	stw	zero,12(sp)
  10022c0:	210a1f04 	addi	r4,r4,10364
- 10022c4:	294d7504 	addi	r5,r5,13780
+ 10022c4:	294d6d04 	addi	r5,r5,13748
  10022c8:	01810004 	movi	r6,1024
  10022cc:	000f883a 	mov	r7,zero
 
@@ -6563,7 +6564,7 @@ static ALT_INLINE alt_irq_context ALT_ALWAYS_INLINE
 
 			vListInsertEnd( &xTasksWaitingTermination, &( pxTCB->xGenericListItem ) );
  1002354:	01004034 	movhi	r4,256
- 1002358:	211d7604 	addi	r4,r4,30168
+ 1002358:	211d6e04 	addi	r4,r4,30136
  100235c:	880b883a 	mov	r5,r17
  1002360:	100076c0 	call	100076c <vListInsertEnd>
 
@@ -6807,7 +6808,7 @@ static ALT_INLINE alt_irq_context ALT_ALWAYS_INLINE
  1002494:	1002e780 	call	1002e78 <__mulsi3>
  1002498:	01004034 	movhi	r4,256
  100249c:	80c00517 	ldw	r3,20(r16)
- 10024a0:	211d8a04 	addi	r4,r4,30248
+ 10024a0:	211d8204 	addi	r4,r4,30216
  10024a4:	2085883a 	add	r2,r4,r2
  10024a8:	2023883a 	mov	r17,r4
  10024ac:	18800c1e 	bne	r3,r2,10024e0 <vTaskPrioritySet+0xe0>
@@ -6915,7 +6916,7 @@ static ALT_INLINE alt_irq_context ALT_ALWAYS_INLINE
 
 			vListInsertEnd( &xSuspendedTaskList, &( pxTCB->xGenericListItem ) );
  1002544:	04404034 	movhi	r17,256
- 1002548:	8c5d7104 	addi	r17,r17,30148
+ 1002548:	8c5d6904 	addi	r17,r17,30116
  100254c:	8809883a 	mov	r4,r17
  1002550:	900b883a 	mov	r5,r18
  1002554:	100076c0 	call	100076c <vListInsertEnd>
@@ -7070,7 +7071,7 @@ static ALT_INLINE alt_irq_context ALT_ALWAYS_INLINE
  1002630:	01400504 	movi	r5,20
  1002634:	1002e780 	call	1002e78 <__mulsi3>
  1002638:	01004034 	movhi	r4,256
- 100263c:	211d8a04 	addi	r4,r4,30248
+ 100263c:	211d8204 	addi	r4,r4,30216
  1002640:	2089883a 	add	r4,r4,r2
  1002644:	880b883a 	mov	r5,r17
  1002648:	100076c0 	call	100076c <vListInsertEnd>
@@ -7169,13 +7170,13 @@ BaseType_t xAlreadyYielded = pdFALSE;
 				/* Move any readied tasks from the pending list into the
 				appropriate ready list. */
 				while( listLIST_IS_EMPTY( &xPendingReadyList ) == pdFALSE )
- 10026c4:	8c5d7b04 	addi	r17,r17,30188
+ 10026c4:	8c5d7304 	addi	r17,r17,30156
 				{
 					pxTCB = ( TCB_t * ) listGET_OWNER_OF_HEAD_ENTRY( ( &xPendingReadyList ) );
 					( void ) uxListRemove( &( pxTCB->xEventListItem ) );
 					( void ) uxListRemove( &( pxTCB->xGenericListItem ) );
 					prvAddTaskToReadyList( pxTCB );
- 10026c8:	9cdd8a04 	addi	r19,r19,30248
+ 10026c8:	9cdd8204 	addi	r19,r19,30216
 
 					/* If the moved task has a priority higher than the current
 					task then a yield must be performed. */
@@ -7539,7 +7540,7 @@ static portTASK_FUNCTION( prvIdleTask, pvParameters )
 			vTaskSuspendAll();
 			{
 				xListIsEmpty = listLIST_IS_EMPTY( &xTasksWaitingTermination );
- 1002890:	8c5d7604 	addi	r17,r17,30168
+ 1002890:	8c5d6e04 	addi	r17,r17,30136
 	{
 		BaseType_t xListIsEmpty;
 
@@ -7568,7 +7569,7 @@ static portTASK_FUNCTION( prvIdleTask, pvParameters )
 				{
 					pxTCB = ( TCB_t * ) listGET_OWNER_OF_HEAD_ENTRY( ( &xTasksWaitingTermination ) );
  10028b0:	00804034 	movhi	r2,256
- 10028b4:	109d7604 	addi	r2,r2,30168
+ 10028b4:	109d6e04 	addi	r2,r2,30136
  10028b8:	10800317 	ldw	r2,12(r2)
  10028bc:	14000317 	ldw	r16,12(r2)
 					( void ) uxListRemove( &( pxTCB->xGenericListItem ) );
@@ -7826,7 +7827,7 @@ TickType_t uxReturn;
 							vListInsertEnd( &xSuspendedTaskList, &( pxCurrentTCB->xGenericListItem ) );
  1002a08:	d1601e17 	ldw	r5,-32648(gp)
  1002a0c:	01004034 	movhi	r4,256
- 1002a10:	211d7104 	addi	r4,r4,30148
+ 1002a10:	211d6904 	addi	r4,r4,30116
  1002a14:	29400104 	addi	r5,r5,4
  1002a18:	100076c0 	call	100076c <vListInsertEnd>
  1002a1c:	00000306 	br	1002a2c <ulTaskNotifyTake+0x70>
@@ -7980,7 +7981,7 @@ TickType_t uxReturn;
 							vListInsertEnd( &xSuspendedTaskList, &( pxCurrentTCB->xGenericListItem ) );
  1002af8:	d1601e17 	ldw	r5,-32648(gp)
  1002afc:	01004034 	movhi	r4,256
- 1002b00:	211d7104 	addi	r4,r4,30148
+ 1002b00:	211d6904 	addi	r4,r4,30116
  1002b04:	29400104 	addi	r5,r5,4
  1002b08:	100076c0 	call	100076c <vListInsertEnd>
  1002b0c:	00000306 	br	1002b1c <xTaskNotifyWait+0x98>
@@ -8179,7 +8180,7 @@ TickType_t uxReturn;
  1002c40:	01400504 	movi	r5,20
  1002c44:	1002e780 	call	1002e78 <__mulsi3>
  1002c48:	01004034 	movhi	r4,256
- 1002c4c:	211d8a04 	addi	r4,r4,30248
+ 1002c4c:	211d8204 	addi	r4,r4,30216
  1002c50:	2089883a 	add	r4,r4,r2
  1002c54:	880b883a 	mov	r5,r17
  1002c58:	100076c0 	call	100076c <vListInsertEnd>
@@ -8339,7 +8340,7 @@ TickType_t uxReturn;
  1002d50:	01400504 	movi	r5,20
  1002d54:	1002e780 	call	1002e78 <__mulsi3>
  1002d58:	01004034 	movhi	r4,256
- 1002d5c:	211d8a04 	addi	r4,r4,30248
+ 1002d5c:	211d8204 	addi	r4,r4,30216
  1002d60:	2089883a 	add	r4,r4,r2
  1002d64:	900b883a 	mov	r5,r18
  1002d68:	00000306 	br	1002d78 <xTaskGenericNotifyFromISR+0xd8>
@@ -8350,7 +8351,7 @@ TickType_t uxReturn;
 					this task pending until the scheduler is resumed. */
 					vListInsertEnd( &( xPendingReadyList ), &( pxTCB->xEventListItem ) );
  1002d6c:	01004034 	movhi	r4,256
- 1002d70:	211d7b04 	addi	r4,r4,30188
+ 1002d70:	211d7304 	addi	r4,r4,30156
  1002d74:	81400604 	addi	r5,r16,24
  1002d78:	100076c0 	call	100076c <vListInsertEnd>
 				}
@@ -8461,7 +8462,7 @@ TickType_t uxReturn;
  1002e18:	01400504 	movi	r5,20
  1002e1c:	1002e780 	call	1002e78 <__mulsi3>
  1002e20:	01004034 	movhi	r4,256
- 1002e24:	211d8a04 	addi	r4,r4,30248
+ 1002e24:	211d8204 	addi	r4,r4,30216
  1002e28:	2089883a 	add	r4,r4,r2
  1002e2c:	900b883a 	mov	r5,r18
  1002e30:	00000306 	br	1002e40 <vTaskNotifyGiveFromISR+0x88>
@@ -8472,7 +8473,7 @@ TickType_t uxReturn;
 					this task pending until the scheduler is resumed. */
 					vListInsertEnd( &( xPendingReadyList ), &( pxTCB->xEventListItem ) );
  1002e34:	01004034 	movhi	r4,256
- 1002e38:	211d7b04 	addi	r4,r4,30188
+ 1002e38:	211d7304 	addi	r4,r4,30156
  1002e3c:	81400604 	addi	r5,r16,24
  1002e40:	100076c0 	call	100076c <vListInsertEnd>
 				}
@@ -8549,8 +8550,8 @@ void alt_load (void)
  1002eec:	01004034 	movhi	r4,256
  1002ef0:	01404034 	movhi	r5,256
  1002ef4:	dfc00015 	stw	ra,0(sp)
- 1002ef8:	210d7704 	addi	r4,r4,13788
- 1002efc:	294d8004 	addi	r5,r5,13824
+ 1002ef8:	210d6f04 	addi	r4,r4,13756
+ 1002efc:	294d7804 	addi	r5,r5,13792
 
 static void ALT_INLINE alt_load_section (alt_u32* from, 
                                          alt_u32* to, 
@@ -8565,7 +8566,7 @@ static void ALT_INLINE alt_load_section (alt_u32* from,
  1002f14:	2140141e 	bne	r4,r5,1002f68 <alt_load+0x80>
  1002f18:	00000d06 	br	1002f50 <alt_load+0x68>
  1002f1c:	00c04034 	movhi	r3,256
- 1002f20:	18cd8004 	addi	r3,r3,13824
+ 1002f20:	18cd7804 	addi	r3,r3,13792
  1002f24:	00bfff04 	movi	r2,-4
  1002f28:	1907c83a 	sub	r3,r3,r4
  1002f2c:	1886703a 	and	r3,r3,r2
@@ -8629,7 +8630,7 @@ static void ALT_INLINE alt_load_section (alt_u32* from,
   alt_icache_flush_all();
  1002fa8:	10034501 	jmpi	1003450 <alt_icache_flush_all>
  1002fac:	00c04034 	movhi	r3,256
- 1002fb0:	18cd7704 	addi	r3,r3,13788
+ 1002fb0:	18cd6f04 	addi	r3,r3,13756
  1002fb4:	00bfff04 	movi	r2,-4
  1002fb8:	1907c83a 	sub	r3,r3,r4
  1002fbc:	1886703a 	and	r3,r3,r2
@@ -8976,7 +8977,7 @@ alt_putchar(int c)
 
     if (ALT_DRIVER_WRITE(ALT_STDOUT_DEV, &c1, 1, 0) == -1) {
  1003188:	01004034 	movhi	r4,256
- 100318c:	210d7c04 	addi	r4,r4,13808
+ 100318c:	210d7404 	addi	r4,r4,13776
  1003190:	d80b883a 	mov	r5,sp
  1003194:	01800044 	movi	r6,1
  1003198:	000f883a 	mov	r7,zero
@@ -9024,7 +9025,7 @@ alt_putstr(const char* str)
     return ALT_DRIVER_WRITE(ALT_STDOUT_DEV, str, strlen(str), 0);
  10031d0:	100348c0 	call	100348c <strlen>
  10031d4:	01004034 	movhi	r4,256
- 10031d8:	210d7c04 	addi	r4,r4,13808
+ 10031d8:	210d7404 	addi	r4,r4,13776
  10031dc:	800b883a 	mov	r5,r16
  10031e0:	100d883a 	mov	r6,r2
  10031e4:	000f883a 	mov	r7,zero
@@ -9077,8 +9078,8 @@ static ALT_INLINE void ALT_ALWAYS_INLINE
     ret_code = alt_dev_llist_insert((alt_dev_llist*) dev, &alt_mutex_list);
  1003218:	01004034 	movhi	r4,256
  100321c:	01404034 	movhi	r5,256
- 1003220:	210d7704 	addi	r4,r4,13788
- 1003224:	294d7d04 	addi	r5,r5,13812
+ 1003220:	210d6f04 	addi	r4,r4,13756
+ 1003224:	294d7504 	addi	r5,r5,13780
  1003228:	10033641 	jmpi	1003364 <alt_dev_llist_insert>
 
 0100322c <altera_avalon_jtag_uart_write>:
@@ -9160,13 +9161,13 @@ static ALT_INLINE int* alt_get_errno(void)
 {
   return ((alt_errno) ? alt_errno() : &errno);
  100327c:	00804034 	movhi	r2,256
- 1003280:	108d7f04 	addi	r2,r2,13820
+ 1003280:	108d7704 	addi	r2,r2,13788
  1003284:	10800017 	ldw	r2,0(r2)
  1003288:	10000226 	beq	r2,zero,1003294 <altera_avalon_mutex_open+0x34>
  100328c:	103ee83a 	callr	r2
  1003290:	00000206 	br	100329c <altera_avalon_mutex_open+0x3c>
  1003294:	00804034 	movhi	r2,256
- 1003298:	108d9e04 	addi	r2,r2,13944
+ 1003298:	108d9604 	addi	r2,r2,13912
   {
     ALT_ERRNO = ENODEV;
  100329c:	00c004c4 	movi	r3,19
@@ -9369,7 +9370,7 @@ void alt_dcache_flush_all (void)
  1003368:	20800217 	ldw	r2,8(r4)
  100336c:	1000131e 	bne	r2,zero,10033bc <alt_dev_llist_insert+0x58>
  1003370:	00804034 	movhi	r2,256
- 1003374:	108d7f04 	addi	r2,r2,13820
+ 1003374:	108d7704 	addi	r2,r2,13788
  1003378:	10800017 	ldw	r2,0(r2)
  100337c:	10000926 	beq	r2,zero,10033a4 <alt_dev_llist_insert+0x40>
 /*
@@ -9401,7 +9402,7 @@ int alt_dev_llist_insert (alt_dev_llist* dev, alt_llist* list)
  100339c:	dec00104 	addi	sp,sp,4
  10033a0:	f800283a 	ret
  10033a4:	00804034 	movhi	r2,256
- 10033a8:	108d9e04 	addi	r2,r2,13944
+ 10033a8:	108d9604 	addi	r2,r2,13912
    * check that the device exists, and that it has a valid name.
    */
 

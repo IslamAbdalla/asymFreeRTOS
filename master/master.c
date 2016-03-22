@@ -95,9 +95,9 @@ void masterTask( void *p){
 	int i = 0;
 	int task, value;
 	//alt_printf("I am in\n" );
-	while(i < 18){
-		value = rand() %6 + 34;
-		task = rand() % 1;
+	while(i < 35){
+		value = rand() %16 + 04;
+		task = rand() %6;
 		taskENTER_CRITICAL();
 		alt_printf("Sending task %x at Value = %x \n", task , value );
 		taskEXIT_CRITICAL();

@@ -92,6 +92,7 @@ bool_t xAsymReqQueuInit(){
 #ifdef IS_MASTER
 
 bool_t xAsymSendReq( int8_t xReqValue, int8_t xSentValue ){
+	int8_t ucIndex;
 	xSemaphoreHandle xSemaphore = xSemaphoreCreateBinary();
 
 	altera_avalon_mutex_lock(mutex, 1);
@@ -101,6 +102,13 @@ bool_t xAsymSendReq( int8_t xReqValue, int8_t xSentValue ){
 			altera_avalon_mutex_unlock(mutex);
 			vTaskDelay(10);
 			altera_avalon_mutex_lock(mutex, 1);
+		}
+
+		for (ucIndex = 0; ucIndex < QUEUE_LENGTH ; ucIndex++){
+			if(xReqQueue->pxItems[ ucIndex ].xServed != 0){
+				xReqQueue->xToAdd = ucIndex;
+				break;
+			}
 		}
 		//taskENTER_CRITICAL();
 		xReqQueue->pxItems[ xReqQueue->xToAdd ].xItemValue = xReqValue;
@@ -208,6 +216,7 @@ void vAsymUpdateSentReq(){
 						xSemaphoreGive( *xSemaphore);
 						xReqQueue->pxItems[ ucIndex ].xServed = 1;
 						xToServeQueue.xOccupied[ucIndexNest] = 0;
+						xReqQueue->uxNumberOfItems--;
 				}
 			}
 
