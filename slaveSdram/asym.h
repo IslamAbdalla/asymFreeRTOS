@@ -28,6 +28,7 @@ typedef struct xQUEUE_ITEM
 	int8_t xItemValue;			/*< The value being listed.  In most cases this is used to sort the list in descending order. */
 	bool_t xServed;				/*< Might be needed when priority is used >*/
 	void * pvSemaphore;				/*< Pointer to the semaphore the control the execution of the task that is waiting for it to finish. */
+	int8_t xSentItem;				/*< Integer to be sent*>/
 	//struct xQUEUE_ITEM * pxNext;		/*< Pointer to the next ListItem_t in the list. */
 	//struct xQUEUE_ITEM * pxPrevious;	/*< Pointer to the previous ListItem_t in the list. */
 } QueueItem;
@@ -60,7 +61,7 @@ bool_t xAsymReqQueuInit();
  *
  * @return xTrue if the request is successful. xFalse otherwise
  */
-bool_t xAsymSendReq( int8_t xReqValue );
+bool_t xAsymSendReq( int8_t xReqValue, int8_t xSentValue );
 
 
 int8_t xAsymGetReq( int8_t xIndex );

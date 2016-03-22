@@ -93,14 +93,15 @@
 
 void masterTask( void *p){
 	int i = 0;
-	int task;
+	int task, value;
 	//alt_printf("I am in\n" );
 	while(i < 18){
-		task = rand() % 6;
+		value = rand() %6 + 34;
+		task = rand() % 1;
 		taskENTER_CRITICAL();
-		alt_printf("Sending task %x at i = %x \n", task , i );
+		alt_printf("Sending task %x at Value = %x \n", task , value );
 		taskEXIT_CRITICAL();
-		xAsymSendReq( task  );
+		xAsymSendReq( task, value  );
 		vTaskDelay(20);
 		i++;
 	}

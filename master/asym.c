@@ -6,8 +6,8 @@
 
 
 
-		#define IS_SLAVE
-	//	#define IS_MASTER
+	//	#define IS_SLAVE
+		#define IS_MASTER
 
 PRIVILEGED_DATA static Queue * xReqQueue = (Queue*) MEMORY_BUFF_BASE;
 
@@ -18,6 +18,7 @@ PRIVILEGED_DATA static void (* pxTasks[ NUMBER_OF_TASKS ] )( void *p );
  typedef struct xTO_SERVE_QUEUE
 {
 	int8_t xTaskToServe[QUEUE_LENGTH];
+	int8_t xSentValue[QUEUE_LENGTH];
 	bool_t xOccupied[QUEUE_LENGTH];
 	void * pvSemaphore[QUEUE_LENGTH];
 } ToServeQueue;
@@ -76,6 +77,7 @@ bool_t xAsymReqQueuInit(){
 		for (ucIndex = 0; ucIndex < QUEUE_LENGTH ; ucIndex++){
 			xToServeQueue.xTaskToServe[ucIndex] = NULL;
 			xToServeQueue.xOccupied[ucIndex] = 0;
+			xToServeQueue.xSentValue[ucIndex] = NULL;
 		}
 		/* Creating a polling task for the semaphore */
 		xTaskCreate( vAsymSemaphorePolling,"polling", 356, NULL, configMAX_PRIORITIES, NULL  );
@@ -89,7 +91,7 @@ bool_t xAsymReqQueuInit(){
 
 #ifdef IS_MASTER
 
-bool_t xAsymSendReq( int8_t xReqValue ){
+bool_t xAsymSendReq( int8_t xReqValue, int8_t xSentValue ){
 	xSemaphoreHandle xSemaphore = xSemaphoreCreateBinary();
 
 	altera_avalon_mutex_lock(mutex, 1);
@@ -104,6 +106,7 @@ bool_t xAsymSendReq( int8_t xReqValue ){
 		xReqQueue->pxItems[ xReqQueue->xToAdd ].xItemValue = xReqValue;
 		xReqQueue->pxItems[ xReqQueue->xToAdd ].xServed = 0;
 		xReqQueue->pxItems[ xReqQueue->xToAdd ].pvSemaphore = (void*) &xSemaphore;
+		xReqQueue->pxItems[ xReqQueue->xToAdd ].xSentItem = xSentValue;
 		xReqQueue->xToAdd = (QUEUE_LENGTH == (xReqQueue->xToAdd + 1))? 0: xReqQueue->xToAdd + 1;
 		xReqQueue->uxNumberOfItems++;
 		altera_avalon_mutex_unlock(mutex);
@@ -200,6 +203,7 @@ void vAsymUpdateSentReq(){
 				if(xToServeQueue.xOccupied[ucIndexNest]  && xToServeQueue.xTaskToServe[ucIndexNest] == xReqQueue->pxItems[ucIndex].xItemValue){
 					// Match found
 						//alt_printf("ucIndex: %x, ucIndexNest: %x, TaskToServ: %x\n",ucIndex,ucIndexNest, xToServeQueue.xTaskToServe[ucIndexNest]);
+						xToServeQueue.xSentValue[ucIndexNest] = xReqQueue->pxItems[ ucIndex ].xSentItem;
 						xSemaphoreHandle* xSemaphore = (xSemaphoreHandle *) ( xToServeQueue.pvSemaphore[ucIndexNest] );
 						xSemaphoreGive( *xSemaphore);
 						xReqQueue->pxItems[ ucIndex ].xServed = 1;
@@ -216,9 +220,9 @@ void vAsymUpdateSentReq(){
 
 }
 
-void vAsymServeRequest(int8_t ucRequestedTask){
+int8_t vAsymServeRequest(int8_t ucRequestedTask){
 	// Loop through xToServeRequest. If request is not found, create a new semaphore.
-	int8_t ucIndex;
+	int8_t ucIndex, xSentValue;
 
 	taskENTER_CRITICAL();
 	for (ucIndex = 0; ucIndex < QUEUE_LENGTH ; ucIndex++){
@@ -228,7 +232,7 @@ void vAsymServeRequest(int8_t ucRequestedTask){
 			xSemaphoreTake( *xSemaphore, portMAX_DELAY);
 
 			vSemaphoreDelete( *xSemaphore );
-			return;
+			return -1;
 		}
 	}
 	// If not found
@@ -239,7 +243,7 @@ void vAsymServeRequest(int8_t ucRequestedTask){
 	if(ucIndex >= QUEUE_LENGTH) {
 		// No empty location.
 		taskEXIT_CRITICAL();
-		return;
+		return -1;
 	}
 	//alt_printf("Found Empty location at: %x  \n", ucIndex);
 	xToServeQueue.xOccupied[ucIndex] = 1;
@@ -249,8 +253,9 @@ void vAsymServeRequest(int8_t ucRequestedTask){
 	xSemaphoreTake( xSemaphore, portMAX_DELAY);
 
 
+	xSentValue = xToServeQueue.xSentValue[ucIndex];
 	vSemaphoreDelete( xSemaphore );
 	taskEXIT_CRITICAL();
-
+	return xSentValue;
 }
 #endif

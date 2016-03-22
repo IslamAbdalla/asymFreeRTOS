@@ -93,93 +93,100 @@
 #define IS_SLAVE
 #include "asym.h"
 
-#define speedy 1
+#define speedy 100
 
 void xZerothTask( void * data){
+	int value;
 	while(1){
 		taskENTER_CRITICAL();
 		//alt_printf("Task 0 ");
-		vAsymServeRequest(Task0);
 		taskEXIT_CRITICAL();
+		value = vAsymServeRequest(Task0);
 		taskENTER_CRITICAL();
-		alt_printf("Task 0 Done\n");
+		alt_printf("%x: Task 0 Done\n", value);
 		taskEXIT_CRITICAL();
 		vTaskDelay(3000/speedy);
 	}
 }
 
 void xFirstTask( void * data){
+	int value;
 	while(1){
 		taskENTER_CRITICAL();
 		//alt_printf("Task 1 ");
 		taskEXIT_CRITICAL();
-		vAsymServeRequest(Task1);
+		value = vAsymServeRequest(Task1);
 		taskENTER_CRITICAL();
-		alt_printf("Task 1 Done\n");
+		alt_printf("%x: Task 1 Done\n", value);
 		taskEXIT_CRITICAL();
 		vTaskDelay(3000/speedy);
 	}
 }
 void xSecondTask( void * data){
+	int value;
 	while(1){
 		taskENTER_CRITICAL();
 		//alt_printf("Task 1 ");
 		taskEXIT_CRITICAL();
-		vAsymServeRequest(Task2);
+		value = vAsymServeRequest(Task2);
 		taskENTER_CRITICAL();
-		alt_printf("Task 2 Done\n");
+		alt_printf("%x: Task 2 Done\n", value);
 		taskEXIT_CRITICAL();
 		vTaskDelay(3000/speedy);
 	}
 }
 
 void xThirdTask( void * data){
+	int value;
 	while(1){
 		taskENTER_CRITICAL();
 		//alt_printf("Task 1 ");
 		taskEXIT_CRITICAL();
-		vAsymServeRequest(Task3);
+		value = vAsymServeRequest(Task3);
 		taskENTER_CRITICAL();
-		alt_printf("Task 3 Done\n");
+		alt_printf("%x: Task 3 Done\n", value);
 		taskEXIT_CRITICAL();
 		vTaskDelay(3000/speedy);
 	}
 }
 
 void xFourthTask( void * data){
+	int value;
 	while(1){
 		taskENTER_CRITICAL();
 		//alt_printf("Task 1 ");
 		taskEXIT_CRITICAL();
-		vAsymServeRequest(Task4);
+		value = vAsymServeRequest(Task4);
 		taskENTER_CRITICAL();
-		alt_printf("Task 4 Done\n");
+		alt_printf("%x: Task 4 Done\n", value);
 		taskEXIT_CRITICAL();
 		vTaskDelay(3000/speedy);
 	}
 }
 
 void xFifthTask( void * data){
+	int value;
 	while(1){
 		taskENTER_CRITICAL();
 		//alt_printf("Task 1 ");
 		taskEXIT_CRITICAL();
-		vAsymServeRequest(Task5);
+		value = vAsymServeRequest(Task5);
 		taskENTER_CRITICAL();
-		alt_printf("Task 5 Done\n");
+		alt_printf("%x: Task 5 Done\n", value);
 		taskEXIT_CRITICAL();
 		vTaskDelay(3000/speedy);
 	}
 }
 
 void xSixthTask( void * data){
+	int value;
 	while(1){
 		taskENTER_CRITICAL();
 		//alt_printf("Task 1 ");
 		taskEXIT_CRITICAL();
-		vAsymServeRequest(Task6);
+		value = vAsymServeRequest(Task6);
 		taskENTER_CRITICAL();
-		alt_printf("Task 6 Done\n");
+		alt_printf("%x: Task 6 Done\n", value);
 		taskEXIT_CRITICAL();
 		vTaskDelay(3000/speedy);
 	}
