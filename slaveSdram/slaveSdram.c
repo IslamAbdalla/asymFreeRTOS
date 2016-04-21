@@ -94,119 +94,170 @@
 #include "asym.h"
 
 #define speedy 100
+#define length 30
 
-void xZerothTask( void * data){
-	int value;
+int tempreture[30] ={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+int pressure[30] ={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0} ;
+int heartRate[30] ={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0} ;
+
+void xTempretureTask( void * data){
+	int value, i;
 	while(1){
 		taskENTER_CRITICAL();
 		//alt_printf("Task 0 ");
 		taskEXIT_CRITICAL();
 		value = vAsymServeRequest(Task0);
-		taskENTER_CRITICAL();
-		alt_printf("%x: Task 0 Done\n", value);
-		taskEXIT_CRITICAL();
-		vTaskDelay(3000/speedy);
+		for( i =0; i<length -1; i++) tempreture[i] = tempreture[i+1];
+		tempreture[length -1] = value;
+//		taskENTER_CRITICAL();
+//		for( i =0; i<10; i++) alt_printf("%x ", tempreture[i]);
+//		alt_printf("\n");
+//		taskEXIT_CRITICAL();
+//		vTaskDelay(3000/speedy);
 	}
 }
 
-void xFirstTask( void * data){
-	int value;
+void xPressureTask( void * data){
+	int value, i;
 	while(1){
 		taskENTER_CRITICAL();
 		//alt_printf("Task 1 ");
 		taskEXIT_CRITICAL();
 		value = vAsymServeRequest(Task1);
-		taskENTER_CRITICAL();
-		alt_printf("%x: Task 1 Done\n", value);
-		taskEXIT_CRITICAL();
-		vTaskDelay(3000/speedy);
+		for( i =0; i<length -1; i++) pressure[i] = pressure[i+1];
+		pressure[length -1] = value;
+//		taskENTER_CRITICAL();
+//		for( i =0; i<10; i++)alt_printf("%x ", pressure[i]);
+//		alt_printf("\n");
+//		taskEXIT_CRITICAL();
+//		vTaskDelay(3000/speedy);
 	}
 }
-void xSecondTask( void * data){
-	int value;
+void xHeartTask( void * data){
+	int value, i;
 	while(1){
 		taskENTER_CRITICAL();
 		//alt_printf("Task 1 ");
 		taskEXIT_CRITICAL();
 		value = vAsymServeRequest(Task2);
-		taskENTER_CRITICAL();
-		alt_printf("%x: Task 2 Done\n", value);
-		taskEXIT_CRITICAL();
-		vTaskDelay(3000/speedy);
+		for( i =0; i<length -1; i++) heartRate[i] = heartRate[i+1];
+		heartRate[length -1] = value;
+//		taskENTER_CRITICAL();
+//		for( i =0; i<10; i++) alt_printf("%x ", heartRate[i]);
+//		alt_printf("\n");
+//		taskEXIT_CRITICAL();
+//		vTaskDelay(3000/speedy);
 	}
 }
-
-void xThirdTask( void * data){
-	int value;
+//
+//void xThirdTask( void * data){
+//	int value;
+//	while(1){
+//		taskENTER_CRITICAL();
+//		//alt_printf("Task 1 ");
+//		taskEXIT_CRITICAL();
+//		value = vAsymServeRequest(Task3);
+//		taskENTER_CRITICAL();
+//		alt_printf("%x: Task 3 Done\n", value);
+//		taskEXIT_CRITICAL();
+//		vTaskDelay(3000/speedy);
+//	}
+//}
+//
+//void xFourthTask( void * data){
+//	int value;
+//	while(1){
+//		taskENTER_CRITICAL();
+//		//alt_printf("Task 1 ");
+//		taskEXIT_CRITICAL();
+//		value = vAsymServeRequest(Task4);
+//		taskENTER_CRITICAL();
+//		alt_printf("%x: Task 4 Done\n", value);
+//		taskEXIT_CRITICAL();
+//		vTaskDelay(3000/speedy);
+//	}
+//}
+//
+//void xFifthTask( void * data){
+//	int value;
+//	while(1){
+//		taskENTER_CRITICAL();
+//		//alt_printf("Task 1 ");
+//		taskEXIT_CRITICAL();
+//		value = vAsymServeRequest(Task5);
+//		taskENTER_CRITICAL();
+//		alt_printf("%x: Task 5 Done\n", value);
+//		taskEXIT_CRITICAL();
+//		vTaskDelay(3000/speedy);
+//	}
+//}
+//
+//void xSixthTask( void * data){
+//	int value;
+//	while(1){
+//		taskENTER_CRITICAL();
+//		//alt_printf("Task 1 ");
+//		taskEXIT_CRITICAL();
+//		value = vAsymServeRequest(Task6);
+//		taskENTER_CRITICAL();
+//		alt_printf("%x: Task 6 Done\n", value);
+//		taskEXIT_CRITICAL();
+//		vTaskDelay(3000/speedy);
+//	}
+//}
+void xDisplayTask( void * data){
+	int i, space, average[3] ;
 	while(1){
 		taskENTER_CRITICAL();
-		//alt_printf("Task 1 ");
+		alt_printf("\n********** Patient Monitoring System **********\n");
+		alt_printf("Heart rate: 0x%x | Pressure: 0x%x | Temp: 0x%x\n", heartRate[length-1], pressure[length -1], tempreture[length-1] );
+		alt_printf("************************************************\n");
+				for( i =0; i<30; i++){
+			// New Line
+			for (space = 0; space <30; space ++){
+				// new space
+				if( (heartRate[space])/2 == (90 - ( i*2) )/2 )
+					alt_printf("*");
+				else if( (pressure[space])/2 == (90 - ( i*2) )/2)alt_printf("#");
+				else if( (tempreture[space])/2 == (90 - ( i*2) )/2)alt_printf("=");
+				else alt_printf(" ");
+			}
+
+			alt_printf("\n");
+		}
+
+		alt_printf("************************************************\n\t\t\tAverage\n");
+		average[0] = 0;average[1]=0;average[2]=0;
+		for (space = 0; space <30; space ++) {
+			average[0] +=(heartRate[space]);
+			average[1] +=(pressure[space]);
+			average[2] +=(tempreture[space]);
+			}
+		alt_printf("Heart rate: 0x%x | Pressure: 0x%x | Temp: 0x%x\n\t\t\tPatient is: Healthy",average[0],average[1], average[2] );
+
+
 		taskEXIT_CRITICAL();
-		value = vAsymServeRequest(Task3);
-		taskENTER_CRITICAL();
-		alt_printf("%x: Task 3 Done\n", value);
-		taskEXIT_CRITICAL();
-		vTaskDelay(3000/speedy);
+				vTaskDelay(1000);
 	}
 }
-
-void xFourthTask( void * data){
-	int value;
-	while(1){
-		taskENTER_CRITICAL();
-		//alt_printf("Task 1 ");
-		taskEXIT_CRITICAL();
-		value = vAsymServeRequest(Task4);
-		taskENTER_CRITICAL();
-		alt_printf("%x: Task 4 Done\n", value);
-		taskEXIT_CRITICAL();
-		vTaskDelay(3000/speedy);
-	}
-}
-
-void xFifthTask( void * data){
-	int value;
-	while(1){
-		taskENTER_CRITICAL();
-		//alt_printf("Task 1 ");
-		taskEXIT_CRITICAL();
-		value = vAsymServeRequest(Task5);
-		taskENTER_CRITICAL();
-		alt_printf("%x: Task 5 Done\n", value);
-		taskEXIT_CRITICAL();
-		vTaskDelay(3000/speedy);
-	}
-}
-
-void xSixthTask( void * data){
-	int value;
-	while(1){
-		taskENTER_CRITICAL();
-		//alt_printf("Task 1 ");
-		taskEXIT_CRITICAL();
-		value = vAsymServeRequest(Task6);
-		taskENTER_CRITICAL();
-		alt_printf("%x: Task 6 Done\n", value);
-		taskEXIT_CRITICAL();
-		vTaskDelay(3000/speedy);
-	}
-}
-
 int main()
 { 
 	xAsymMutexInit();
 	xAsymReqQueuInit();
 
-	alt_putstr("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-	alt_putstr("CPU 1 started\n");
+	//alt_putstr("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+	//alt_putstr("CPU 1 started\n");
 
-	xTaskCreate(xZerothTask , "Task0" , 100, NULL, 2, NULL);
-	xTaskCreate(xFirstTask , "Task1" , 100, NULL, 2, NULL);
-	xTaskCreate(xSecondTask , "Task2" , 100, NULL, 2, NULL);
-	xTaskCreate(xThirdTask , "Task3" , 100, NULL, 2, NULL);
-	xTaskCreate(xFourthTask , "Task4" , 100, NULL, 2, NULL);
-	xTaskCreate(xFifthTask , "Task5" , 100, NULL, 2, NULL);
-	xTaskCreate(xSixthTask , "Task6" , 100, NULL, 2, NULL);
+	xTaskCreate(xTempretureTask , "Task0" , 100, NULL, 2, NULL);
+	xTaskCreate(xPressureTask , "Task1" , 100, NULL, 2, NULL);
+	xTaskCreate(xHeartTask , "Task2" , 100, NULL, 2, NULL);
+	xTaskCreate(xDisplayTask , "xDisplayTask" , 100, NULL, 1, NULL);
+//	xTaskCreate(xThirdTask , "Task3" , 100, NULL, 2, NULL);
+//	xTaskCreate(xFourthTask , "Task4" , 100, NULL, 2, NULL);
+//	xTaskCreate(xFifthTask , "Task5" , 100, NULL, 2, NULL);
+//	xTaskCreate(xSixthTask , "Task6" , 100, NULL, 2, NULL);
+
+	/*--------------- CUSTOM KERNEL -------------*/
 	//  xAsymTaskCreate(xSecondTask , Task2 );
 	//  xAsymTaskCreate(xThirdTask , Task3 );
 	//  xAsymTaskCreate(xFourthTask , Task4 );

@@ -90,19 +90,40 @@
 
 // asym includes
 #include "asym.h"
+#define tempretureTask 0
+#define pressureTask 1
+#define heartRateTask 2
 
 void masterTask( void *p){
 	int i = 0;
 	int task, value;
+	int tempreture, pressure, heartRate;
 	//alt_printf("I am in\n" );
 	while(i < 35){
-		value = rand() %16 + 04;
+		tempreture = rand() %4 + 36;
+		pressure = rand() %6 + 77;
+		heartRate = rand() %8 + 61;
 		task = rand() %6;
+
+		// Sending tasks
 		taskENTER_CRITICAL();
-		alt_printf("Sending task %x at Value = %x \n", task , value );
+		alt_printf("Sending temperature = %x \n", tempreture );
 		taskEXIT_CRITICAL();
-		xAsymSendReq( task, value  );
-		vTaskDelay(20);
+		xAsymSendReq( tempretureTask, tempreture  );
+		//vTaskDelay(1000);
+
+
+		taskENTER_CRITICAL();
+		alt_printf("Sending pressure = %x \n", pressure );
+		taskEXIT_CRITICAL();
+		xAsymSendReq( pressureTask, pressure  );
+		//vTaskDelay(1000);
+
+		taskENTER_CRITICAL();
+		alt_printf("Sending heartRate = %x \n\n", heartRate );
+		taskEXIT_CRITICAL();
+		xAsymSendReq( heartRateTask, heartRate  );
+		vTaskDelay(3000);
 		i++;
 	}
 	i = 0;

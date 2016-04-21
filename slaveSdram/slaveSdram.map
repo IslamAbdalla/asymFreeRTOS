@@ -132,7 +132,7 @@ LOAD /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nio
                 0x00000000010001dc                PROVIDE (__ram_exceptions_end, ABSOLUTE (.))
                 0x0000000001000020                PROVIDE (__flash_exceptions_start, LOADADDR (.exceptions))
 
-.text           0x00000000010001dc     0x32cc
+.text           0x00000000010001dc     0x32d4
                 0x00000000010001dc                PROVIDE (stext, ABSOLUTE (.))
  *(.interp)
  *(.hash)
@@ -226,292 +226,292 @@ LOAD /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nio
                 0x000000000100147c                vQueueDelete
                 0x0000000001001480                xQueueIsQueueEmptyFromISR
                 0x000000000100148c                xQueueIsQueueFullFromISR
- .text          0x000000000100149c      0x1dc obj/default/slaveSdram.o
-                0x000000000100149c                xZerothTask
-                0x00000000010014e0                xFirstTask
-                0x0000000001001524                xSecondTask
-                0x0000000001001568                xThirdTask
-                0x00000000010015ac                xFourthTask
-                0x00000000010015f0                xFifthTask
-                0x0000000001001634                xSixthTask
- .text.startup  0x0000000001001678      0x194 obj/default/slaveSdram.o
-                0x0000000001001678                main
- .text          0x000000000100180c     0x166c obj/default/tasks.o
-                0x00000000010018c0                uxTaskPriorityGetFromISR
-                0x00000000010018d0                xTaskResumeFromISR
-                0x0000000001001978                vTaskEndScheduler
-                0x0000000001001990                vTaskSuspendAll
-                0x00000000010019a0                xTaskGetTickCount
-                0x00000000010019a8                xTaskGetTickCountFromISR
-                0x00000000010019b0                uxTaskGetNumberOfTasks
-                0x00000000010019b8                xTaskIncrementTick
-                0x0000000001001b14                vTaskSwitchContext
-                0x0000000001001bdc                vTaskPlaceOnEventList
-                0x0000000001001c44                vTaskPlaceOnUnorderedEventList
-                0x0000000001001cb8                xTaskRemoveFromEventList
-                0x0000000001001d5c                xTaskRemoveFromUnorderedEventList
-                0x0000000001001de8                vTaskSetTimeOutState
-                0x0000000001001dfc                vTaskMissedYield
-                0x0000000001001e08                uxTaskGetStackHighWaterMark
-                0x0000000001001e3c                xTaskGetCurrentTaskHandle
-                0x0000000001001e44                vTaskPriorityInherit
-                0x0000000001001f20                xTaskPriorityDisinherit
-                0x0000000001001fbc                vTaskEnterCritical
-                0x0000000001001fec                vTaskExitCritical
-                0x0000000001002028                xTaskGenericCreate
-                0x00000000010022a4                vTaskStartScheduler
-                0x0000000001002318                vTaskDelete
-                0x00000000010023c8                uxTaskPriorityGet
-                0x0000000001002400                vTaskPrioritySet
-                0x0000000001002504                vTaskSuspend
-                0x00000000010025e0                vTaskResume
-                0x0000000001002678                xTaskResumeAll
-                0x000000000100279c                vTaskDelayUntil
-                0x0000000001002824                vTaskDelay
-                0x00000000010028f8                xTaskCheckForTimeOut
-                0x0000000001002978                uxTaskResetEventItemValue
-                0x000000000100299c                pvTaskIncrementMutexHeldCount
-                0x00000000010029bc                ulTaskNotifyTake
-                0x0000000001002a84                xTaskNotifyWait
-                0x0000000001002b90                xTaskGenericNotify
-                0x0000000001002ca0                xTaskGenericNotifyFromISR
-                0x0000000001002db8                vTaskNotifyGiveFromISR
- .text          0x0000000001002e78        0x0 obj/default/timers.o
- .text          0x0000000001002e78        0x0 obj/default/portable/GCC/NiosII/port_asm.o
- .text          0x0000000001002e78       0x28 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-mul.o)
-                0x0000000001002e78                __mulsi3
- .text          0x0000000001002ea0       0x28 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcpy.o)
-                0x0000000001002ea0                memcpy
- .text          0x0000000001002ec8       0x20 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memset.o)
-                0x0000000001002ec8                memset
- .text          0x0000000001002ee8        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_irq_handler.o)
- .text          0x0000000001002ee8        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_irq_vars.o)
- .text          0x0000000001002ee8       0xf8 ../slaveSdram_bsp//libhal_bsp.a(alt_load.o)
-                0x0000000001002ee8                alt_load
- .text          0x0000000001002fe0       0x2c ../slaveSdram_bsp//libhal_bsp.a(alt_main.o)
-                0x0000000001002fe0                alt_main
- .text          0x000000000100300c      0x16c ../slaveSdram_bsp//libhal_bsp.a(alt_printf.o)
-                0x000000000100300c                alt_printf
- .text          0x0000000001003178       0x48 ../slaveSdram_bsp//libhal_bsp.a(alt_putchar.o)
-                0x0000000001003178                alt_putchar
- .text          0x00000000010031c0       0x38 ../slaveSdram_bsp//libhal_bsp.a(alt_putstr.o)
-                0x00000000010031c0                alt_putstr
- .text          0x00000000010031f8       0x34 ../slaveSdram_bsp//libhal_bsp.a(alt_sys_init.o)
-                0x00000000010031f8                alt_irq_init
-                0x0000000001003218                alt_sys_init
- .text          0x000000000100322c       0x34 ../slaveSdram_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
-                0x000000000100322c                altera_avalon_jtag_uart_write
- .text          0x0000000001003260      0x100 ../slaveSdram_bsp//libhal_bsp.a(altera_avalon_mutex.o)
-                0x0000000001003260                altera_avalon_mutex_open
-                0x00000000010032b8                altera_avalon_mutex_close
-                0x00000000010032bc                altera_avalon_mutex_lock
-                0x00000000010032e0                altera_avalon_mutex_trylock
-                0x0000000001003308                altera_avalon_mutex_unlock
-                0x0000000001003328                altera_avalon_mutex_is_mine
-                0x0000000001003350                altera_avalon_mutex_first_lock
- .text          0x0000000001003360        0x4 ../slaveSdram_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
-                0x0000000001003360                alt_dcache_flush_all
- .text          0x0000000001003364       0x78 ../slaveSdram_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
-                0x0000000001003364                alt_dev_llist_insert
- .text          0x00000000010033dc        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_errno.o)
- .text          0x00000000010033dc       0x74 ../slaveSdram_bsp//libhal_bsp.a(alt_find_dev.o)
-                0x00000000010033dc                alt_find_dev
- .text          0x0000000001003450        0x4 ../slaveSdram_bsp//libhal_bsp.a(alt_icache_flush_all.o)
-                0x0000000001003450                alt_icache_flush_all
- .text          0x0000000001003454        0x8 ../slaveSdram_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
-                0x0000000001003454                altera_nios2_qsys_irq_init
- .text          0x000000000100345c        0x0 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
- .text          0x000000000100345c       0x30 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
-                0x000000000100345c                memcmp
- .text          0x000000000100348c       0x1c /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
-                0x000000000100348c                strlen
+ .text          0x000000000100149c      0x27c obj/default/slaveSdram.o
+                0x000000000100149c                xTempretureTask
+                0x00000000010014f0                xPressureTask
+                0x0000000001001544                xHeartTask
+                0x0000000001001598                xDisplayTask
+ .text.startup  0x0000000001001718       0xfc obj/default/slaveSdram.o
+                0x0000000001001718                main
+ .text          0x0000000001001814     0x166c obj/default/tasks.o
+                0x00000000010018c8                uxTaskPriorityGetFromISR
+                0x00000000010018d8                xTaskResumeFromISR
+                0x0000000001001980                vTaskEndScheduler
+                0x0000000001001998                vTaskSuspendAll
+                0x00000000010019a8                xTaskGetTickCount
+                0x00000000010019b0                xTaskGetTickCountFromISR
+                0x00000000010019b8                uxTaskGetNumberOfTasks
+                0x00000000010019c0                xTaskIncrementTick
+                0x0000000001001b1c                vTaskSwitchContext
+                0x0000000001001be4                vTaskPlaceOnEventList
+                0x0000000001001c4c                vTaskPlaceOnUnorderedEventList
+                0x0000000001001cc0                xTaskRemoveFromEventList
+                0x0000000001001d64                xTaskRemoveFromUnorderedEventList
+                0x0000000001001df0                vTaskSetTimeOutState
+                0x0000000001001e04                vTaskMissedYield
+                0x0000000001001e10                uxTaskGetStackHighWaterMark
+                0x0000000001001e44                xTaskGetCurrentTaskHandle
+                0x0000000001001e4c                vTaskPriorityInherit
+                0x0000000001001f28                xTaskPriorityDisinherit
+                0x0000000001001fc4                vTaskEnterCritical
+                0x0000000001001ff4                vTaskExitCritical
+                0x0000000001002030                xTaskGenericCreate
+                0x00000000010022ac                vTaskStartScheduler
+                0x0000000001002320                vTaskDelete
+                0x00000000010023d0                uxTaskPriorityGet
+                0x0000000001002408                vTaskPrioritySet
+                0x000000000100250c                vTaskSuspend
+                0x00000000010025e8                vTaskResume
+                0x0000000001002680                xTaskResumeAll
+                0x00000000010027a4                vTaskDelayUntil
+                0x000000000100282c                vTaskDelay
+                0x0000000001002900                xTaskCheckForTimeOut
+                0x0000000001002980                uxTaskResetEventItemValue
+                0x00000000010029a4                pvTaskIncrementMutexHeldCount
+                0x00000000010029c4                ulTaskNotifyTake
+                0x0000000001002a8c                xTaskNotifyWait
+                0x0000000001002b98                xTaskGenericNotify
+                0x0000000001002ca8                xTaskGenericNotifyFromISR
+                0x0000000001002dc0                vTaskNotifyGiveFromISR
+ .text          0x0000000001002e80        0x0 obj/default/timers.o
+ .text          0x0000000001002e80        0x0 obj/default/portable/GCC/NiosII/port_asm.o
+ .text          0x0000000001002e80       0x28 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-mul.o)
+                0x0000000001002e80                __mulsi3
+ .text          0x0000000001002ea8       0x28 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcpy.o)
+                0x0000000001002ea8                memcpy
+ .text          0x0000000001002ed0       0x20 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memset.o)
+                0x0000000001002ed0                memset
+ .text          0x0000000001002ef0        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_irq_handler.o)
+ .text          0x0000000001002ef0        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_irq_vars.o)
+ .text          0x0000000001002ef0       0xf8 ../slaveSdram_bsp//libhal_bsp.a(alt_load.o)
+                0x0000000001002ef0                alt_load
+ .text          0x0000000001002fe8       0x2c ../slaveSdram_bsp//libhal_bsp.a(alt_main.o)
+                0x0000000001002fe8                alt_main
+ .text          0x0000000001003014      0x16c ../slaveSdram_bsp//libhal_bsp.a(alt_printf.o)
+                0x0000000001003014                alt_printf
+ .text          0x0000000001003180       0x48 ../slaveSdram_bsp//libhal_bsp.a(alt_putchar.o)
+                0x0000000001003180                alt_putchar
+ .text          0x00000000010031c8       0x38 ../slaveSdram_bsp//libhal_bsp.a(alt_putstr.o)
+                0x00000000010031c8                alt_putstr
+ .text          0x0000000001003200       0x34 ../slaveSdram_bsp//libhal_bsp.a(alt_sys_init.o)
+                0x0000000001003200                alt_irq_init
+                0x0000000001003220                alt_sys_init
+ .text          0x0000000001003234       0x34 ../slaveSdram_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+                0x0000000001003234                altera_avalon_jtag_uart_write
+ .text          0x0000000001003268      0x100 ../slaveSdram_bsp//libhal_bsp.a(altera_avalon_mutex.o)
+                0x0000000001003268                altera_avalon_mutex_open
+                0x00000000010032c0                altera_avalon_mutex_close
+                0x00000000010032c4                altera_avalon_mutex_lock
+                0x00000000010032e8                altera_avalon_mutex_trylock
+                0x0000000001003310                altera_avalon_mutex_unlock
+                0x0000000001003330                altera_avalon_mutex_is_mine
+                0x0000000001003358                altera_avalon_mutex_first_lock
+ .text          0x0000000001003368        0x4 ../slaveSdram_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
+                0x0000000001003368                alt_dcache_flush_all
+ .text          0x000000000100336c       0x78 ../slaveSdram_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
+                0x000000000100336c                alt_dev_llist_insert
+ .text          0x00000000010033e4        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_errno.o)
+ .text          0x00000000010033e4       0x74 ../slaveSdram_bsp//libhal_bsp.a(alt_find_dev.o)
+                0x00000000010033e4                alt_find_dev
+ .text          0x0000000001003458        0x4 ../slaveSdram_bsp//libhal_bsp.a(alt_icache_flush_all.o)
+                0x0000000001003458                alt_icache_flush_all
+ .text          0x000000000100345c        0x8 ../slaveSdram_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
+                0x000000000100345c                altera_nios2_qsys_irq_init
+ .text          0x0000000001003464        0x0 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
+ .text          0x0000000001003464       0x30 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
+                0x0000000001003464                memcmp
+ .text          0x0000000001003494       0x1c /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
+                0x0000000001003494                strlen
  *(.gnu.warning.*)
  *(.fini)
-                0x00000000010034a8                PROVIDE (__etext, ABSOLUTE (.))
-                0x00000000010034a8                PROVIDE (_etext, ABSOLUTE (.))
-                0x00000000010034a8                PROVIDE (etext, ABSOLUTE (.))
+                0x00000000010034b0                PROVIDE (__etext, ABSOLUTE (.))
+                0x00000000010034b0                PROVIDE (_etext, ABSOLUTE (.))
+                0x00000000010034b0                PROVIDE (etext, ABSOLUTE (.))
  *(.eh_frame_hdr)
-                0x00000000010034a8                . = ALIGN (0x4)
-                0x00000000010034a8                PROVIDE (__preinit_array_start, ABSOLUTE (.))
+                0x00000000010034b0                . = ALIGN (0x4)
+                0x00000000010034b0                PROVIDE (__preinit_array_start, ABSOLUTE (.))
  *(.preinit_array)
-                0x00000000010034a8                PROVIDE (__preinit_array_end, ABSOLUTE (.))
-                0x00000000010034a8                PROVIDE (__init_array_start, ABSOLUTE (.))
+                0x00000000010034b0                PROVIDE (__preinit_array_end, ABSOLUTE (.))
+                0x00000000010034b0                PROVIDE (__init_array_start, ABSOLUTE (.))
  *(.init_array)
-                0x00000000010034a8                PROVIDE (__init_array_end, ABSOLUTE (.))
-                0x00000000010034a8                PROVIDE (__fini_array_start, ABSOLUTE (.))
+                0x00000000010034b0                PROVIDE (__init_array_end, ABSOLUTE (.))
+                0x00000000010034b0                PROVIDE (__fini_array_start, ABSOLUTE (.))
  *(.fini_array)
-                0x00000000010034a8                PROVIDE (__fini_array_end, ABSOLUTE (.))
+                0x00000000010034b0                PROVIDE (__fini_array_end, ABSOLUTE (.))
  *(.eh_frame)
  *(.gcc_except_table .gcc_except_table.*)
  *(.dynamic)
-                0x00000000010034a8                PROVIDE (__CTOR_LIST__, ABSOLUTE (.))
+                0x00000000010034b0                PROVIDE (__CTOR_LIST__, ABSOLUTE (.))
  *(.ctors)
  *(SORT(.ctors.*))
-                0x00000000010034a8                PROVIDE (__CTOR_END__, ABSOLUTE (.))
-                0x00000000010034a8                PROVIDE (__DTOR_LIST__, ABSOLUTE (.))
+                0x00000000010034b0                PROVIDE (__CTOR_END__, ABSOLUTE (.))
+                0x00000000010034b0                PROVIDE (__DTOR_LIST__, ABSOLUTE (.))
  *(.dtors)
  *(SORT(.dtors.*))
-                0x00000000010034a8                PROVIDE (__DTOR_END__, ABSOLUTE (.))
+                0x00000000010034b0                PROVIDE (__DTOR_END__, ABSOLUTE (.))
  *(.jcr)
-                0x00000000010034a8                . = ALIGN (0x4)
+                0x00000000010034b0                . = ALIGN (0x4)
 
-.rodata         0x00000000010034a8      0x114
-                0x00000000010034a8                PROVIDE (__ram_rodata_start, ABSOLUTE (.))
-                0x00000000010034a8                . = ALIGN (0x4)
+.rodata         0x00000000010034b0      0x180
+                0x00000000010034b0                PROVIDE (__ram_rodata_start, ABSOLUTE (.))
+                0x00000000010034b0                . = ALIGN (0x4)
  *(.rodata .rodata.* .gnu.linkonce.r.*)
  .rodata.str1.4
-                0x00000000010034a8       0x18 obj/default/asym.o
+                0x00000000010034b0       0x18 obj/default/asym.o
  .rodata.str1.4
-                0x00000000010034c0       0xf3 obj/default/slaveSdram.o
-                                         0xf4 (size before relaxing)
- *fill*         0x00000000010035b3        0x1 
+                0x00000000010034c8      0x15f obj/default/slaveSdram.o
+                                        0x164 (size before relaxing)
+ *fill*         0x0000000001003627        0x1 
  .rodata.str1.4
-                0x00000000010035b4        0x8 obj/default/tasks.o
+                0x0000000001003628        0x8 obj/default/tasks.o
  .rodata.str1.4
                 0x0000000000000000       0x10 ../slaveSdram_bsp//libhal_bsp.a(alt_sys_init.o)
  *(.rodata1)
-                0x00000000010035bc                . = ALIGN (0x4)
-                0x00000000010035bc                PROVIDE (__ram_rodata_end, ABSOLUTE (.))
-                0x00000000010034a8                PROVIDE (__flash_rodata_start, LOADADDR (.rodata))
+                0x0000000001003630                . = ALIGN (0x4)
+                0x0000000001003630                PROVIDE (__ram_rodata_end, ABSOLUTE (.))
+                0x00000000010034b0                PROVIDE (__flash_rodata_start, LOADADDR (.rodata))
 
-.rwdata         0x00000000010035bc       0x24 load address 0x00000000010035e0
-                0x00000000010035bc                PROVIDE (__ram_rwdata_start, ABSOLUTE (.))
-                0x00000000010035bc                . = ALIGN (0x4)
+.rwdata         0x0000000001003630       0x24 load address 0x0000000001003654
+                0x0000000001003630                PROVIDE (__ram_rwdata_start, ABSOLUTE (.))
+                0x0000000001003630                . = ALIGN (0x4)
  *(.got.plt)
  *(.got)
  *(.data1)
  *(.data .data.* .gnu.linkonce.d.*)
- .data          0x00000000010035bc        0x0 ../slaveSdram_bsp//obj/HAL/src/crt0.o
- .data          0x00000000010035bc        0x0 obj/default/asym.o
- .data          0x00000000010035bc        0x0 obj/default/croutine.o
- .data          0x00000000010035bc        0x0 obj/default/list.o
- .data          0x00000000010035bc        0x0 obj/default/portable/GCC/NiosII/port.o
- .data          0x00000000010035bc        0x0 obj/default/portable/MemMang/heap_1.o
- .data          0x00000000010035bc        0x0 obj/default/queue.o
- .data          0x00000000010035bc        0x0 obj/default/slaveSdram.o
- .data          0x00000000010035bc        0x0 obj/default/tasks.o
- .data          0x00000000010035bc        0x0 obj/default/timers.o
- .data          0x00000000010035bc        0x0 obj/default/portable/GCC/NiosII/port_asm.o
- .data          0x00000000010035bc        0x0 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-mul.o)
- .data          0x00000000010035bc        0x0 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcpy.o)
- .data          0x00000000010035bc        0x0 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memset.o)
- .data          0x00000000010035bc        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_irq_handler.o)
- .data          0x00000000010035bc        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_irq_vars.o)
- .data          0x00000000010035bc        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_load.o)
- .data          0x00000000010035bc        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_main.o)
- .data          0x00000000010035bc        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_printf.o)
- .data          0x00000000010035bc        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_putchar.o)
- .data          0x00000000010035bc        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_putstr.o)
- .data          0x00000000010035bc       0x10 ../slaveSdram_bsp//libhal_bsp.a(alt_sys_init.o)
- .data          0x00000000010035cc        0x0 ../slaveSdram_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
- .data          0x00000000010035cc        0x0 ../slaveSdram_bsp//libhal_bsp.a(altera_avalon_mutex.o)
- .data          0x00000000010035cc        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
- .data          0x00000000010035cc        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
- .data          0x00000000010035cc        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_errno.o)
- .data          0x00000000010035cc        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_find_dev.o)
- .data          0x00000000010035cc        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_icache_flush_all.o)
- .data          0x00000000010035cc        0x0 ../slaveSdram_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
- .data          0x00000000010035cc        0x0 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
- .data          0x00000000010035cc        0x0 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
- .data          0x00000000010035cc        0x0 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
-                0x000000000100b5cc                _gp = ABSOLUTE ((. + 0x8000))
-                0x000000000100b5cc                PROVIDE (gp, _gp)
+ .data          0x0000000001003630        0x0 ../slaveSdram_bsp//obj/HAL/src/crt0.o
+ .data          0x0000000001003630        0x0 obj/default/asym.o
+ .data          0x0000000001003630        0x0 obj/default/croutine.o
+ .data          0x0000000001003630        0x0 obj/default/list.o
+ .data          0x0000000001003630        0x0 obj/default/portable/GCC/NiosII/port.o
+ .data          0x0000000001003630        0x0 obj/default/portable/MemMang/heap_1.o
+ .data          0x0000000001003630        0x0 obj/default/queue.o
+ .data          0x0000000001003630        0x0 obj/default/slaveSdram.o
+ .data          0x0000000001003630        0x0 obj/default/tasks.o
+ .data          0x0000000001003630        0x0 obj/default/timers.o
+ .data          0x0000000001003630        0x0 obj/default/portable/GCC/NiosII/port_asm.o
+ .data          0x0000000001003630        0x0 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-mul.o)
+ .data          0x0000000001003630        0x0 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcpy.o)
+ .data          0x0000000001003630        0x0 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memset.o)
+ .data          0x0000000001003630        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_irq_handler.o)
+ .data          0x0000000001003630        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_irq_vars.o)
+ .data          0x0000000001003630        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_load.o)
+ .data          0x0000000001003630        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_main.o)
+ .data          0x0000000001003630        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_printf.o)
+ .data          0x0000000001003630        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_putchar.o)
+ .data          0x0000000001003630        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_putstr.o)
+ .data          0x0000000001003630       0x10 ../slaveSdram_bsp//libhal_bsp.a(alt_sys_init.o)
+ .data          0x0000000001003640        0x0 ../slaveSdram_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .data          0x0000000001003640        0x0 ../slaveSdram_bsp//libhal_bsp.a(altera_avalon_mutex.o)
+ .data          0x0000000001003640        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
+ .data          0x0000000001003640        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
+ .data          0x0000000001003640        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_errno.o)
+ .data          0x0000000001003640        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_find_dev.o)
+ .data          0x0000000001003640        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_icache_flush_all.o)
+ .data          0x0000000001003640        0x0 ../slaveSdram_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
+ .data          0x0000000001003640        0x0 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
+ .data          0x0000000001003640        0x0 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
+ .data          0x0000000001003640        0x0 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
+                0x000000000100b640                _gp = ABSOLUTE ((. + 0x8000))
+                0x000000000100b640                PROVIDE (gp, _gp)
  *(.rwdata .rwdata.*)
  *(.sdata .sdata.* .gnu.linkonce.s.*)
- .sdata         0x00000000010035cc        0x4 ../slaveSdram_bsp//libhal_bsp.a(alt_irq_vars.o)
-                0x00000000010035cc                alt_priority_mask
- .sdata         0x00000000010035d0        0x4 ../slaveSdram_bsp//libhal_bsp.a(alt_sys_init.o)
-                0x00000000010035d0                jtag_uart_1
- .sdata         0x00000000010035d4        0x8 ../slaveSdram_bsp//libhal_bsp.a(altera_avalon_mutex.o)
-                0x00000000010035d4                alt_mutex_list
- .sdata         0x00000000010035dc        0x4 ../slaveSdram_bsp//libhal_bsp.a(alt_errno.o)
-                0x00000000010035dc                alt_errno
+ .sdata         0x0000000001003640        0x4 ../slaveSdram_bsp//libhal_bsp.a(alt_irq_vars.o)
+                0x0000000001003640                alt_priority_mask
+ .sdata         0x0000000001003644        0x4 ../slaveSdram_bsp//libhal_bsp.a(alt_sys_init.o)
+                0x0000000001003644                jtag_uart_1
+ .sdata         0x0000000001003648        0x8 ../slaveSdram_bsp//libhal_bsp.a(altera_avalon_mutex.o)
+                0x0000000001003648                alt_mutex_list
+ .sdata         0x0000000001003650        0x4 ../slaveSdram_bsp//libhal_bsp.a(alt_errno.o)
+                0x0000000001003650                alt_errno
  *(.sdata2 .sdata2.* .gnu.linkonce.s2.*)
-                0x00000000010035e0                . = ALIGN (0x4)
-                0x00000000010035e0                _edata = ABSOLUTE (.)
-                0x00000000010035e0                PROVIDE (edata, ABSOLUTE (.))
-                0x00000000010035e0                PROVIDE (__ram_rwdata_end, ABSOLUTE (.))
-                0x00000000010035e0                PROVIDE (__flash_rwdata_start, LOADADDR (.rwdata))
+                0x0000000001003654                . = ALIGN (0x4)
+                0x0000000001003654                _edata = ABSOLUTE (.)
+                0x0000000001003654                PROVIDE (edata, ABSOLUTE (.))
+                0x0000000001003654                PROVIDE (__ram_rwdata_end, ABSOLUTE (.))
+                0x0000000001003654                PROVIDE (__flash_rwdata_start, LOADADDR (.rwdata))
 
-.bss            0x0000000001003604     0x4168
-                0x0000000001003604                __bss_start = ABSOLUTE (.)
-                0x0000000001003604                PROVIDE (__sbss_start, ABSOLUTE (.))
-                0x0000000001003604                PROVIDE (___sbss_start, ABSOLUTE (.))
+.bss            0x0000000001003678     0x42d0
+                0x0000000001003678                __bss_start = ABSOLUTE (.)
+                0x0000000001003678                PROVIDE (__sbss_start, ABSOLUTE (.))
+                0x0000000001003678                PROVIDE (___sbss_start, ABSOLUTE (.))
  *(.dynsbss)
  *(.sbss .sbss.* .gnu.linkonce.sb.*)
- .sbss          0x0000000001003604        0x4 obj/default/asym.o
- .sbss          0x0000000001003608        0x8 obj/default/portable/MemMang/heap_1.o
- .sbss          0x0000000001003610       0x38 obj/default/tasks.o
-                0x0000000001003644                pxCurrentTCB
- .sbss          0x0000000001003648        0x4 ../slaveSdram_bsp//libhal_bsp.a(alt_irq_vars.o)
-                0x0000000001003648                alt_irq_active
- .sbss          0x000000000100364c        0xc ../slaveSdram_bsp//libhal_bsp.a(alt_main.o)
-                0x000000000100364c                alt_envp
-                0x0000000001003650                alt_argv
-                0x0000000001003654                alt_argc
- .sbss          0x0000000001003658        0x4 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
-                0x0000000001003658                errno
+ .sbss          0x0000000001003678        0x4 obj/default/asym.o
+ .sbss          0x000000000100367c        0x8 obj/default/portable/MemMang/heap_1.o
+ .sbss          0x0000000001003684       0x38 obj/default/tasks.o
+                0x00000000010036b8                pxCurrentTCB
+ .sbss          0x00000000010036bc        0x4 ../slaveSdram_bsp//libhal_bsp.a(alt_irq_vars.o)
+                0x00000000010036bc                alt_irq_active
+ .sbss          0x00000000010036c0        0xc ../slaveSdram_bsp//libhal_bsp.a(alt_main.o)
+                0x00000000010036c0                alt_envp
+                0x00000000010036c4                alt_argv
+                0x00000000010036c8                alt_argc
+ .sbss          0x00000000010036cc        0x4 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
+                0x00000000010036cc                errno
  *(.sbss2 .sbss2.* .gnu.linkonce.sb2.*)
  *(.scommon)
-                0x000000000100365c                PROVIDE (__sbss_end, ABSOLUTE (.))
-                0x000000000100365c                PROVIDE (___sbss_end, ABSOLUTE (.))
+                0x00000000010036d0                PROVIDE (__sbss_end, ABSOLUTE (.))
+                0x00000000010036d0                PROVIDE (___sbss_end, ABSOLUTE (.))
  *(.dynbss)
  *(.bss .bss.* .gnu.linkonce.b.*)
- .bss           0x000000000100365c        0x0 ../slaveSdram_bsp//obj/HAL/src/crt0.o
- .bss           0x000000000100365c       0xb0 obj/default/asym.o
- .bss           0x000000000100370c        0x0 obj/default/croutine.o
- .bss           0x000000000100370c        0x0 obj/default/list.o
- .bss           0x000000000100370c        0x0 obj/default/portable/GCC/NiosII/port.o
- .bss           0x000000000100370c     0x3e98 obj/default/portable/MemMang/heap_1.o
- .bss           0x00000000010075a4        0x0 obj/default/queue.o
- .bss           0x00000000010075a4        0x0 obj/default/slaveSdram.o
- .bss           0x00000000010075a4       0xc8 obj/default/tasks.o
- .bss           0x000000000100766c        0x0 obj/default/timers.o
- .bss           0x000000000100766c        0x0 obj/default/portable/GCC/NiosII/port_asm.o
- .bss           0x000000000100766c        0x0 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-mul.o)
- .bss           0x000000000100766c        0x0 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcpy.o)
- .bss           0x000000000100766c        0x0 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memset.o)
- .bss           0x000000000100766c        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_irq_handler.o)
- .bss           0x000000000100766c        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_irq_vars.o)
- .bss           0x000000000100766c        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_load.o)
- .bss           0x000000000100766c        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_main.o)
- .bss           0x000000000100766c        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_printf.o)
- .bss           0x000000000100766c        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_putchar.o)
- .bss           0x000000000100766c        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_putstr.o)
- .bss           0x000000000100766c        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_sys_init.o)
- .bss           0x000000000100766c        0x0 ../slaveSdram_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
- .bss           0x000000000100766c        0x0 ../slaveSdram_bsp//libhal_bsp.a(altera_avalon_mutex.o)
- .bss           0x000000000100766c        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
- .bss           0x000000000100766c        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
- .bss           0x000000000100766c        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_errno.o)
- .bss           0x000000000100766c        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_find_dev.o)
- .bss           0x000000000100766c        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_icache_flush_all.o)
- .bss           0x000000000100766c        0x0 ../slaveSdram_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
- .bss           0x000000000100766c        0x0 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
- .bss           0x000000000100766c        0x0 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
- .bss           0x000000000100766c        0x0 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
+ .bss           0x00000000010036d0        0x0 ../slaveSdram_bsp//obj/HAL/src/crt0.o
+ .bss           0x00000000010036d0       0xb0 obj/default/asym.o
+ .bss           0x0000000001003780        0x0 obj/default/croutine.o
+ .bss           0x0000000001003780        0x0 obj/default/list.o
+ .bss           0x0000000001003780        0x0 obj/default/portable/GCC/NiosII/port.o
+ .bss           0x0000000001003780     0x3e98 obj/default/portable/MemMang/heap_1.o
+ .bss           0x0000000001007618        0x0 obj/default/queue.o
+ .bss           0x0000000001007618      0x168 obj/default/slaveSdram.o
+                0x0000000001007618                heartRate
+                0x0000000001007690                pressure
+                0x0000000001007708                tempreture
+ .bss           0x0000000001007780       0xc8 obj/default/tasks.o
+ .bss           0x0000000001007848        0x0 obj/default/timers.o
+ .bss           0x0000000001007848        0x0 obj/default/portable/GCC/NiosII/port_asm.o
+ .bss           0x0000000001007848        0x0 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-mul.o)
+ .bss           0x0000000001007848        0x0 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcpy.o)
+ .bss           0x0000000001007848        0x0 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memset.o)
+ .bss           0x0000000001007848        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_irq_handler.o)
+ .bss           0x0000000001007848        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_irq_vars.o)
+ .bss           0x0000000001007848        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_load.o)
+ .bss           0x0000000001007848        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_main.o)
+ .bss           0x0000000001007848        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_printf.o)
+ .bss           0x0000000001007848        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_putchar.o)
+ .bss           0x0000000001007848        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_putstr.o)
+ .bss           0x0000000001007848        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_sys_init.o)
+ .bss           0x0000000001007848        0x0 ../slaveSdram_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .bss           0x0000000001007848        0x0 ../slaveSdram_bsp//libhal_bsp.a(altera_avalon_mutex.o)
+ .bss           0x0000000001007848        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
+ .bss           0x0000000001007848        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
+ .bss           0x0000000001007848        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_errno.o)
+ .bss           0x0000000001007848        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_find_dev.o)
+ .bss           0x0000000001007848        0x0 ../slaveSdram_bsp//libhal_bsp.a(alt_icache_flush_all.o)
+ .bss           0x0000000001007848        0x0 ../slaveSdram_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
+ .bss           0x0000000001007848        0x0 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
+ .bss           0x0000000001007848        0x0 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
+ .bss           0x0000000001007848        0x0 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
  *(COMMON)
- COMMON         0x000000000100766c      0x100 ../slaveSdram_bsp//libhal_bsp.a(alt_irq_handler.o)
-                0x000000000100766c                alt_irq
-                0x000000000100776c                . = ALIGN (0x4)
-                0x000000000100776c                __bss_end = ABSOLUTE (.)
+ COMMON         0x0000000001007848      0x100 ../slaveSdram_bsp//libhal_bsp.a(alt_irq_handler.o)
+                0x0000000001007848                alt_irq
+                0x0000000001007948                . = ALIGN (0x4)
+                0x0000000001007948                __bss_end = ABSOLUTE (.)
 
-.memory_buff    0x0000000000008000        0x0 load address 0x000000000100776c
+.memory_buff    0x0000000000008000        0x0 load address 0x0000000001007948
                 0x0000000000008000                PROVIDE (_alt_partition_memory_buff_start, ABSOLUTE (.))
  *(.memory_buff .memory_buff. memory_buff.*)
                 0x0000000000008000                . = ALIGN (0x4)
                 0x0000000000008000                PROVIDE (_alt_partition_memory_buff_end, ABSOLUTE (.))
-                0x000000000100776c                PROVIDE (_alt_partition_memory_buff_load_addr, LOADADDR (.memory_buff))
+                0x0000000001007948                PROVIDE (_alt_partition_memory_buff_load_addr, LOADADDR (.memory_buff))
 
-.sdram          0x000000000100776c        0x0
-                0x000000000100776c                PROVIDE (_alt_partition_sdram_start, ABSOLUTE (.))
+.sdram          0x0000000001007948        0x0
+                0x0000000001007948                PROVIDE (_alt_partition_sdram_start, ABSOLUTE (.))
  *(.sdram .sdram. sdram.*)
-                0x000000000100776c                . = ALIGN (0x4)
-                0x000000000100776c                PROVIDE (_alt_partition_sdram_end, ABSOLUTE (.))
-                0x000000000100776c                _end = ABSOLUTE (.)
-                0x000000000100776c                end = ABSOLUTE (.)
-                0x000000000100776c                __alt_stack_base = ABSOLUTE (.)
-                0x000000000100776c                PROVIDE (_alt_partition_sdram_load_addr, LOADADDR (.sdram))
+                0x0000000001007948                . = ALIGN (0x4)
+                0x0000000001007948                PROVIDE (_alt_partition_sdram_end, ABSOLUTE (.))
+                0x0000000001007948                _end = ABSOLUTE (.)
+                0x0000000001007948                end = ABSOLUTE (.)
+                0x0000000001007948                __alt_stack_base = ABSOLUTE (.)
+                0x0000000001007948                PROVIDE (_alt_partition_sdram_load_addr, LOADADDR (.sdram))
 
 .stab
  *(.stab)
@@ -650,7 +650,7 @@ LOAD /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nio
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x0000000000000000     0x6e72
+.debug_info     0x0000000000000000     0x6b01
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x0000000000000000       0x78 ../slaveSdram_bsp//obj/HAL/src/crt0.o
  .debug_info    0x0000000000000078      0x96b obj/default/asym.o
@@ -659,34 +659,34 @@ LOAD /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nio
  .debug_info    0x0000000000000d32      0x4ee obj/default/portable/GCC/NiosII/port.o
  .debug_info    0x0000000000001220      0x1be obj/default/portable/MemMang/heap_1.o
  .debug_info    0x00000000000013de     0x1123 obj/default/queue.o
- .debug_info    0x0000000000002501      0xaab obj/default/slaveSdram.o
- .debug_info    0x0000000000002fac     0x1d62 obj/default/tasks.o
- .debug_info    0x0000000000004d0e       0x98 obj/default/timers.o
- .debug_info    0x0000000000004da6       0x84 obj/default/portable/GCC/NiosII/port_asm.o
- .debug_info    0x0000000000004e2a       0xb4 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-mul.o)
- .debug_info    0x0000000000004ede      0x106 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcpy.o)
- .debug_info    0x0000000000004fe4       0xd5 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memset.o)
- .debug_info    0x00000000000050b9      0x1a5 ../slaveSdram_bsp//libhal_bsp.a(alt_irq_handler.o)
- .debug_info    0x000000000000525e       0x88 ../slaveSdram_bsp//libhal_bsp.a(alt_irq_vars.o)
- .debug_info    0x00000000000052e6      0x1d2 ../slaveSdram_bsp//libhal_bsp.a(alt_load.o)
- .debug_info    0x00000000000054b8      0x1a1 ../slaveSdram_bsp//libhal_bsp.a(alt_main.o)
- .debug_info    0x0000000000005659      0x153 ../slaveSdram_bsp//libhal_bsp.a(alt_printf.o)
- .debug_info    0x00000000000057ac      0x138 ../slaveSdram_bsp//libhal_bsp.a(alt_putchar.o)
- .debug_info    0x00000000000058e4      0x15d ../slaveSdram_bsp//libhal_bsp.a(alt_putstr.o)
- .debug_info    0x0000000000005a41      0x306 ../slaveSdram_bsp//libhal_bsp.a(alt_sys_init.o)
- .debug_info    0x0000000000005d47      0x1a6 ../slaveSdram_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
- .debug_info    0x0000000000005eed      0x5ef ../slaveSdram_bsp//libhal_bsp.a(altera_avalon_mutex.o)
- .debug_info    0x00000000000064dc       0x8b ../slaveSdram_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
- .debug_info    0x0000000000006567      0x1a8 ../slaveSdram_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
- .debug_info    0x000000000000670f       0x9f ../slaveSdram_bsp//libhal_bsp.a(alt_errno.o)
- .debug_info    0x00000000000067ae      0x356 ../slaveSdram_bsp//libhal_bsp.a(alt_find_dev.o)
- .debug_info    0x0000000000006b04       0x8b ../slaveSdram_bsp//libhal_bsp.a(alt_icache_flush_all.o)
- .debug_info    0x0000000000006b8f       0xb1 ../slaveSdram_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
- .debug_info    0x0000000000006c40       0x83 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
- .debug_info    0x0000000000006cc3       0xed /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
- .debug_info    0x0000000000006db0       0xc2 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
+ .debug_info    0x0000000000002501      0x73a obj/default/slaveSdram.o
+ .debug_info    0x0000000000002c3b     0x1d62 obj/default/tasks.o
+ .debug_info    0x000000000000499d       0x98 obj/default/timers.o
+ .debug_info    0x0000000000004a35       0x84 obj/default/portable/GCC/NiosII/port_asm.o
+ .debug_info    0x0000000000004ab9       0xb4 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-mul.o)
+ .debug_info    0x0000000000004b6d      0x106 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcpy.o)
+ .debug_info    0x0000000000004c73       0xd5 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memset.o)
+ .debug_info    0x0000000000004d48      0x1a5 ../slaveSdram_bsp//libhal_bsp.a(alt_irq_handler.o)
+ .debug_info    0x0000000000004eed       0x88 ../slaveSdram_bsp//libhal_bsp.a(alt_irq_vars.o)
+ .debug_info    0x0000000000004f75      0x1d2 ../slaveSdram_bsp//libhal_bsp.a(alt_load.o)
+ .debug_info    0x0000000000005147      0x1a1 ../slaveSdram_bsp//libhal_bsp.a(alt_main.o)
+ .debug_info    0x00000000000052e8      0x153 ../slaveSdram_bsp//libhal_bsp.a(alt_printf.o)
+ .debug_info    0x000000000000543b      0x138 ../slaveSdram_bsp//libhal_bsp.a(alt_putchar.o)
+ .debug_info    0x0000000000005573      0x15d ../slaveSdram_bsp//libhal_bsp.a(alt_putstr.o)
+ .debug_info    0x00000000000056d0      0x306 ../slaveSdram_bsp//libhal_bsp.a(alt_sys_init.o)
+ .debug_info    0x00000000000059d6      0x1a6 ../slaveSdram_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .debug_info    0x0000000000005b7c      0x5ef ../slaveSdram_bsp//libhal_bsp.a(altera_avalon_mutex.o)
+ .debug_info    0x000000000000616b       0x8b ../slaveSdram_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
+ .debug_info    0x00000000000061f6      0x1a8 ../slaveSdram_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
+ .debug_info    0x000000000000639e       0x9f ../slaveSdram_bsp//libhal_bsp.a(alt_errno.o)
+ .debug_info    0x000000000000643d      0x356 ../slaveSdram_bsp//libhal_bsp.a(alt_find_dev.o)
+ .debug_info    0x0000000000006793       0x8b ../slaveSdram_bsp//libhal_bsp.a(alt_icache_flush_all.o)
+ .debug_info    0x000000000000681e       0xb1 ../slaveSdram_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
+ .debug_info    0x00000000000068cf       0x83 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
+ .debug_info    0x0000000000006952       0xed /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
+ .debug_info    0x0000000000006a3f       0xc2 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
 
-.debug_abbrev   0x0000000000000000     0x21c7
+.debug_abbrev   0x0000000000000000     0x2233
  *(.debug_abbrev)
  .debug_abbrev  0x0000000000000000       0x12 ../slaveSdram_bsp//obj/HAL/src/crt0.o
  .debug_abbrev  0x0000000000000012      0x292 obj/default/asym.o
@@ -695,34 +695,34 @@ LOAD /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nio
  .debug_abbrev  0x00000000000003d6      0x278 obj/default/portable/GCC/NiosII/port.o
  .debug_abbrev  0x000000000000064e      0x144 obj/default/portable/MemMang/heap_1.o
  .debug_abbrev  0x0000000000000792      0x2c2 obj/default/queue.o
- .debug_abbrev  0x0000000000000a54      0x19f obj/default/slaveSdram.o
- .debug_abbrev  0x0000000000000bf3      0x418 obj/default/tasks.o
- .debug_abbrev  0x000000000000100b       0x4b obj/default/timers.o
- .debug_abbrev  0x0000000000001056       0x12 obj/default/portable/GCC/NiosII/port_asm.o
- .debug_abbrev  0x0000000000001068       0x6f /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-mul.o)
- .debug_abbrev  0x00000000000010d7       0xa4 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcpy.o)
- .debug_abbrev  0x000000000000117b       0x8e /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memset.o)
- .debug_abbrev  0x0000000000001209      0x13a ../slaveSdram_bsp//libhal_bsp.a(alt_irq_handler.o)
- .debug_abbrev  0x0000000000001343       0x40 ../slaveSdram_bsp//libhal_bsp.a(alt_irq_vars.o)
- .debug_abbrev  0x0000000000001383       0xe1 ../slaveSdram_bsp//libhal_bsp.a(alt_load.o)
- .debug_abbrev  0x0000000000001464      0x127 ../slaveSdram_bsp//libhal_bsp.a(alt_main.o)
- .debug_abbrev  0x000000000000158b       0xde ../slaveSdram_bsp//libhal_bsp.a(alt_printf.o)
- .debug_abbrev  0x0000000000001669       0xd4 ../slaveSdram_bsp//libhal_bsp.a(alt_putchar.o)
- .debug_abbrev  0x000000000000173d       0xe2 ../slaveSdram_bsp//libhal_bsp.a(alt_putstr.o)
- .debug_abbrev  0x000000000000181f      0x1c5 ../slaveSdram_bsp//libhal_bsp.a(alt_sys_init.o)
- .debug_abbrev  0x00000000000019e4       0xd5 ../slaveSdram_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
- .debug_abbrev  0x0000000000001ab9      0x24a ../slaveSdram_bsp//libhal_bsp.a(altera_avalon_mutex.o)
- .debug_abbrev  0x0000000000001d03       0x42 ../slaveSdram_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
- .debug_abbrev  0x0000000000001d45      0x11c ../slaveSdram_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
- .debug_abbrev  0x0000000000001e61       0x5a ../slaveSdram_bsp//libhal_bsp.a(alt_errno.o)
- .debug_abbrev  0x0000000000001ebb      0x12e ../slaveSdram_bsp//libhal_bsp.a(alt_find_dev.o)
- .debug_abbrev  0x0000000000001fe9       0x42 ../slaveSdram_bsp//libhal_bsp.a(alt_icache_flush_all.o)
- .debug_abbrev  0x000000000000202b       0x67 ../slaveSdram_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
- .debug_abbrev  0x0000000000002092       0x37 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
- .debug_abbrev  0x00000000000020c9       0x7f /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
- .debug_abbrev  0x0000000000002148       0x7f /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
+ .debug_abbrev  0x0000000000000a54      0x20b obj/default/slaveSdram.o
+ .debug_abbrev  0x0000000000000c5f      0x418 obj/default/tasks.o
+ .debug_abbrev  0x0000000000001077       0x4b obj/default/timers.o
+ .debug_abbrev  0x00000000000010c2       0x12 obj/default/portable/GCC/NiosII/port_asm.o
+ .debug_abbrev  0x00000000000010d4       0x6f /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-mul.o)
+ .debug_abbrev  0x0000000000001143       0xa4 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcpy.o)
+ .debug_abbrev  0x00000000000011e7       0x8e /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memset.o)
+ .debug_abbrev  0x0000000000001275      0x13a ../slaveSdram_bsp//libhal_bsp.a(alt_irq_handler.o)
+ .debug_abbrev  0x00000000000013af       0x40 ../slaveSdram_bsp//libhal_bsp.a(alt_irq_vars.o)
+ .debug_abbrev  0x00000000000013ef       0xe1 ../slaveSdram_bsp//libhal_bsp.a(alt_load.o)
+ .debug_abbrev  0x00000000000014d0      0x127 ../slaveSdram_bsp//libhal_bsp.a(alt_main.o)
+ .debug_abbrev  0x00000000000015f7       0xde ../slaveSdram_bsp//libhal_bsp.a(alt_printf.o)
+ .debug_abbrev  0x00000000000016d5       0xd4 ../slaveSdram_bsp//libhal_bsp.a(alt_putchar.o)
+ .debug_abbrev  0x00000000000017a9       0xe2 ../slaveSdram_bsp//libhal_bsp.a(alt_putstr.o)
+ .debug_abbrev  0x000000000000188b      0x1c5 ../slaveSdram_bsp//libhal_bsp.a(alt_sys_init.o)
+ .debug_abbrev  0x0000000000001a50       0xd5 ../slaveSdram_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .debug_abbrev  0x0000000000001b25      0x24a ../slaveSdram_bsp//libhal_bsp.a(altera_avalon_mutex.o)
+ .debug_abbrev  0x0000000000001d6f       0x42 ../slaveSdram_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
+ .debug_abbrev  0x0000000000001db1      0x11c ../slaveSdram_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
+ .debug_abbrev  0x0000000000001ecd       0x5a ../slaveSdram_bsp//libhal_bsp.a(alt_errno.o)
+ .debug_abbrev  0x0000000000001f27      0x12e ../slaveSdram_bsp//libhal_bsp.a(alt_find_dev.o)
+ .debug_abbrev  0x0000000000002055       0x42 ../slaveSdram_bsp//libhal_bsp.a(alt_icache_flush_all.o)
+ .debug_abbrev  0x0000000000002097       0x67 ../slaveSdram_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
+ .debug_abbrev  0x00000000000020fe       0x37 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
+ .debug_abbrev  0x0000000000002135       0x7f /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
+ .debug_abbrev  0x00000000000021b4       0x7f /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
 
-.debug_line     0x0000000000000000     0x2c07
+.debug_line     0x0000000000000000     0x2b59
  *(.debug_line)
  .debug_line    0x0000000000000000       0x66 ../slaveSdram_bsp//obj/HAL/src/crt0.o
  .debug_line    0x0000000000000066      0x2dd obj/default/asym.o
@@ -731,63 +731,63 @@ LOAD /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nio
  .debug_line    0x000000000000051b      0x1e8 obj/default/portable/GCC/NiosII/port.o
  .debug_line    0x0000000000000703      0x1bf obj/default/portable/MemMang/heap_1.o
  .debug_line    0x00000000000008c2      0x40b obj/default/queue.o
- .debug_line    0x0000000000000ccd      0x30d obj/default/slaveSdram.o
- .debug_line    0x0000000000000fda      0x7bf obj/default/tasks.o
- .debug_line    0x0000000000001799       0x7b obj/default/timers.o
- .debug_line    0x0000000000001814       0xdf obj/default/portable/GCC/NiosII/port_asm.o
- .debug_line    0x00000000000018f3       0x80 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-mul.o)
- .debug_line    0x0000000000001973      0x160 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcpy.o)
- .debug_line    0x0000000000001ad3      0x15f /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memset.o)
- .debug_line    0x0000000000001c32       0xc8 ../slaveSdram_bsp//libhal_bsp.a(alt_irq_handler.o)
- .debug_line    0x0000000000001cfa       0x50 ../slaveSdram_bsp//libhal_bsp.a(alt_irq_vars.o)
- .debug_line    0x0000000000001d4a       0xa6 ../slaveSdram_bsp//libhal_bsp.a(alt_load.o)
- .debug_line    0x0000000000001df0       0xea ../slaveSdram_bsp//libhal_bsp.a(alt_main.o)
- .debug_line    0x0000000000001eda      0x110 ../slaveSdram_bsp//libhal_bsp.a(alt_printf.o)
- .debug_line    0x0000000000001fea       0x4d ../slaveSdram_bsp//libhal_bsp.a(alt_putchar.o)
- .debug_line    0x0000000000002037      0x105 ../slaveSdram_bsp//libhal_bsp.a(alt_putstr.o)
- .debug_line    0x000000000000213c      0x18a ../slaveSdram_bsp//libhal_bsp.a(alt_sys_init.o)
- .debug_line    0x00000000000022c6      0x104 ../slaveSdram_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
- .debug_line    0x00000000000023ca      0x160 ../slaveSdram_bsp//libhal_bsp.a(altera_avalon_mutex.o)
- .debug_line    0x000000000000252a       0x4e ../slaveSdram_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
- .debug_line    0x0000000000002578       0xd8 ../slaveSdram_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
- .debug_line    0x0000000000002650       0x51 ../slaveSdram_bsp//libhal_bsp.a(alt_errno.o)
- .debug_line    0x00000000000026a1      0x16c ../slaveSdram_bsp//libhal_bsp.a(alt_find_dev.o)
- .debug_line    0x000000000000280d       0x4e ../slaveSdram_bsp//libhal_bsp.a(alt_icache_flush_all.o)
- .debug_line    0x000000000000285b       0x8c ../slaveSdram_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
- .debug_line    0x00000000000028e7       0x60 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
- .debug_line    0x0000000000002947      0x162 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
- .debug_line    0x0000000000002aa9      0x15e /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
+ .debug_line    0x0000000000000ccd      0x25f obj/default/slaveSdram.o
+ .debug_line    0x0000000000000f2c      0x7bf obj/default/tasks.o
+ .debug_line    0x00000000000016eb       0x7b obj/default/timers.o
+ .debug_line    0x0000000000001766       0xdf obj/default/portable/GCC/NiosII/port_asm.o
+ .debug_line    0x0000000000001845       0x80 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-mul.o)
+ .debug_line    0x00000000000018c5      0x160 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcpy.o)
+ .debug_line    0x0000000000001a25      0x15f /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memset.o)
+ .debug_line    0x0000000000001b84       0xc8 ../slaveSdram_bsp//libhal_bsp.a(alt_irq_handler.o)
+ .debug_line    0x0000000000001c4c       0x50 ../slaveSdram_bsp//libhal_bsp.a(alt_irq_vars.o)
+ .debug_line    0x0000000000001c9c       0xa6 ../slaveSdram_bsp//libhal_bsp.a(alt_load.o)
+ .debug_line    0x0000000000001d42       0xea ../slaveSdram_bsp//libhal_bsp.a(alt_main.o)
+ .debug_line    0x0000000000001e2c      0x110 ../slaveSdram_bsp//libhal_bsp.a(alt_printf.o)
+ .debug_line    0x0000000000001f3c       0x4d ../slaveSdram_bsp//libhal_bsp.a(alt_putchar.o)
+ .debug_line    0x0000000000001f89      0x105 ../slaveSdram_bsp//libhal_bsp.a(alt_putstr.o)
+ .debug_line    0x000000000000208e      0x18a ../slaveSdram_bsp//libhal_bsp.a(alt_sys_init.o)
+ .debug_line    0x0000000000002218      0x104 ../slaveSdram_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .debug_line    0x000000000000231c      0x160 ../slaveSdram_bsp//libhal_bsp.a(altera_avalon_mutex.o)
+ .debug_line    0x000000000000247c       0x4e ../slaveSdram_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
+ .debug_line    0x00000000000024ca       0xd8 ../slaveSdram_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
+ .debug_line    0x00000000000025a2       0x51 ../slaveSdram_bsp//libhal_bsp.a(alt_errno.o)
+ .debug_line    0x00000000000025f3      0x16c ../slaveSdram_bsp//libhal_bsp.a(alt_find_dev.o)
+ .debug_line    0x000000000000275f       0x4e ../slaveSdram_bsp//libhal_bsp.a(alt_icache_flush_all.o)
+ .debug_line    0x00000000000027ad       0x8c ../slaveSdram_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
+ .debug_line    0x0000000000002839       0x60 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
+ .debug_line    0x0000000000002899      0x162 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
+ .debug_line    0x00000000000029fb      0x15e /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
 
-.debug_frame    0x0000000000000000      0xf94
+.debug_frame    0x0000000000000000      0xf64
  *(.debug_frame)
  .debug_frame   0x0000000000000000      0x154 obj/default/asym.o
  .debug_frame   0x0000000000000154       0x60 obj/default/list.o
  .debug_frame   0x00000000000001b4       0x80 obj/default/portable/GCC/NiosII/port.o
  .debug_frame   0x0000000000000234       0x64 obj/default/portable/MemMang/heap_1.o
  .debug_frame   0x0000000000000298      0x2f0 obj/default/queue.o
- .debug_frame   0x0000000000000588       0xe0 obj/default/slaveSdram.o
- .debug_frame   0x0000000000000668      0x594 obj/default/tasks.o
- .debug_frame   0x0000000000000bfc       0x20 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-mul.o)
- .debug_frame   0x0000000000000c1c       0x20 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcpy.o)
- .debug_frame   0x0000000000000c3c       0x20 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memset.o)
- .debug_frame   0x0000000000000c5c       0x34 ../slaveSdram_bsp//libhal_bsp.a(alt_irq_handler.o)
- .debug_frame   0x0000000000000c90       0x30 ../slaveSdram_bsp//libhal_bsp.a(alt_load.o)
- .debug_frame   0x0000000000000cc0       0x2c ../slaveSdram_bsp//libhal_bsp.a(alt_main.o)
- .debug_frame   0x0000000000000cec       0x54 ../slaveSdram_bsp//libhal_bsp.a(alt_printf.o)
- .debug_frame   0x0000000000000d40       0x30 ../slaveSdram_bsp//libhal_bsp.a(alt_putchar.o)
- .debug_frame   0x0000000000000d70       0x30 ../slaveSdram_bsp//libhal_bsp.a(alt_putstr.o)
- .debug_frame   0x0000000000000da0       0x3c ../slaveSdram_bsp//libhal_bsp.a(alt_sys_init.o)
- .debug_frame   0x0000000000000ddc       0x20 ../slaveSdram_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
- .debug_frame   0x0000000000000dfc       0x90 ../slaveSdram_bsp//libhal_bsp.a(altera_avalon_mutex.o)
- .debug_frame   0x0000000000000e8c       0x20 ../slaveSdram_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
- .debug_frame   0x0000000000000eac       0x2c ../slaveSdram_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
- .debug_frame   0x0000000000000ed8       0x3c ../slaveSdram_bsp//libhal_bsp.a(alt_find_dev.o)
- .debug_frame   0x0000000000000f14       0x20 ../slaveSdram_bsp//libhal_bsp.a(alt_icache_flush_all.o)
- .debug_frame   0x0000000000000f34       0x20 ../slaveSdram_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
- .debug_frame   0x0000000000000f54       0x20 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
- .debug_frame   0x0000000000000f74       0x20 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
+ .debug_frame   0x0000000000000588       0xb0 obj/default/slaveSdram.o
+ .debug_frame   0x0000000000000638      0x594 obj/default/tasks.o
+ .debug_frame   0x0000000000000bcc       0x20 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-mul.o)
+ .debug_frame   0x0000000000000bec       0x20 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcpy.o)
+ .debug_frame   0x0000000000000c0c       0x20 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memset.o)
+ .debug_frame   0x0000000000000c2c       0x34 ../slaveSdram_bsp//libhal_bsp.a(alt_irq_handler.o)
+ .debug_frame   0x0000000000000c60       0x30 ../slaveSdram_bsp//libhal_bsp.a(alt_load.o)
+ .debug_frame   0x0000000000000c90       0x2c ../slaveSdram_bsp//libhal_bsp.a(alt_main.o)
+ .debug_frame   0x0000000000000cbc       0x54 ../slaveSdram_bsp//libhal_bsp.a(alt_printf.o)
+ .debug_frame   0x0000000000000d10       0x30 ../slaveSdram_bsp//libhal_bsp.a(alt_putchar.o)
+ .debug_frame   0x0000000000000d40       0x30 ../slaveSdram_bsp//libhal_bsp.a(alt_putstr.o)
+ .debug_frame   0x0000000000000d70       0x3c ../slaveSdram_bsp//libhal_bsp.a(alt_sys_init.o)
+ .debug_frame   0x0000000000000dac       0x20 ../slaveSdram_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .debug_frame   0x0000000000000dcc       0x90 ../slaveSdram_bsp//libhal_bsp.a(altera_avalon_mutex.o)
+ .debug_frame   0x0000000000000e5c       0x20 ../slaveSdram_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
+ .debug_frame   0x0000000000000e7c       0x2c ../slaveSdram_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
+ .debug_frame   0x0000000000000ea8       0x3c ../slaveSdram_bsp//libhal_bsp.a(alt_find_dev.o)
+ .debug_frame   0x0000000000000ee4       0x20 ../slaveSdram_bsp//libhal_bsp.a(alt_icache_flush_all.o)
+ .debug_frame   0x0000000000000f04       0x20 ../slaveSdram_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
+ .debug_frame   0x0000000000000f24       0x20 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
+ .debug_frame   0x0000000000000f44       0x20 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
 
-.debug_str      0x0000000000000000     0x1f0c
+.debug_str      0x0000000000000000     0x1f1e
  *(.debug_str)
  .debug_str     0x0000000000000000      0x51d obj/default/asym.o
                                         0x58e (size before relaxing)
@@ -801,81 +801,81 @@ LOAD /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nio
                                         0x20a (size before relaxing)
  .debug_str     0x0000000000000872      0x471 obj/default/queue.o
                                         0x784 (size before relaxing)
- .debug_str     0x0000000000000ce3       0x92 obj/default/slaveSdram.o
-                                        0x365 (size before relaxing)
- .debug_str     0x0000000000000d75      0x7cd obj/default/tasks.o
+ .debug_str     0x0000000000000ce3       0xa4 obj/default/slaveSdram.o
+                                        0x377 (size before relaxing)
+ .debug_str     0x0000000000000d87      0x7cd obj/default/tasks.o
                                         0xd64 (size before relaxing)
- .debug_str     0x0000000000001542        0x9 obj/default/timers.o
+ .debug_str     0x0000000000001554        0x9 obj/default/timers.o
                                         0x13c (size before relaxing)
- .debug_str     0x000000000000154b      0x147 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-mul.o)
+ .debug_str     0x000000000000155d      0x147 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-mul.o)
                                         0x192 (size before relaxing)
- .debug_str     0x0000000000001692      0x118 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcpy.o)
+ .debug_str     0x00000000000016a4      0x118 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcpy.o)
                                         0x1b8 (size before relaxing)
- .debug_str     0x00000000000017aa       0x3e /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memset.o)
+ .debug_str     0x00000000000017bc       0x3e /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memset.o)
                                         0x1a4 (size before relaxing)
- .debug_str     0x00000000000017e8       0x7e ../slaveSdram_bsp//libhal_bsp.a(alt_irq_handler.o)
+ .debug_str     0x00000000000017fa       0x7e ../slaveSdram_bsp//libhal_bsp.a(alt_irq_handler.o)
                                         0x1a5 (size before relaxing)
- .debug_str     0x0000000000001866       0x17 ../slaveSdram_bsp//libhal_bsp.a(alt_irq_vars.o)
+ .debug_str     0x0000000000001878       0x17 ../slaveSdram_bsp//libhal_bsp.a(alt_irq_vars.o)
                                         0x133 (size before relaxing)
- .debug_str     0x000000000000187d      0x113 ../slaveSdram_bsp//libhal_bsp.a(alt_load.o)
+ .debug_str     0x000000000000188f      0x113 ../slaveSdram_bsp//libhal_bsp.a(alt_load.o)
                                         0x229 (size before relaxing)
- .debug_str     0x0000000000001990       0x5e ../slaveSdram_bsp//libhal_bsp.a(alt_main.o)
+ .debug_str     0x00000000000019a2       0x5e ../slaveSdram_bsp//libhal_bsp.a(alt_main.o)
                                         0x1cb (size before relaxing)
- .debug_str     0x00000000000019ee       0x59 ../slaveSdram_bsp//libhal_bsp.a(alt_printf.o)
+ .debug_str     0x0000000000001a00       0x59 ../slaveSdram_bsp//libhal_bsp.a(alt_printf.o)
                                          0xff (size before relaxing)
- .debug_str     0x0000000000001a47       0x60 ../slaveSdram_bsp//libhal_bsp.a(alt_putchar.o)
+ .debug_str     0x0000000000001a59       0x60 ../slaveSdram_bsp//libhal_bsp.a(alt_putchar.o)
                                         0x17a (size before relaxing)
- .debug_str     0x0000000000001aa7       0x1c ../slaveSdram_bsp//libhal_bsp.a(alt_putstr.o)
+ .debug_str     0x0000000000001ab9       0x1c ../slaveSdram_bsp//libhal_bsp.a(alt_putstr.o)
                                         0x186 (size before relaxing)
- .debug_str     0x0000000000001ac3      0x102 ../slaveSdram_bsp//libhal_bsp.a(alt_sys_init.o)
+ .debug_str     0x0000000000001ad5      0x102 ../slaveSdram_bsp//libhal_bsp.a(alt_sys_init.o)
                                         0x305 (size before relaxing)
- .debug_str     0x0000000000001bc5       0x32 ../slaveSdram_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .debug_str     0x0000000000001bd7       0x32 ../slaveSdram_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
                                         0x223 (size before relaxing)
- .debug_str     0x0000000000001bf7       0xf7 ../slaveSdram_bsp//libhal_bsp.a(altera_avalon_mutex.o)
+ .debug_str     0x0000000000001c09       0xf7 ../slaveSdram_bsp//libhal_bsp.a(altera_avalon_mutex.o)
                                         0x328 (size before relaxing)
- .debug_str     0x0000000000001cee       0x1f ../slaveSdram_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
+ .debug_str     0x0000000000001d00       0x1f ../slaveSdram_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
                                         0x142 (size before relaxing)
- .debug_str     0x0000000000001d0d       0x36 ../slaveSdram_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
+ .debug_str     0x0000000000001d1f       0x36 ../slaveSdram_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
                                         0x1b9 (size before relaxing)
- .debug_str     0x0000000000001d43       0x14 ../slaveSdram_bsp//libhal_bsp.a(alt_errno.o)
+ .debug_str     0x0000000000001d55       0x14 ../slaveSdram_bsp//libhal_bsp.a(alt_errno.o)
                                         0x132 (size before relaxing)
- .debug_str     0x0000000000001d57       0x25 ../slaveSdram_bsp//libhal_bsp.a(alt_find_dev.o)
+ .debug_str     0x0000000000001d69       0x25 ../slaveSdram_bsp//libhal_bsp.a(alt_find_dev.o)
                                         0x1ee (size before relaxing)
- .debug_str     0x0000000000001d7c       0x1f ../slaveSdram_bsp//libhal_bsp.a(alt_icache_flush_all.o)
+ .debug_str     0x0000000000001d8e       0x1f ../slaveSdram_bsp//libhal_bsp.a(alt_icache_flush_all.o)
                                         0x142 (size before relaxing)
- .debug_str     0x0000000000001d9b       0x20 ../slaveSdram_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
+ .debug_str     0x0000000000001dad       0x20 ../slaveSdram_bsp//libhal_bsp.a(altera_nios2_qsys_irq.o)
                                         0x172 (size before relaxing)
- .debug_str     0x0000000000001dbb       0xd5 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
+ .debug_str     0x0000000000001dcd       0xd5 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
                                         0x19d (size before relaxing)
- .debug_str     0x0000000000001e90       0x3e /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
+ .debug_str     0x0000000000001ea2       0x3e /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
                                         0x1a4 (size before relaxing)
- .debug_str     0x0000000000001ece       0x3e /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
+ .debug_str     0x0000000000001ee0       0x3e /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
                                         0x1aa (size before relaxing)
 
-.debug_loc      0x0000000000000000     0x2ee6
+.debug_loc      0x0000000000000000     0x2ebb
  *(.debug_loc)
  .debug_loc     0x0000000000000000      0x228 obj/default/asym.o
  .debug_loc     0x0000000000000228       0x73 obj/default/list.o
  .debug_loc     0x000000000000029b      0x24a obj/default/portable/GCC/NiosII/port.o
  .debug_loc     0x00000000000004e5       0x78 obj/default/portable/MemMang/heap_1.o
  .debug_loc     0x000000000000055d      0xb3c obj/default/queue.o
- .debug_loc     0x0000000000001099      0x1b9 obj/default/slaveSdram.o
- .debug_loc     0x0000000000001252     0x130d obj/default/tasks.o
- .debug_loc     0x000000000000255f       0x93 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-mul.o)
- .debug_loc     0x00000000000025f2      0x11b /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcpy.o)
- .debug_loc     0x000000000000270d       0xa5 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memset.o)
- .debug_loc     0x00000000000027b2       0x98 ../slaveSdram_bsp//libhal_bsp.a(alt_irq_handler.o)
- .debug_loc     0x000000000000284a       0x8d ../slaveSdram_bsp//libhal_bsp.a(alt_load.o)
- .debug_loc     0x00000000000028d7      0x1c6 ../slaveSdram_bsp//libhal_bsp.a(alt_printf.o)
- .debug_loc     0x0000000000002a9d       0x2c ../slaveSdram_bsp//libhal_bsp.a(alt_putchar.o)
- .debug_loc     0x0000000000002ac9       0x37 ../slaveSdram_bsp//libhal_bsp.a(alt_putstr.o)
- .debug_loc     0x0000000000002b00       0x21 ../slaveSdram_bsp//libhal_bsp.a(alt_sys_init.o)
- .debug_loc     0x0000000000002b21       0x8b ../slaveSdram_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
- .debug_loc     0x0000000000002bac      0x1b2 ../slaveSdram_bsp//libhal_bsp.a(altera_avalon_mutex.o)
- .debug_loc     0x0000000000002d5e       0x58 ../slaveSdram_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
- .debug_loc     0x0000000000002db6       0x7e ../slaveSdram_bsp//libhal_bsp.a(alt_find_dev.o)
- .debug_loc     0x0000000000002e34       0x94 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
- .debug_loc     0x0000000000002ec8       0x1e /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
+ .debug_loc     0x0000000000001099      0x18e obj/default/slaveSdram.o
+ .debug_loc     0x0000000000001227     0x130d obj/default/tasks.o
+ .debug_loc     0x0000000000002534       0x93 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/mno-hw-mul/libgcc.a(lib2-mul.o)
+ .debug_loc     0x00000000000025c7      0x11b /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcpy.o)
+ .debug_loc     0x00000000000026e2       0xa5 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memset.o)
+ .debug_loc     0x0000000000002787       0x98 ../slaveSdram_bsp//libhal_bsp.a(alt_irq_handler.o)
+ .debug_loc     0x000000000000281f       0x8d ../slaveSdram_bsp//libhal_bsp.a(alt_load.o)
+ .debug_loc     0x00000000000028ac      0x1c6 ../slaveSdram_bsp//libhal_bsp.a(alt_printf.o)
+ .debug_loc     0x0000000000002a72       0x2c ../slaveSdram_bsp//libhal_bsp.a(alt_putchar.o)
+ .debug_loc     0x0000000000002a9e       0x37 ../slaveSdram_bsp//libhal_bsp.a(alt_putstr.o)
+ .debug_loc     0x0000000000002ad5       0x21 ../slaveSdram_bsp//libhal_bsp.a(alt_sys_init.o)
+ .debug_loc     0x0000000000002af6       0x8b ../slaveSdram_bsp//libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .debug_loc     0x0000000000002b81      0x1b2 ../slaveSdram_bsp//libhal_bsp.a(altera_avalon_mutex.o)
+ .debug_loc     0x0000000000002d33       0x58 ../slaveSdram_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
+ .debug_loc     0x0000000000002d8b       0x7e ../slaveSdram_bsp//libhal_bsp.a(alt_find_dev.o)
+ .debug_loc     0x0000000000002e09       0x94 /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
+ .debug_loc     0x0000000000002e9d       0x1e /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -899,19 +899,19 @@ LOAD /mnt/Storage/soft/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nio
                 0x0000000000000000       0x10 ../slaveSdram_bsp//obj/HAL/src/crt0.o
                 0x0000000001800000                __alt_data_end = 0x1800000
                 0x0000000001800000                PROVIDE (__alt_stack_pointer, __alt_data_end)
-                0x000000000100776c                PROVIDE (__alt_stack_limit, __alt_stack_base)
-                0x000000000100776c                PROVIDE (__alt_heap_start, end)
+                0x0000000001007948                PROVIDE (__alt_stack_limit, __alt_stack_base)
+                0x0000000001007948                PROVIDE (__alt_heap_start, end)
                 0x0000000001800000                PROVIDE (__alt_heap_limit, 0x1800000)
 OUTPUT(slaveSdram.elf elf32-littlenios2)
 
-.debug_ranges   0x0000000000000000      0x1e0
+.debug_ranges   0x0000000000000000      0x200
  .debug_ranges  0x0000000000000000       0x20 ../slaveSdram_bsp//obj/HAL/src/crt0.o
  .debug_ranges  0x0000000000000020       0x20 obj/default/portable/GCC/NiosII/port.o
- .debug_ranges  0x0000000000000040       0x18 obj/default/slaveSdram.o
- .debug_ranges  0x0000000000000058       0xa8 obj/default/tasks.o
- .debug_ranges  0x0000000000000100       0x38 obj/default/portable/GCC/NiosII/port_asm.o
- .debug_ranges  0x0000000000000138       0x10 ../slaveSdram_bsp//libhal_bsp.a(alt_irq_handler.o)
- .debug_ranges  0x0000000000000148       0x48 ../slaveSdram_bsp//libhal_bsp.a(alt_load.o)
- .debug_ranges  0x0000000000000190       0x18 ../slaveSdram_bsp//libhal_bsp.a(alt_printf.o)
- .debug_ranges  0x00000000000001a8       0x18 ../slaveSdram_bsp//libhal_bsp.a(alt_sys_init.o)
- .debug_ranges  0x00000000000001c0       0x20 ../slaveSdram_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
+ .debug_ranges  0x0000000000000040       0x38 obj/default/slaveSdram.o
+ .debug_ranges  0x0000000000000078       0xa8 obj/default/tasks.o
+ .debug_ranges  0x0000000000000120       0x38 obj/default/portable/GCC/NiosII/port_asm.o
+ .debug_ranges  0x0000000000000158       0x10 ../slaveSdram_bsp//libhal_bsp.a(alt_irq_handler.o)
+ .debug_ranges  0x0000000000000168       0x48 ../slaveSdram_bsp//libhal_bsp.a(alt_load.o)
+ .debug_ranges  0x00000000000001b0       0x18 ../slaveSdram_bsp//libhal_bsp.a(alt_printf.o)
+ .debug_ranges  0x00000000000001c8       0x18 ../slaveSdram_bsp//libhal_bsp.a(alt_sys_init.o)
+ .debug_ranges  0x00000000000001e0       0x20 ../slaveSdram_bsp//libhal_bsp.a(alt_dev_llist_insert.o)
